@@ -117,7 +117,7 @@ table{
 th{
     font-size: 32px;
     text-align: center;
-    width: 100px;
+    width: 150px;
     background-color: rgba(43, 42, 41, 0.205);
     padding-bottom: 15px ;
     
@@ -160,4 +160,14 @@ td img:hover, video:hover{
 
 input, button{
     margin: 10px;
+}
+
+.prompt{
+    margin: 40px;
+}
+
+#stafform{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
 }
