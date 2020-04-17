@@ -105,7 +105,7 @@
 #insideskills:hover,
 #insidecontact:hover,
 #jokempo:hover,
-#quoter:hover{
+#quoter:hover, #hex:hover{
     width: 350px;
     height: 350px;
     /* position: absolute; */
