@@ -1,0 +1,34 @@
+
+.frame {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.photo {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 150px;
+    position: relative;
+    bottom: 100px;
+  
+}
+
+
+.aboutme{
+    color: bisque;
+    width: 60%;
+    font-size: 32px;
+}
+
+.aboutmewrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}

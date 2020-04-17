@@ -1,0 +1,30 @@
+.wrapper, .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: bisque;
+    flex-direction: column;
+}
+
+#framewrapper{
+    display: flex;
+    border: 1px solid green;
+    justify-content: space-evenly;
+    width: 60%;
+    margin-top: 100px;
+    }
+
+    .frame{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 600px;
+        border:1px solid yellow;
+        justify-content: center;
+        align-items: center;
+    }
+    .subframe{
+        width: 350px;
+        height: 300px;
+        border: 1px solid yellow;
+    }
