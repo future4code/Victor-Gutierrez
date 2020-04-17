@@ -103,7 +103,9 @@
 #insideinstitutions:hover,
 #insideprojects:hover,
 #insideskills:hover,
-#insidecontact:hover{
+#insidecontact:hover,
+#jokempo:hover,
+#quoter:hover{
     width: 350px;
     height: 350px;
     /* position: absolute; */

@@ -4,27 +4,36 @@
     align-items: center;
     color: bisque;
     flex-direction: column;
+    width: 100%;
+    margin-bottom: 100px;
 }
 
-#framewrapper{
-    display: flex;
-    border: 1px solid green;
-    justify-content: space-evenly;
-    width: 60%;
-    margin-top: 100px;
+    .descproj{
+        margin: 10px;
+        font-style: bold;
+        text-indent: 20px;
     }
 
-    .frame{
-        display: flex;
-        flex-direction: column;
-        width: 400px;
-        height: 600px;
-        border:1px solid yellow;
-        justify-content: center;
-        align-items: center;
-    }
-    .subframe{
-        width: 350px;
+    #jokempo{
+        background-image: url(../images/jokempo.png) ;
+        /* background-size: cover; */
+        width: 300px;
         height: 300px;
-        border: 1px solid yellow;
+        transition: all 1s ease
+    }
+
+    #quoter {
+        background-image: url(../images/quoter.png);
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+        transition: all 1s ease
+    }
+
+    #testimonials{
+        background-image: url(../images/testimon.png);
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+        transition: all 1s ease
     }
