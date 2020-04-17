@@ -29,7 +29,7 @@ flex-direction: column;
     margin: 50px;
     justify-self: start;
     width: 500px;
-    height: 320px;
+    height: 450px;
     font-size: 20px;
     border: 4px solid rgba(255, 255, 255, 0.185);
     transition: all 1s ease;
@@ -38,6 +38,10 @@ flex-direction: column;
     color: bisque;
 }
 
+#labenu{
+    margin-bottom: 50px;
+    margin-top: 25px;
+}
 .listas:hover{
     box-shadow: 2px 2px 2px 1px black;
     cursor: pointer;
