@@ -5,13 +5,22 @@
     color: bisque;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 45px;
 }
 
+#specialconf{
+    padding-bottom: 222px;
+}
     .descproj{
         margin: 10px;
         font-style: bold;
         text-indent: 20px;
+        border-radius: 1px 5px 5px 10px;
+        width: 320px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.144);
+        
+        
     }
 
     #jokempo{
@@ -27,10 +36,11 @@
         background-size: cover;
         width: 300px;
         height: 300px;
-        transition: all 1s ease
+        transition: all 1s ease;
+                
     }
 
-    #testimonials{
+    #tests{
         background-image: url(../images/testimon.png);
         background-size: cover;
         width: 300px;
