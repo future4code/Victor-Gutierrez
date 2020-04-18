@@ -66,15 +66,17 @@ button:hover{
 
 .links {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     font-size: 22px;
     padding-top: 10px;
+    margin: 0px ;
     text-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 
 .links>nav {
     padding: 10px 15px;
     transition: all 0.5 ease;
+    margin: 0px 25px;
 }
 
 .links>nav:hover {
