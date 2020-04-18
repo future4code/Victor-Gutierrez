@@ -37,7 +37,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 1200px;
+    height: 1400px;
     background-color: #E67E39;
     padding-bottom: 40px;
     padding-top: 50px;
@@ -50,13 +50,13 @@
 }
 .nome > h1{
     position: relative;
-    top: 120px;
+    top: 5px;
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.37);
     color: white;
 }
 
 #firstrow{
-    width: 70%;
+    width: 60%;
     display: flex;
     justify-content: space-evenly;
     
@@ -72,9 +72,10 @@
 
 #secondrow{
     display: flex;
-    width: 70%;
+    width: 50%;
     justify-content: space-evenly;
-    margin-top: 10%;
+    margin-top: 200px;
+    margin-bottom: 20px;
 }
 
 .pages{
@@ -155,3 +156,47 @@
 /* INICIO DO FOOTER STYLE */
 /* General assets.css */
 
+
+@media only screen and (max-width: 815px) {
+    .bodywrapperhomepage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 1400px;
+        background-color: #E67E39;
+        padding-bottom: 40px;
+        padding-top: 50px;
+    }
+
+    #firstrow {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+    #firstrow>.pages,
+    #secondrow>.pages {
+        width: 300px;
+        height: 300px;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.328);
+        display: flex;
+        /* align-items: center;
+    justify-content: center; */
+    }
+
+    #secondrow {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        flex-direction: column;
+               
+    }
+
+    .pages {
+        transition: all 1s ease;
+        border-radius: 10px;
+}
