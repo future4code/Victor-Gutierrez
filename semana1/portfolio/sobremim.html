@@ -10,7 +10,7 @@
 <body>
 
     <!-- HEADER  -->
-    <header>
+    <header class="desktop">
         <div class="headerwrapperpages">
             <div class="links">
                 <nav><a href="homepage.html"><p>Home</a></nav>
@@ -24,9 +24,29 @@
     </header>
 
     <!-- HEADER -->
+
+
+        <!-- mobile -->
+        <header class="mobile">
+            <div class="headerwrapper">
+                <nav class="menu" onclick="menus()">
+                    <div>Menu</div>
+                </nav>
+                <div id="links" class="links hide">
+                    <nav><a href="homepage.html">Home</a></nav>
+                    <nav><a href="sobremim.html">Sobre mim</a></nav>
+                    <nav><a href="trajetoria.html">Trajetória</a></nav>
+                    <nav><a href="projetos.html">Projetos</a></nav>
+                    <nav><a href="skills.html">Skills</a></nav>
+                    <nav><a href="falecomigo.html">Fale Comigo</a></nav>
+                </div>
+        </header>
+        <script src="js/menu.js"></script>
+        <!-- mobile -->
+
     <!-- ARTICLE -->
 
-<article>
+<article class="desktop">
     <div class="bodywrapper">
 
         <div class="aboutmewrapper">
@@ -52,6 +72,44 @@
 </article>
 
 <!-- ARTICLE -->
+
+<!-- mobile -->
+
+
+<article class="mobile">
+<div class="bodywrapper">
+
+    <div class="aboutmewrapper">
+
+        <div class="frame">
+            <div class="photo"><img
+                    src="https://avatars2.githubusercontent.com/u/62355596?s=400&u=2555a26fbb0492942992f02dd48556c7f1aed637&v=4"
+                    width="150px" alt=""></div>
+        </div>
+        <div class="aboutme">
+            <p>Eu sou Victor, tenho 22 anos e atualmente sou aluno da <a href=https://www.labenu.com.br target="_blank">
+                    Labenu_</a> no curso de Desenvolvimento Web voltado para a forma&ccedil;&atilde;o de desenvolvedores
+                Full Stack. <br><br>
+                Comecei a aprender sobre desenvolvimento no dia que comecei o processo seletivo para ingressar no
+                curso e de l&aacute; para c&aacute; tenho achado tudo isso incr&iacute;vel!</p><br>
+
+            <p>Anteriormente eu havia trabalhado na Marinha do Brasil; experi&ecirc;ncia profissional que me ensinou
+                muito mais do que eu poderia imaginar. Sa&iacute; por que era hora de seguir outros caminhos.<br>
+            </p>
+        </div>
+    </div>
+</div>
+</article>
+
+<!-- mobile -->
+
+
+
+
+
+
+
+
 <!-- FOOTER -->
 
 <footer>

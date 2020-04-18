@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Gutierrez</title>
-    <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/generalassets.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Victor Gutierrez</title>
+        <link rel="stylesheet" href="css/homepage.css">
+        <link rel="stylesheet" href="css/generalassets.css">
     </head>
-<body>
-    <!-- HEADER -->
-    <header>
-        <div class="headerwrapper">
-                                                <div class="links"> 
-                                                <nav><a href="homepage.html">
-                                                        <p>Home
-                                                    </a></nav>
-                                                <nav><a href="sobremim.html">Sobre mim</a></nav>
-                                                <nav><a href="trajetoria.html">Trajetória</a></nav>
-                                                <nav><a href="projetos.html">Projetos</a></nav>
-                                                <nav><a href="skills.html">Skills</a></nav>
-                                                <nav><a href="falecomigo.html">Fale Comigo</a></nav>
-                                                </div>
+    <body>
+        <!-- HEADER -->
+        <header class="desktop">
+            <div class="headerwrapper">
+                <div class="links"> 
+                    <nav><a href="homepage.html">
+                        <p>Home
+                        </a></nav>
+                        <nav><a href="sobremim.html">Sobre mim</a></nav>
+                        <nav><a href="trajetoria.html">Trajetória</a></nav>
+                        <nav><a href="projetos.html">Projetos</a></nav>
+                        <nav><a href="skills.html">Skills</a></nav>
+                        <nav><a href="falecomigo.html">Fale Comigo</a></nav>
+                    </div>
+                    
+                    <!--  ONLY IN HOME PAGE -->
+                    <div class="frame">
+                        <div class="photo"><img src="https://avatars2.githubusercontent.com/u/62355596?s=400&u=2555a26fbb0492942992f02dd48556c7f1aed637&v=4" width="250px"  alt=""></div>
+                    </div>
+                    <!-- ONLY IN HOME PAGE -->
+                </div>
+            </header>
 
-                                                <!--  ONLY IN HOME PAGE -->
-                                                <div class="frame">
-                                                    <div class="photo"><img src="https://avatars2.githubusercontent.com/u/62355596?s=400&u=2555a26fbb0492942992f02dd48556c7f1aed637&v=4" width="250px"  alt=""></div>
-                                                </div>
-                                                <!-- ONLY IN HOME PAGE -->
-            </div>
+
+
+
+
+            <!-- MOBILE -->
+<header class="mobile">
+    <div class="headerwrapper">
+        <nav class="menu" onclick="menus()"><div>Menu</div>
+        </nav>
+        <div id="links" class="links hide">
+            <nav><a href="homepage.html">Home</a></nav>
+            <nav><a href="sobremim.html">Sobre mim</a></nav>
+            <nav><a href="trajetoria.html">Trajetória</a></nav>
+            <nav><a href="projetos.html">Projetos</a></nav>
+            <nav><a href="skills.html">Skills</a></nav>
+            <nav><a href="falecomigo.html">Fale Comigo</a></nav>
+        </div>
     </header>
+    <script src="js/menu.js"></script>
+    <!-- MOBILE -->
+
 
     <!-- ARTICLE -->
-    <article>
+    <article class="desktop">
         <div class="bodywrapperhomepage">
             <div class="nome"><h1>Victor Gutierrez</h1></div>
 
@@ -87,6 +109,81 @@
         </div>
     </article>
     
+
+
+
+
+
+<!-- mobile -->
+<article class="mobile">
+    <div class="bodywrapperhomepage">
+        <div class="frame">
+            <div class="photo"><img
+                    src="https://avatars2.githubusercontent.com/u/62355596?s=400&u=2555a26fbb0492942992f02dd48556c7f1aed637&v=4"
+                    width="150px" alt=""></div>
+        </div>
+        <div class="nome">
+            <h1>Victor Gutierrez</h1>
+        </div>
+
+
+        <div id="firstrow">
+            <div class="pages">
+                <div id="insideabout">
+                    <a href="sobremim.html">
+
+                        <div class="faceplate">
+                            <h2> Sobre mim </h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pages">
+                <div id="insideinstitutions">
+                    <a href="trajetoria.html">
+                        <div class="faceplate">
+                            <h2> Trajetória </h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pages">
+                <div id="insideprojects">
+                    <a href="projetos.html">
+                        <div class="faceplate">
+                            <h2> Projetos </h2>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            
+            <div class="pages">
+                <div id="insideskills">
+                    <a href="skills.html">
+                        <div class="faceplate">
+                            <h2> Skills </h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="pages">
+                <div id="insidecontact">
+                    <a href="falecomigo.html">
+                        <div class="faceplate">
+                            <h2> Fale Comigo </h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</article>
+<!-- mobile -->
     <!-- fim do article -->
     <!-- INICIO DO FOOTER -->
     
@@ -131,6 +228,7 @@
 
 
 
-    
+   
+
 </body>
 </html>

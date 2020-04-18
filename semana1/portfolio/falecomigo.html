@@ -10,7 +10,7 @@
 <body>
     
 <!-- HEADER  -->
-<header>
+<header class="desktop">
     <div class="headerwrapperpages">
         <div class="links">
             <nav><a href="homepage.html">
@@ -26,6 +26,29 @@
 </header>
 
 <!-- HEADER -->
+
+
+<!-- mobile -->
+
+<header class="mobile">
+    <div class="headerwrapper">
+        <nav class="menu" onclick="menus()">
+            <div>Menu</div>
+        </nav>
+        <div id="links" class="links hide">
+            <nav><a href="homepage.html">Home</a></nav>
+            <nav><a href="sobremim.html">Sobre mim</a></nav>
+            <nav><a href="trajetoria.html">Trajetória</a></nav>
+            <nav><a href="projetos.html">Projetos</a></nav>
+            <nav><a href="skills.html">Skills</a></nav>
+            <nav><a href="falecomigo.html">Fale Comigo</a></nav>
+        </div>
+</header>
+<script src="js/menu.js"></script>
+
+
+<!-- mobile -->
+
 <!-- ARTICLE -->
 <article>
     <div class="bodywrapper">
@@ -37,22 +60,14 @@
 
             <form id="formulario" action="">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome">
+                <input type="text" id="nome" placeholder="Seu nome" required>
                 <label for="email">Email</label>
-                <input type="text" id="email">
+                <input type="email" id="email" required placeholder="Seu email">
                 <label for="mensagem">Mensagem</label>
-                <textarea type="text" id="mensagem" rols="5" cols="50 "> </textarea>
+                <textarea type="text" id="mensagem" rols="5" cols="50" required>  </textarea>
                 <button type="submit">Enviar</button>
             </form>
         </div>
-
-
-
-
-
-
-
-
 
 
     </div>

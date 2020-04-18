@@ -31,4 +31,22 @@ p{
     margin-top: 35px;
     }
 
-    
+    @media only screen and (max-width: 1225px) {
+
+        .speech {
+            margin-top: 25px;
+            width: 90%;
+            list-style: inside;
+            color: bisque;
+            font-size: 15px;
+            text-align: center;
+        }
+    li {
+        list-style: inside;
+        font-style: bold;
+        font-size: 20px;
+        color: white}
+
+        .hard li:last-of-type {
+            font-size: 18px;
+        }}
