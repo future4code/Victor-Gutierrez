@@ -33,28 +33,5 @@
     width: 100%;
 }
 
-@media only screen and (max-width: 1225px) {
 
-    .photo {
-        height: 150px;
-        width: 150px;
-        
-    }
-
-    .aboutme {
-        color: bisque;
-        width: 60%;
-        font-size: 18px;
-    }
-
-    .aboutmewrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 90%;
-        width: 100%;
-        text-align: justify;
-    }
-}
    

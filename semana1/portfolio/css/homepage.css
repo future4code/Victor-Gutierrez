@@ -172,12 +172,10 @@
         top: 0px;
         ;
     }
-
-
     
 
     #firstrow {
-        margin-top: 75px;
+        margin-top: 0px;
         width: 50%;
         display: grid;
         justify-content: center;
@@ -190,6 +188,8 @@
         width: 200px;
         height: 200px;
         
+        /* align-items: center;
+    justify-content: center; */
     }
 
    

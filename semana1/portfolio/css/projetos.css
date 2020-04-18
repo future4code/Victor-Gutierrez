@@ -17,7 +17,6 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 15px;
     color: bisque;
 }
 
@@ -68,6 +67,7 @@
         transition: all 1s ease
     }
     @media only screen and (max-width: 1225px) {
+
         .descproj {
             margin: 10px;
             font-style: bold;
@@ -76,6 +76,7 @@
                             width: 120px;
                             height: 100px;
                             background-color: rgba(0, 0, 0, 0.144);}
+                           
                             .descproj {
                                 display: none;
                             }

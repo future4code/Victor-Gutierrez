@@ -37,6 +37,7 @@ button{
     background-color: #E67E39; 
     color: white;
     font-weight: bold;
+    outline: none;
 }
 button:hover{
     cursor: pointer;
@@ -163,6 +164,10 @@ button:hover{
 
 @media only screen and (max-width: 1225px) {
 
+
+    /* OS TRECHOS DE CÓDIGO INTEIRAMENTE COMENTADOS FORAM PASSADOS PARA OS .CSS INDIVIDUAIS */
+
+
     .desktop {
         display: none;
     }
@@ -215,7 +220,7 @@ button:hover{
         width: 100%;
         z-index: 2;
         animation-name: menukeyframe;
-        animation-duration: 1s;
+        animation-duration: 0.5s;
         animation-fill-mode: forwards;
             }
 
@@ -225,12 +230,16 @@ button:hover{
 
              .menu{
             display: flex;
-            justify-content: end;
-            margin: 15px 15px 0 0;
+            justify-content: center;
             color: white;
             cursor: pointer;
             text-shadow: 10px 10px 10px black;
             font-weight: bold;
+            margin-top: 5px;
+            outline: none;
+            }
+             .menu > div{
+                 display: contents;
              }
 
              @keyframes menukeyframe {
@@ -263,4 +272,211 @@ button:hover{
         background-color: #FC6632;
         /*  */
     }
+
+
+    /* HOME PAGE */
+     .desktop {
+         display: none;
+     }
+
+     .mobile {
+         display: flex;
+     }
+
+     .hide {
+         display: none;
+     }
+
+
+     .photo {
+         height: 150px;
+         width: 150px;
+         overflow: hidden;
+         border-radius: 150px;
+         position: relative;
+         top: 5px;
+         ;
+     }
+
+     .nome{
+         position: relative;
+         bottom: 40px;
+     }
+
+
+
+     #firstrow {
+         margin-top: 5px;
+         width: 50%;
+         display: grid;
+         justify-content: center;
+         align-items: center;
+         gap: 25px;
+     }
+
+     #firstrow>.pages,
+     #secondrow>.pages {
+         width: 200px;
+         height: 200px;
+
+     }
+
+
+
+     .faceplate {
+         width: 200px;
+         height: 200px;
+         ;
+
+
+     }
+
+     #insideabout {
+         width: 200px;
+         height: 200px;
+     }
+
+     #insideinstitutions {
+         width: 200px;
+         height: 200px;
+     }
+
+     #insideprojects {
+         width: 200px;
+         height: 200px;
+     }
+
+     #insideskills {
+         width: 200px;
+         height: 200px;
+     }
+
+     #insidecontact {
+         width: 200px;
+         height: 200px;
+     }
+     
+    /* HOMEPAGE */
+    /* SOBRE MIM */
+    .photo {
+        height: 150px;
+        width: 150px;
+        margin-bottom: 50px;
+        
+
     }
+
+    .aboutme {
+        color: bisque;
+        width: 70%;
+        font-size: 18px;
+    }
+
+    .aboutmewrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 80%;
+        width: 100%;
+        text-align: justify;
+    }
+    
+    /* sobre mim */
+    /* TRAJETORIA */
+
+   /*      .listwrapper {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .listas {
+            margin: 10px;
+            justify-self: start;
+            width: 300px;
+            height: 250px;
+            font-size: 12px;
+            border: 4px solid rgba(255, 255, 255, 0.185);
+            transition: all 1s ease;
+            padding: 20px;
+            box-shadow: 2px 1px 1px 1px black;
+            color: bisque;
+        }
+
+        #labenu {
+            margin: auto 15px;
+        }
+
+ */
+
+    /* trajetoria*/
+    /* skills */
+
+      /* .speech {
+          margin-top: 25px;
+          width: 90%;
+          list-style: inside;
+          color: bisque;
+          font-size: 15px;
+          text-align: center;
+      }
+
+      li {
+          list-style: inside;
+          font-style: bold;
+          font-size: 20px;
+          color: white
+      }
+
+      .hard li:last-of-type {
+          font-size: 18px;
+      } */
+
+    /* skills */
+    /* falecomg */
+    
+    
+    #formulario {
+        font-size: 15px;
+        /* display: contents; */
+        position: relative;
+        bottom: 100px
+    }
+    
+    
+    #title {
+        margin-top: 55px;
+        margin: 25px;
+        position: relative;
+        width: 350px;
+        /* bottom: 200px; */
+    }
+    
+    #formulario textarea {
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+    }
+    
+    #formulario input {
+        border-radius: 10px;
+        width: 350px;
+        height: 35px;
+    }
+    
+    #formulario label {
+        margin-top: 25px;
+    }
+    /* FALE COMIGO */
+}
+
+
+
+
+
+
+
+
+

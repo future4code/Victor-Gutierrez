@@ -68,6 +68,7 @@ flex-direction: column;
 }
 
 @media only screen and (max-width: 1225px) {
+
     .listwrapper {
         display: grid;
         justify-content: center;
@@ -78,7 +79,7 @@ flex-direction: column;
 .listas {
     margin: 10px;
     justify-self: start;
-    width: 200px;
+    width: 300px;
     height: 250px;
     font-size: 12px;
     border: 4px solid rgba(255, 255, 255, 0.185);
@@ -88,7 +89,24 @@ flex-direction: column;
     color: bisque;
 }
 #labenu {
-    margin-bottom: 10px;
-    margin-top: 25px;
+    margin: auto 15px;
+}
+.trajec {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.trajec-title {
+    color: bisque;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    font-size: large;
 }
 }
