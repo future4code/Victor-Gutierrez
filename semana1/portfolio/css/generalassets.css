@@ -100,6 +100,10 @@ button:hover{
     text-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 
+#youarehere{
+    border-bottom: 5px solid rgba(255, 255, 255, 0.472);
+}
+
 .links>nav {
     padding: 10px 15px;
     transition: all 0.5 ease;
