@@ -66,7 +66,7 @@
         height: 300px;
         transition: all 1s ease
     }
-    @media only screen and (max-width: 1225px) {
+    @media only screen and (max-width: 1245px) {
 
         .descproj {
             margin: 10px;

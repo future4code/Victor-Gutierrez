@@ -72,7 +72,7 @@
 
 #secondrow{
     display: flex;
-    width: 50%;
+    width: 70%;
     justify-content: space-evenly;
     margin-top: 200px;
     margin-bottom: 20px;
@@ -149,7 +149,7 @@
 /* General assets.css */
 
 
-@media only screen and (max-width: 1225px) {
+@media only screen and (max-width: 1245px) {
     
     .desktop{
         display: none;
@@ -192,7 +192,13 @@
     justify-content: center; */
     }
 
-   
+   #secondrow {
+       display: flex;
+       width: 50%;
+       justify-content: space-evenly;
+       margin-top: 200px;
+       margin-bottom: 20px;
+   }
 
 .faceplate {
    width: 200px;

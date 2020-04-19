@@ -162,7 +162,7 @@ button:hover{
 
 
 
-@media only screen and (max-width: 1225px) {
+@media only screen and (max-width: 1245px) {
 
 
     /* OS TRECHOS DE CÓDIGO INTEIRAMENTE COMENTADOS FORAM PASSADOS PARA OS .CSS INDIVIDUAIS */
@@ -359,12 +359,15 @@ button:hover{
      
     /* HOMEPAGE */
     /* SOBRE MIM */
-    .photo {
+    .photoabout {
         height: 150px;
         width: 150px;
-        margin-bottom: 50px;
-        
+        margin-top: 15px;      
+    }
 
+    .photoabout > img{
+        width: 150px;
+        height: 150px;
     }
 
     .aboutme {
