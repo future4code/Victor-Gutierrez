@@ -8,6 +8,9 @@
     }
    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+   body{
+       background-color: #E67E39;
+   }
 /* Generalidades */
 
 a, a:visited{
@@ -252,11 +255,14 @@ button:hover{
                  
              }
 
-    .links>nav {
+    .links > nav {
         padding: 10px 15px;
         transition: all 0.5 ease;
         font-weight: bold;
         border-bottom: 1px solid rgba(255, 255, 255, 0.267);
+        animation-name: menukeyframe;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
         
     }
     
@@ -362,12 +368,15 @@ button:hover{
     .photoabout {
         height: 150px;
         width: 150px;
-        margin-top: 15px;      
+        margin-top: 15px;
+        border: 5px solid rgba(255, 255, 255, 0.472);
+        box-sizing: initial;
     }
 
     .photoabout > img{
         width: 150px;
         height: 150px;
+        
     }
 
     .aboutme {

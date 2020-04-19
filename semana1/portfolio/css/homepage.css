@@ -19,6 +19,8 @@
     border-radius: 150px;
      position: relative;
      top: 50px; 
+     border: 1px solid rgba(255, 255, 255, 0.472);
+
 }
 /* General assets .css */
 /* Fim do Header Style */
@@ -162,16 +164,18 @@
         display: none;
     }
 
-
+.nome{
+    
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
     .photo {
         height: 150px;
         width: 150px;
         overflow: hidden;
         border-radius: 150px;
         position: relative;
-        top: 0px;
-        ;
-    }
+         }
     
 
     #firstrow {
@@ -231,3 +235,6 @@
     }
 }
 
+.footerwrapper{
+    margin-top: 50px;
+}

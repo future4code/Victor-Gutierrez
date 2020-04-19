@@ -14,6 +14,7 @@ flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
     margin-bottom: 150px;
     font-size: large;
 }
@@ -90,7 +91,7 @@ flex-direction: column;
 .trajec {
     margin-left: 25px;
     margin-right: 25px;
-    margin-top: 0px;
+    margin-top: 20px;
     height: 100%;
     display: flex;
     flex-direction: column;
