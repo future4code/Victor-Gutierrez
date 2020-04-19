@@ -41,14 +41,7 @@ flex-direction: column;
 #labenu{
     margin-bottom: 50px;
     margin-top: 25px;
-}
-.listas:hover{
-    box-shadow: 2px 2px 2px 1px black;
-    cursor: pointer;
-    width: 550px;
-    height: 340px;
-
-    
+    margin-right: 15px ;
 }
 
 .listas p{
@@ -58,6 +51,9 @@ flex-direction: column;
     display: inline;
 }
 
+#mb{
+    margin-right: 100px;
+}
 
 .imgframe{
     display: flex;
@@ -108,5 +104,10 @@ flex-direction: column;
     align-items: center;
     margin-bottom: 50px;
     font-size: large;
+    text-align: center;
 }
+#mb {
+    margin-right: 50px;
+}
+
 }

@@ -209,7 +209,7 @@ button:hover{
 
     .links {
         position: relative;
-        top: 10px;
+        top: 5px;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -226,6 +226,7 @@ button:hover{
 
             .links nav:last-of-type{
                 border: none;
+                text-shadow: 5px 5px 5px 5px;
             }
 
              .menu{
@@ -451,6 +452,7 @@ button:hover{
         margin: 25px;
         position: relative;
         width: 350px;
+        text-align: center;
         /* bottom: 200px; */
     }
     

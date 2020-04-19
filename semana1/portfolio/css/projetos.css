@@ -87,6 +87,7 @@
                             .title {
                                 position: relative;
                                 bottom: 100px;
+                                text-align: center;
                             }
 
                             .wrapper {
