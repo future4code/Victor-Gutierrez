@@ -82,11 +82,14 @@ div img {
 #descricao-inner{
 margin-top: 130px;
 width: 25%;
+
 }
 
 #descricao-inner > p, ol{
     margin: 25px 0;
 }
+
+
 
 
 #container-para-comprar {
@@ -116,6 +119,7 @@ div:last-child {
 
 table {
     width: 60%;
+    text-align: center;
 }
 
 td button {
