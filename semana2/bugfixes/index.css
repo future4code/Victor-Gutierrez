@@ -151,11 +151,21 @@ td button:hover {
     background-color: #aa9744;
 }
 
+#table-container{
+    display: flex;
+    justify-content: center;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
 }
 
+#back-button-container{
+    width: 100%;
+    margin-top: 25%;
+    text-align: center;
+}
 
 #back-button {
     background-color: white;
