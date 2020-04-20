@@ -30,8 +30,8 @@ input {
     border-bottom: 2px solid black;
 }
 
-button:focus {
-    color: white;
+button:focus, input:focus {
+    outline: none;
 }
 
 
