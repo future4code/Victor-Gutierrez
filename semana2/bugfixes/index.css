@@ -64,10 +64,7 @@ div>p:first-child {
     text-align: center;
 }
 
-.icone {
-    height: 20px;
-    width: 20px;
-}
+
 
 
 /** 
@@ -159,6 +156,15 @@ td button:hover {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+}
+
+.icone {
+    height: 20px;
+    width: 20px;
+}
+
+.icone:hover {
+    opacity: 0.5;
 }
 
 #back-button-container{
