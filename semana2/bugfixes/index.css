@@ -19,11 +19,14 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    border: none;
+    border-bottom: 2px solid black;
 }
 
 button:focus {
     color: white;
 }
+
 
 img {
     width: 100px;
@@ -132,6 +135,14 @@ td button {
     border-radius: 5px;
     color: black;
 }
+td button:active{
+    color: white;
+}
+
+td button:hover {
+    color: white;
+    background-color: #aa9744;
+}
 
 .container-do-search {
     margin-top: 20px;
@@ -147,6 +158,9 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+}
+#back-button:active{
+color:white
 }
 
 #back-button:hover {
