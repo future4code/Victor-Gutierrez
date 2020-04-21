@@ -21,102 +21,177 @@
     margin-top: 27px;
 }
 
+.bodywrapperprojects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 1400px;
+    background-color: #E67E39;
+    padding-bottom: 40px;
+    padding-top: 50px;
+}
 
-    .descproj{
-        margin: 10px;
-        font-style: bold;
-        text-indent: 20px;
-        border-radius: 1px 5px 5px 10px;
-        width: 320px;
-        height: 100px;
-        background-color: rgba(0, 0, 0, 0.144);
-        
-        
-    }
 
-    #jokempo{
-        background-image: url(../images/jokempo.png) ;
-        /* background-size: cover; */
-        width: 300px;
-        height: 300px;
-        transition: all 1s ease;
-        
-    }
+   .descproj{
+       margin: 10px;
+       font-style: bold;
+       text-indent: 20px;
+       border-radius: 1px 5px 5px 10px;
+       width: 320px;
+       height: 100px;
+       background-color: rgba(0, 0, 0, 0.144);
+           }
 
+     #firstrow-inprojects {
+         width: 100%;
+         display: flex;
+         justify-content: space-evenly;
+         margin-top: 90px;
+     }
+
+     #firstrow-inprojects>.pages,
+     #secondrow-inprojects>.pages {
+         width: 300px;
+         height: 300px;
+         box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.328);
+         display: flex;
+         }
+
+     #secondrow-inprojects {
+         display: flex;
+         width: 100%;
+         justify-content: space-evenly;
+         margin-top: 100px;
+         margin-bottom: 20px;
+     }
+
+     .pages {
+         transition: all 1s ease;
+         border-radius: 10px;
+     }
+     .faceplate-inprojects {
+         cursor: pointer;
+         background-color: rgba(0, 0, 0, 0.479);
+         width: 300px;
+         height: 300px;
+         display: flex;
+         justify-content: center;
+               align-items: center;
+               transition: all 1s ease;
+               color: rgba(255, 255, 255, 0.993);
+           }
+   #jokempo{
+       background-image: url(../images/jokempo.png) ;
+       /* background-size: cover; */
+       width: 300px;
+       height: 300px;
+       transition: all 1s ease;
+       
+   }
+   #quoter {
+       background-image: url(../images/quoter.png);
+       background-size: cover;
+       width: 300px;
+       height: 300px;
+       transition: all 1s ease;
+               
+   }
+   #tests{
+       background-image: url(../images/testimon.png);
+       background-size: cover;
+       width: 300px;
+       height: 300px;
+       transition: all 1s ease
+   }
+   #hex{
+       background-image: url(../images/hex.png);
+       background-size: cover;
+       width: 300px;
+       height: 300px;
+       transition: all 1s ease
+   }
+
+
+
+   @media only screen and (max-width: 1245px) {
+   
+   
+    .descproj {
+   margin: 10px;
+   font-style: bold;
+   text-indent: 20px;
+   border-radius: 1px 5px 5px 10px;
+   width: 120px;
+   height: 100px;
+   background-color: rgba(0, 0, 0, 0.144);}
+  
+   .descproj {
+       display: none;
+   }
+   .description{
+       margin: 15px;
+   }
+   .title {
+       position: relative;
+       bottom: 65px;
+       text-align: center;
+   }
+   .wrapper {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       height: 80%;
+       position: relative;
+       bottom: 50px;
+ }
+
+#firstrow-inprojects {
+    margin-top: 0px;
+    width: 50%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#secondrow-inprojects {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+    margin-top: 200px;
+    margin-bottom: 20px;
+}
+
+#firstrow-inprojects>.pages,
+#secondrow-inprojects>.pages {
+    width: 200px;
+    height: 200px;
+}
+
+
+.faceplate-inprojects {
+    width: 200px;
+    height: 200px;
+}
+
+
+
+#jokempo {
+    width: 200px;
+    height: 200px;}
     #quoter {
-        background-image: url(../images/quoter.png);
-        background-size: cover;
-        width: 300px;
-        height: 300px;
-        transition: all 1s ease;
-                
-    }
-
-    #tests{
-        background-image: url(../images/testimon.png);
-        background-size: cover;
-        width: 300px;
-        height: 300px;
-        transition: all 1s ease
-    }
-
-    #hex{
-        background-image: url(../images/hex.png);
-        background-size: cover;
-        width: 300px;
-        height: 300px;
-        transition: all 1s ease
-    }
-    @media only screen and (max-width: 1245px) {
-
-        .descproj {
-            margin: 10px;
-            font-style: bold;
-            text-indent: 20px;
-            border-radius: 1px 5px 5px 10px;
-                            width: 120px;
-                            height: 100px;
-                            background-color: rgba(0, 0, 0, 0.144);}
-                           
-                            .descproj {
-                                display: none;
-                            }
-                            .description{
-                                margin: 15px;
-                            }
-
-                            .title {
-                                position: relative;
-                                bottom: 65px;
-                                text-align: center;
-                            }
-
-                            .wrapper {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                height: 80%;
-                                position: relative;
-                                bottom: 50px;
-                                
-                            }
-                 #jokempo {
-                     width: 200px;
-                     height: 200px;}
-        
-                     #quoter {
-                         width: 200px;
-                         height: 200px;
-                         }
-        
-                         #tests {
-                             width: 200px;
-                             height: 200px;
-                             }
-        
-                             #hex {
-                                width: 200px;
-                                height: 200px;
+        width: 200px;
+        height: 200px;
+        }
+        #tests {
+            width: 200px;
+            height: 200px;
+            }
+            #hex {
+               width: 200px;
+               height: 200px;
                                 }
        }
                     

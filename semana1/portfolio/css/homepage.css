@@ -68,13 +68,11 @@
     height: 300px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.328);
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
 }
 
 #secondrow{
     display: flex;
-    width: 70%;
+    width: 80%;
     justify-content: space-evenly;
     margin-top: 200px;
     margin-bottom: 20px;
@@ -100,9 +98,6 @@
     color: rgba(255, 255, 255, 0.993);
    
 }
-
-
-
 
 
 #insideabout{
@@ -206,7 +201,7 @@
 
 .faceplate {
    width: 200px;
-        height: 200px;;
+        height: 200px;
     
 
 }
