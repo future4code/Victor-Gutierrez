@@ -3,61 +3,70 @@
     margin: 0;
     padding: 0;
     font-family: 'Open Sans',
-    sans-serif;
+        sans-serif;
     outline: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body {
+    background-color: #E67E39;
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
     }
-   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-   body{
-       background-color: #E67E39;
-       animation-name: fade-in;
-       animation-fill-mode: forwards;
-       animation-duration: 1s;
-   }
+    to {
+        opacity: 1;
+    }
+}
 
-   @keyframes fade-in{
-       from{opacity: 0;}
-       to{opacity: 1;}
-   }
-   
 /* Generalidades */
 
-a, a:visited{
+a,
+a:visited {
     text-decoration: none;
     color: white;
 }
 
-input, textarea{
+input,
+textarea {
     background-color: rgba(245, 245, 245, 0.438);
     margin-top: 25px;
     font-size: 22px;
-   /*  color: black;
+    /*  color: black;
     font-weight: bold;
      */
 }
 
-input::placeholder{
+input::placeholder {
     color: gray;
     font-size: 22px;
 }
 
-button{
+button {
     margin-top: 35px;
     width: 150px;
     height: 50px;
     border-radius: 5px;
-    background-color: #E67E39; 
+    background-color: #E67E39;
     color: white;
     font-weight: bold;
     outline: none;
 }
-button:hover{
+
+button:hover {
     cursor: pointer;
     background-color: #FC6632;
     /*  */
 }
 
-.mobile{
+.mobile {
     display: none;
 }
 
@@ -79,11 +88,11 @@ button:hover{
 
 /*  HEADER STTYLE  */
 .headerwrapper {
-        height: 250px;
+    height: 250px;
     width: 100%;
     border-bottom: 5px solid rgba(255, 255, 255, 0.472);
-    background-color:#FC6632;
-    
+    background-color: #FC6632;
+
 }
 
 .headerwrapperpages {
@@ -106,11 +115,11 @@ button:hover{
     justify-content: center;
     font-size: 22px;
     padding-top: 10px;
-    margin: 0px ;
+    margin: 0px;
     text-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 
-#youarehere{
+#youarehere {
     border-bottom: 5px solid rgba(255, 255, 255, 0.472);
 }
 
@@ -147,7 +156,7 @@ button:hover{
 /* ARTICLE */
 /*  FOOTER  */
 
-.footerwrapper{
+.footerwrapper {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
@@ -158,21 +167,23 @@ button:hover{
     font-weight: bold;
     font-size: 15px;
     color: rgba(255, 255, 255, 0.472);
-    
+
 }
 
-.gmail, .linked, .git{
+.gmail,
+.linked,
+.git {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
+
 }
 
 
-.gmail > a,
-.linked > a,
-.git > a{
+.gmail>a,
+.linked>a,
+.git>a {
     margin: 15px;
 }
 
@@ -193,23 +204,24 @@ button:hover{
         display: flex;
     }
 
-   
-    .headerwrapper{
+
+    .headerwrapper {
         height: 50px;
     }
 
-#insideabout:active,
-.faceplate:active,
-#insideinstitutions:active,
-#insideprojects:active,
-#insideskills:active,
-#insidecontact:active,
-#jokempo:active,
-#quoter:active,
-#tests:active,
-#hex:active {
-    width: 225px;
-    height: 225px;}
+    #insideabout:active,
+    .faceplate:active,
+    #insideinstitutions:active,
+    #insideprojects:active,
+    #insideskills:active,
+    #insidecontact:active,
+    #jokempo:active,
+    #quoter:active,
+    #tests:active,
+    #hex:active {
+        width: 225px;
+        height: 225px;
+    }
 
     #insideabout:hover,
     .faceplate:hover,
@@ -223,7 +235,8 @@ button:hover{
     #tests:hover,
     #hex:hover {
         width: 200px;
-        height: 200px;}
+        height: 200px;
+    }
 
     .links {
         position: relative;
@@ -240,36 +253,41 @@ button:hover{
         animation-name: menukeyframe;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
-            }
+    }
 
-            .links nav:last-of-type{
-                border: none;
-                text-shadow: 5px 5px 5px 5px;
-            }
+    .links nav:last-of-type {
+        border: none;
+        text-shadow: 5px 5px 5px 5px;
+    }
 
-             .menu{
-            display: flex;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            text-shadow: 10px 10px 10px black;
-            font-weight: bold;
-            margin-top: 5px;
-            outline: none;
-            }
-         
-             .menu > div{
-                 display: contents;
-             }
+    .menu {
+        display: flex;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        text-shadow: 10px 10px 10px black;
+        font-weight: bold;
+        margin-top: 5px;
+        outline: none;
+    }
 
-             @keyframes menukeyframe {
-                 from{ height: 100%;
-                opacity: 0;}
-                 to{ height: 520%;
-                opacity: 1;}
-             }
+    .menu>div {
+        display: contents;
+    }
 
-    .links > nav {
+    @keyframes menukeyframe {
+        from {
+            height: 100%;
+            opacity: 0;
+        }
+
+        to {
+            height: 520%;
+            opacity: 1;
+        }
+    }
+
+    .links>nav {
         padding: 10px 15px;
         transition: all 0.5 ease;
         font-weight: bold;
@@ -277,17 +295,18 @@ button:hover{
         animation-name: menukeyframe;
         animation-duration: 3s;
         animation-fill-mode: forwards;
-        
+
     }
-    
-    .hide{
+
+    .hide {
         display: none;
-        }
-    
+    }
+
     .links>nav:active {
         background-color: rgba(255, 255, 255, 0.472);
-        border-radius: 10px;}
-       
+        border-radius: 10px;
+    }
+
     button:active {
         cursor: pointer;
         background-color: #FC6632;
@@ -296,87 +315,87 @@ button:hover{
 
 
     /* HOME PAGE */
-     .desktop {
-         display: none;
-     }
+    .desktop {
+        display: none;
+    }
 
-     .mobile {
-         display: flex;
-     }
+    .mobile {
+        display: flex;
+    }
 
-     .hide {
-         display: none;
-     }
-
-
-     .photo {
-         height: 150px;
-         width: 150px;
-         overflow: hidden;
-         border-radius: 150px;
-         position: relative;
-         top: 5px;
-         ;
-     }
-
-     .nome{
-         position: relative;
-         bottom: 40px;
-     }
+    .hide {
+        display: none;
+    }
 
 
+    .photo {
+        height: 150px;
+        width: 150px;
+        overflow: hidden;
+        border-radius: 150px;
+        position: relative;
+        top: 5px;
+        ;
+    }
 
-     #firstrow {
-         margin-top: 5px;
-         width: 50%;
-         display: grid;
-         justify-content: center;
-         align-items: center;
-         gap: 25px;
-     }
-
-     #firstrow>.pages,
-     #secondrow>.pages {
-         width: 200px;
-         height: 200px;
-
-     }
+    .nome {
+        position: relative;
+        bottom: 40px;
+    }
 
 
 
-     .faceplate {
-         width: 200px;
-         height: 200px;
-         ;
+    #firstrow {
+        margin-top: 5px;
+        width: 50%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    #firstrow>.pages,
+    #secondrow>.pages {
+        width: 200px;
+        height: 200px;
+
+    }
 
 
-     }
 
-     #insideabout {
-         width: 200px;
-         height: 200px;
-     }
+    .faceplate {
+        width: 200px;
+        height: 200px;
+        ;
 
-     #insideinstitutions {
-         width: 200px;
-         height: 200px;
-     }
 
-     #insideprojects {
-         width: 200px;
-         height: 200px;
-     }
+    }
 
-     #insideskills {
-         width: 200px;
-         height: 200px;
-     }
+    #insideabout {
+        width: 200px;
+        height: 200px;
+    }
 
-     #insidecontact {
-         width: 200px;
-         height: 200px;
-     }
-     
+    #insideinstitutions {
+        width: 200px;
+        height: 200px;
+    }
+
+    #insideprojects {
+        width: 200px;
+        height: 200px;
+    }
+
+    #insideskills {
+        width: 200px;
+        height: 200px;
+    }
+
+    #insidecontact {
+        width: 200px;
+        height: 200px;
+    }
+
     /* HOMEPAGE */
     /* SOBRE MIM */
     .photoabout {
@@ -387,10 +406,10 @@ button:hover{
         box-sizing: initial;
     }
 
-    .photoabout > img{
+    .photoabout>img {
         width: 150px;
         height: 150px;
-        
+
     }
 
     .aboutme {
@@ -408,36 +427,38 @@ button:hover{
         width: 100%;
         text-align: justify;
     }
-    
+
     /* sobre mim */
     /* TRAJETORIA */
 
-            /* Em Trajetoria.css */
+    /* Em Trajetoria.css */
+    /* 
             /* 
-            /* 
-             */ /*  */
+             */
+    /*  */
 
     /* trajetoria*/
 
     /* skills */
 
-                /* Em skills.css */
+    /* Em skills.css */
+    /* 
                 /* 
-                /* 
-                /*  */ /*  */
+                /*  */
+    /*  */
 
     /* skills */
 
     /* falecomigo */
-    
-    
+
+
     #formulario {
         font-size: 15px;
         position: relative;
         bottom: 100px
     }
-    
-    
+
+
     #title {
         margin-top: 55px;
         margin: 25px;
@@ -446,30 +467,22 @@ button:hover{
         text-align: center;
         /* bottom: 200px; */
     }
-    
+
     #formulario textarea {
         width: 300px;
         height: 150px;
         border-radius: 10px;
     }
-    
+
     #formulario input {
         border-radius: 10px;
         width: 350px;
         height: 35px;
     }
-    
+
     #formulario label {
         margin-top: 25px;
     }
+
     /* FALE COMIGO */
 }
-
-
-
-
-
-
-
-
-
