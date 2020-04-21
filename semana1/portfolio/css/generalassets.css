@@ -207,6 +207,10 @@ button:hover {
 
     .headerwrapper {
         height: 50px;
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        
     }
 
     #insideabout:active,
