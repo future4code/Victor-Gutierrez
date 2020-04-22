@@ -10,14 +10,16 @@
 </head>
 
 <body>
-    <header>
-        <img src="images/devto.svg" width="50px" alt="" class="devlogo">
-        <input type="text" class="search">
-        <button class="writeapost">WRITE A POST</button>
-        <img src="images/plane.png" alt="" width="50px" class="planesend">
-        <img src="images/sino.png" alt="" width="40px" class="sino">
-        <img src="images/gridmenu.png" alt="" class="gridmenu">
-    </header>
+    <div class="headerwrapper">
+        <header>
+            <img src="images/devto.svg" width="50px" alt="" class="devlogo">
+            <input type="text" class="search">
+            <button class="writeapost">WRITE A POST</button>
+            <img src="images/plane.png" alt="" width="50px" class="planesend">
+            <img src="images/sino.png" alt="" width="40px" class="sino">
+            <img src="images/gridmenu.png" alt="" class="gridmenu">
+        </header>
+    </div>
 
     <section class="container">
         <nav class="menulateral">
@@ -35,15 +37,39 @@
                 <p>View all-times top tags</p>
             </div>
         </nav>
-        <nav class="menuacima">
-            <div class="feed">FEED</div>
-            <div class="week">WEEK</div>
-            <div class="month">MONTH</div>
-            <div class="year">YEAR</div>
-            <div class="infinity">INFINITY</div>
-            <div class="latest">LATEST</div>
-        </nav>
-        <article class="conteudo"></article>
+        <div class="centralwrapper">
+            <nav class="menuacima">
+                <div class="feed">FEED</div>
+                <div class="week">WEEK</div>
+                <div class="month">MONTH</div>
+                <div class="year">YEAR</div>
+                <div class="infinity">INFINITY</div>
+                <div class="latest">LATEST</div>
+            </nav>
+            <article class="conteudo">
+                <img src="images/article.png" width="600px" alt="">
+                <h1>window.location Cheatsheet</h1>
+                <div class="profilewrapper">
+                    <div class="photoframe"><img width="60px"
+                            src="https://res.cloudinary.com/practicaldev/image/fetch/s--kS-2QqG0--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/123002/c9c92442-e0d8-4fb7-837b-e7b0dc7a8494.jpg"
+                            alt=""></div>
+                    <div class="tag">
+                        <span>#codenewbie</span>
+                        <span>#begginers</span>
+                        <span>#webdev</span>
+                        <span>#javascript</span>
+                    </div>
+                    <div class="name"><a href="#">Samanta Ming</a> <a href="#"> | Apr 22</a></div>
+
+                </div>
+
+                <div class="bottom">
+                    <div class="timeread">1 min read</div>
+                    <button class="save">SAVE</button>
+                </div>
+            </article>
+        </div>
+
         <div class="joindev">
             <div class="top">Join DEV</div>
             <div class="signin">Sign In With Twitter</div>

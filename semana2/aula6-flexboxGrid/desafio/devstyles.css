@@ -3,7 +3,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Manrope',
-    sans-serif;
+        sans-serif;
+}
+.headerwrapper{
+    display: flex;
+    background-color: #FDF9F3;
+    justify-content: center;
 }
 
 header {
@@ -11,7 +16,8 @@ header {
     height: 60px;
     background-color: #FDF9F3;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    width: 65%;
 }
 
 header>.devlogo {
@@ -20,7 +26,7 @@ header>.devlogo {
 
 header>input {
     display: flex;
-    width: 34%;
+    width: 35%;
     height: 60%;
     background-color: #E8E7E7;
     border: none;
@@ -42,27 +48,26 @@ header>.writeapost {
 
 header>.planesend {
     position: relative;
-    right: 10%;
+    right: 3%;
     transform: rotateY(180deg);
 }
 
 header>.sino {
     position: relative;
-    right: 10%;
+    right: 3%;
 }
 
 header>.gridmenu {
     position: relative;
-    right: 9%;
-}
-
-.container>* {
-    /* border: 1px solid green; */
+    right: 2%;
 }
 
 .container {
     height: 900px;
     display: flex;
+    justify-content: center;
+
+
 
 }
 
@@ -89,17 +94,35 @@ header>.gridmenu {
     width: 100%;
 }
 
+.centralwrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 650px;
+    margin-top: 20px;
+}
+
+
 .menuacima {
     width: 600px;
     height: 50px;
-    margin: 50px 15px;
-    align-self: flex-start;
     justify-self: center;
     display: flex;
     justify-content: space-evenly;
 }
 
-.menuacima>div {
+.menuacima > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 70%;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.menuacima>div:first-of-type {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,4 +165,64 @@ header>.gridmenu {
     background-color: #DEE4FE;
     border-radius: 25px;
     font-weight: bold;
+}
+
+.conteudo {
+    border: 1px solid #EAECEE;
+    width: 600px;
+    height: 500px;
+    align-self: center;
+    justify-self: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.089);
+    margin: 0 100px;
+
+}
+
+.conteudo a {
+    text-decoration: none;
+    color: #64707D;
+    font-weight: bold;
+}
+.conteudo > h1{
+    font-size: 38px;
+    text-indent: 25px;
+}
+
+.tag{
+    display: inline;
+}
+
+.profilewrapper{
+    margin-left: 20px;
+}
+.photoframe{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    float: left;
+    border-radius: 100px;
+    margin-right: 10px;}
+    
+
+.bottom{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top:  20px;
+    align-items: baseline;
+
+}
+
+.bottom > button, .timeread{
+    margin: 15px;
+}
+
+.bottom>button{
+    background-color: #0023CF;
+    border:none;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    color: white;
 }
