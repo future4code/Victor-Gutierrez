@@ -1,0 +1,352 @@
+/* EXERCICIO 1 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column-start: 3
+}
+
+/* EXERCICIO 2 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#poison {
+    grid-column-start: 5
+}
+
+
+/* EXERCICIO 3 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column-start: 1;
+    grid-column-end: 4
+}
+
+/* EXERCICIO 4 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column-start: 5;
+    grid-column-end: 2
+}
+/* EXERCICIO 5 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column-start: 1;
+    grid-column-end: -2
+}
+
+/* EXERCICIO 6 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#poison {
+    grid-column-start: 4
+}
+
+/* EXERCICIO 7 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column-start: 2;
+    grid-column-end: 4
+}
+
+/* EXERCICIO 8 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column-start: 1;
+    grid-column-end: span 5
+}
+
+/* EXERCICIO 9 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column-start: 3 ;
+    grid-column-end: 6;
+}
+
+/* EXERCICIO 10 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column: 4 / 6
+}
+
+
+/* EXERCICIO 11 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column: span 3/5
+}
+
+/* EXERCICIO 12 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-row-start: 3
+}
+
+/* EXERCICIO 13 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-row: 3 / 6
+}
+
+/* EXERCICIO 14 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#poison {
+    grid-column: 2;
+    grid-row: 5
+}
+
+/* EXERCICIO 15 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column: 2/6;
+    grid-row: 1/6
+}
+
+/* EXERCICIO 16 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-area: 1 / 2 / 4 / 6
+}
+
+/* EXERCICIO 17 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water-1 {
+    grid-area: 1 / 4 / 6 / 5;
+}
+
+#water-2 {
+    grid-area: 2 / 3 / 5 / 6
+}
+
+
+/* EXERCICIO 18 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+.water {
+    order: 0;
+}
+
+#poison {
+    order: 5
+}
+
+/* EXERCICIO 19 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+.water {
+    order: 0;
+}
+
+.poison {
+    order: -1
+}
+
+/* EXERCICIO 20 */
+
+#garden {
+  display: grid;
+grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* EXERCICIO 21 */
+
+#garden {
+    display: grid;
+    grid-template-columns: repeat(5, 12.5%) ;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* EXERCICIO 22 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 100px 3em 40%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+
+/* EXERCICIO 23 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+/* EXERCICIO 24 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 1fr 50px; 
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+    grid-area: 1 / 1 / 6 / 2;
+}
+
+#poison {
+    grid-area: 1 / 5 / 6 / 6;
+}
+
+/* EXERCICIO 25 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 75px 3fr 2fr;
+     grid-template-rows: 100%;
+}
+
+
+/* EXERCICIO 26 */
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 50px 0 0 0
+}
+
+#water {
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+}
+
+/* EXERCICIO 27 */
+
+#garden {
+    display: grid;
+    grid-template: 60% / 200px
+}
+
+#water {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+
+/* EXERCICIO 28 */
+
+
+#garden {
+    display: grid;
+    grid-template: 1fr 50px / 20% 80%
+}
+

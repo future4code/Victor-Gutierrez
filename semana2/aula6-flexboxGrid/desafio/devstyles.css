@@ -1,0 +1,145 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope',
+    sans-serif;
+}
+
+header {
+    display: flex;
+    height: 60px;
+    background-color: #FDF9F3;
+    align-items: center;
+    width: 100%;
+}
+
+header>.devlogo {
+    margin-left: 35px;
+}
+
+header>input {
+    display: flex;
+    width: 34%;
+    height: 60%;
+    background-color: #E8E7E7;
+    border: none;
+    border-radius: 5px;
+    margin: 0 auto
+}
+
+header>.writeapost {
+    position: relative;
+    height: 60%;
+    right: 13%;
+    padding: 5px 25px;
+    background-color: #6BDFD3;
+    border: 5px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
+
+header>.planesend {
+    position: relative;
+    right: 10%;
+    transform: rotateY(180deg);
+}
+
+header>.sino {
+    position: relative;
+    right: 10%;
+}
+
+header>.gridmenu {
+    position: relative;
+    right: 9%;
+}
+
+.container>* {
+    /* border: 1px solid green; */
+}
+
+.container {
+    height: 900px;
+    display: flex;
+
+}
+
+.container>.menulateral {
+    width: 300px;
+    height: 50%;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #EAECEE;
+    overflow: hidden;
+    box-shadow: 1px 1px 3px gray;
+    margin-top: 50px;
+}
+
+.menulateral>div {
+    margin-top: 20.7px;
+    text-indent: 10px;
+}
+
+.labeltopics {
+    background-color: #EAECEE;
+    height: 45px;
+    width: 100%;
+}
+
+.menuacima {
+    width: 600px;
+    height: 50px;
+    margin: 50px 15px;
+    align-self: flex-start;
+    justify-self: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menuacima>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    margin: 0 15px;
+    height: 70%;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: #D5DDFD;
+    box-shadow: 5px 5px 1px #6E78ED;
+}
+
+.joindev {
+    margin: 50px 15px;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #1134AF;
+    box-shadow: 5px 5px 0px #1134AF;
+}
+
+.joindev>.top {
+    display: flex;
+    background-color: #0C46E2;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
+
+.joindev>.signin {
+    margin: 15px;
+    align-self: center;
+    padding: 15px 35px;
+    border: 2px solid #2755CA;
+    background-color: #DEE4FE;
+    border-radius: 25px;
+    font-weight: bold;
+}
