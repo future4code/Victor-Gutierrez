@@ -1,0 +1,333 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 90vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+#box1 {
+    background-color: red;
+    height: 10vh;
+    width: 100vw;
+}
+
+.wrapper1 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 15vh;
+    margin: 15px 0
+}
+
+.box2 {
+    background-color: green;
+    width: 30%;
+
+
+}
+
+.box3 {
+    background-color: blue;
+    width: 30%
+}
+
+.box4 {
+    background-color: yellow;
+    width: 30%
+}
+
+.box5 {
+    background-color: green;
+    width: 30%
+}
+
+.box6 {
+    background-color: blue;
+    width: 30%
+}
+
+.box7 {
+    background-color: yellow;
+    width: 30%
+}
+
+.wrapper2 {
+    display: flex;
+    justify-content: space-evenly;
+    height: 45vh;
+    margin: 15px 0
+}
+
+.box8 {
+    background-color: black;
+    width: 40%;
+    height: 100%;
+
+}
+
+.box9 {
+    background-color: black;
+    width: 40%;
+    height: 100%;
+}
+
+.wrapper3 {
+    display: flex;
+    justify-content: space-evenly;
+    height: 15vh;
+    margin: 15px 0
+}
+
+.box10 {
+    background-color: white;
+    border: 1px solid black;
+    width: 25%;
+
+
+}
+
+
+.box11 {
+    background-color: white;
+    border: 1px solid black;
+    width: 25%;
+
+
+}
+
+.box12 {
+    background-color: white;
+    border: 1px solid black;
+    width: 25%;
+
+}
+
+.containermedia1 {
+    display: none;
+}
+
+.containermedia2 {
+    display: none;
+}
+
+
+@media only screen and (max-device-width : 645px) {
+    .container {
+        display: none;
+    }
+
+    .containermedia2 {
+        display: none;
+    }
+
+    .containermedia1 {
+        display: flex;
+        height: 800px;
+        width: 100vw;
+        flex-direction: column;
+    }
+
+
+    .wrapper1 {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 400px;
+    }
+
+    #box1 {
+        background-color: red;
+        height: 200px;
+        width: 100vw;
+    }
+
+    .box2 {
+        background-color: green;
+        width: 95%;
+        height: 300px;
+        margin: 5px auto;
+    }
+
+    .box3 {
+        background-color: blue;
+        width: 40%;
+        height: 100px;
+    }
+
+    .box4 {
+        background-color: yellow;
+        width: 40%;
+        height: 100px;
+    }
+
+    .box6 {
+        background-color: blue;
+        width: 40%;
+        height: 100px;
+    }
+
+    .box7 {
+        background-color: yellow;
+        width: 40%;
+        height: 100px;
+
+    }
+
+    .wrapper2 {
+        display: flex;
+        justify-content: space-evenly;
+        height: 200px;
+        margin: 15px 0
+    }
+
+
+
+    .box8 {
+        background-color: black;
+
+
+
+    }
+
+    .box9 {
+        background-color: black;
+
+    }
+
+    .wrapper3 {
+        display: flex;
+        justify-content: space-evenly;
+        height: 200px;
+        margin: 0
+    }
+
+    .box10,
+    .box11 {
+        background-color: white;
+        border: 1px solid black;
+        width: 45%;
+        height: 60%
+    }
+
+    .box12 {
+        margin: 0 auto;
+        height: 400px;
+        width: 90%;
+    }
+
+
+
+
+
+}
+
+@media only screen and (max-device-width : 400px) {
+    .container {
+        display: none;
+    }
+
+    .containermedia1 {
+        display: none;
+    }
+
+    .containermedia2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containermedia2 div:first-child{
+        margin: 0;
+    }
+
+    .containermedia2 div {
+        margin: 5px auto;
+    }
+
+    #box1 {
+        background-color: red;
+        height: 10vh;
+        width: 100vw;
+    }
+
+    .box2 {
+        background-color: green;
+        width: 100%;
+        height: 100px;
+
+
+    }
+
+    .box3 {
+        background-color: blue;
+        width: 100%;
+        height: 100px;
+    }
+
+    .box4 {
+        background-color: yellow;
+        width: 100%;
+        height: 100px;
+    }
+
+    .box5 {
+        background-color: green;
+        width: 100%;
+        height: 100px;
+    }
+
+    .box6 {
+        background-color: blue;
+        width: 100%;
+        height: 100px;
+    }
+
+    .box7 {
+        background-color: yellow;
+        width: 100%;
+        height: 100px;
+    }
+
+
+
+    .box8 {
+        background-color: black;
+        width: 100%;
+        height: 100px;
+
+    }
+
+    .box9 {
+        background-color: black;
+        width: 100%;
+        height: 100px;
+    }
+
+    .box10 {
+        width: 100%;
+        height: 100px;
+    }
+
+
+    .box11 {
+        background-color: white;
+        width: 100%;
+        height: 100px;
+
+
+    }
+
+    .box12 {
+        background-color: white;
+        width: 100%;
+        height: 100px;
+
+    }
+
+
+}
