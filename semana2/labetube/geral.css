@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgba(232, 64, 12, 1);
+    font-family: 'Baloo Bhaina 2',
+        cursive;
+}
+
+header {
+    display: flex;
+    height: 150px;
+    background: rgb(232, 128, 12);
+    background: linear-gradient(0deg, rgba(232, 128, 12, 1) 5%, rgba(232, 82, 12, 1) 29%, rgba(232, 64, 12, 1) 55%);
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.logoframe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    justify-self: center;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    align-self: center;
+}
+
+#imglabe {
+    display: flex;
+    align-items: baseline;
+    overflow: hidden;
+    width: 130px;
+    height: 70px;
+}
+
+#imgtube {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    overflow: hidden;
+    width: 105px;
+    height: 75px;
+
+    transform: rotateX(180deg);
+}
+
+#imgtube>img {
+    transform: rotateX(180deg);
+
+}
+
+main {
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(232, 128, 12);
+    background: linear-gradient(180deg, rgba(232, 128, 12, 1) 68%, rgba(232, 64, 12, 1) 87%);
+}
+
+.videocontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    margin-bottom: 350px;
+}
+
+
+
+footer {
+    background: rgb(232, 64, 12);
+    background: linear-gradient(180deg, rgba(232, 64, 12, 1) 100%, rgba(232, 129, 12, 0.452) 100%);
+    height: 200px;
+
+}
+
+
+
+@media screen and (max-width: 400px) {
+   
+    input{
+        width: 150px;
+    }
+
+   footer{
+       height: 100px;
+   }
+}
