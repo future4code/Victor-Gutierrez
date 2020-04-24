@@ -1,0 +1,64 @@
+.bodywrapperskills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+li {
+    font-style: bold;
+    font-size: 30px;
+    color: white
+}
+
+p {
+    font-style: italic;
+    margin: 10px;
+}
+
+.speech {
+    width: 60%;
+    color: bisque;
+    font-size: 18px
+}
+
+.soft {
+    margin: 15px;
+
+}
+
+.hard {
+    margin-left: 15px;
+    margin-top: 35px;
+}
+
+@media only screen and (max-width: 1245px) {
+
+    .speech {
+        margin-top: 5px;
+        width: 90%;
+        list-style: none;
+        color: bisque;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    li {
+        list-style: none;
+        font-style: bold;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+    }
+
+    .hard li:last-of-type {
+        font-size: 18px;
+    }
+
+    .hard {
+        margin-left: 0px;
+        margin-top: 35px;
+    }
+
+}

@@ -1,0 +1,119 @@
+* {
+    list-style: none;
+}
+
+.trajec {
+    margin: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.trajec-title {
+    color: bisque;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 150px;
+    font-size: large;
+}
+
+.listwrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.listas {
+    margin: 50px;
+    justify-self: start;
+    width: 500px;
+    height: 450px;
+    font-size: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.185);
+    transition: all 1s ease;
+    padding: 20px;
+    box-shadow: 2px 1px 1px 1px black;
+    color: bisque;
+}
+
+#labenu {
+    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-right: 15px;
+}
+
+.listas p {
+    font-weight: bold;
+}
+
+.listas img {
+    display: inline;
+}
+
+#mb {
+    margin-right: 100px;
+}
+
+.imgframe {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1245px) {
+
+    .listwrapper {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .listas {
+        margin: 10px;
+        justify-self: start;
+        width: 300px;
+        height: 250px;
+        font-size: 12px;
+        border: 4px solid rgba(255, 255, 255, 0.185);
+        transition: all 1s ease;
+        padding: 20px;
+        box-shadow: 2px 1px 1px 1px black;
+        color: bisque;
+    }
+
+    #labenu {
+        margin: auto 15px;
+    }
+
+    .trajec {
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-top: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .trajec-title {
+        color: bisque;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        font-size: large;
+        text-align: center;
+    }
+
+    #mb {
+        margin-right: 50px;
+    }
+
+}

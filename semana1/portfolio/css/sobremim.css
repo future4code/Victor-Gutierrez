@@ -1,0 +1,36 @@
+.frame {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.photoabout {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 150px;
+    position: relative;
+    bottom: 100px;
+    border: 5px solid rgba(255, 255, 255, 0.472);
+    box-sizing: initial;
+
+}
+
+
+.aboutme {
+    text-indent: 15px;
+    color: bisque;
+    width: 60%;
+    font-size: 32px;
+}
+
+.aboutmewrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}

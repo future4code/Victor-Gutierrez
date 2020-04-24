@@ -1,0 +1,245 @@
+/*  HEADER STTYLE  */
+
+
+
+
+.frame {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.photo {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 150px;
+    position: relative;
+    top: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.472);
+
+}
+
+/* General assets .css */
+/* Fim do Header Style */
+
+
+/* ////////////////////////////////////////////////////////////////////////////////// */
+/* INICIO DO ARTICLE DA HOME PAGE STYLE */
+
+.bodywrapperhomepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 1400px;
+    background-color: #E67E39;
+    padding-bottom: 40px;
+    padding-top: 50px;
+}
+
+.nome {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    justify-content: center;
+}
+
+.nome>h1 {
+    position: relative;
+    top: 5px;
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.37);
+    color: white;
+}
+
+#firstrow {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+#firstrow>.pages,
+#secondrow>.pages {
+    width: 300px;
+    height: 300px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.328);
+    display: flex;
+}
+
+#secondrow {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    margin-top: 200px;
+    margin-bottom: 20px;
+}
+
+.pages {
+    transition: all 1s ease;
+    border-radius: 10px;
+
+
+}
+
+.faceplate {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.479);
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+
+    color: rgba(255, 255, 255, 0.993);
+
+}
+
+
+#insideabout {
+    background-image: url(https://avatars2.githubusercontent.com/u/62355596?s=400&u=2555a26fbb0492942992f02dd48556c7f1aed637&v=4);
+    background-size: cover;
+    height: 300px;
+    width: 300px;
+    transition: all 1s ease
+}
+
+#insideinstitutions {
+    background-image: url(https://abrilviagemeturismo.files.wordpress.com/2016/10/177493849.jpeg?quality=70&strip=info&w=925);
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    transition: all 1s ease
+}
+
+#insideprojects {
+    background-image: url(https://miro.medium.com/max/1400/1*rlcFOJHQZ-3CEAtZE3Q7fA.jpeg);
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    transition: all 1s ease
+}
+
+#insideskills {
+    background-image: url(https://purduecco.files.wordpress.com/2016/11/softskills.png);
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    transition: all 1s ease
+}
+
+#insidecontact {
+    background-image: url(https://blog.e-goi.com/wp-content/uploads/2019/03/277762-passo-a-passo-aprenda-como-construir-um-mailing-de-sucesso.jpg);
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    transition: all 1s ease
+}
+
+.mobile {
+    display: none;
+}
+
+/*  FIM DO ARTICLE STYLE */
+/* ////////////////////////////////////////////////////////////////////////////////// */
+/* INICIO DO FOOTER STYLE */
+/* General assets.css */
+
+
+@media only screen and (max-width: 1245px) {
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .nome {
+
+        margin-top: 50px;
+        margin-bottom: 15px;
+    }
+    .frame{
+        margin-top: 100px;
+    }
+    .photo {
+        height: 150px;
+        width: 150px;
+        overflow: hidden;
+        border-radius: 150px;
+        position: relative;
+    }
+
+
+    #firstrow {
+        margin-top: 0px;
+        width: 50%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    #firstrow>.pages,
+    #secondrow>.pages {
+        width: 200px;
+        height: 200px;
+
+        /* align-items: center;
+    justify-content: center; */
+    }
+
+    #secondrow {
+        display: flex;
+        width: 50%;
+        justify-content: space-evenly;
+        margin-top: 200px;
+        margin-bottom: 20px;
+    }
+
+    .faceplate {
+        width: 200px;
+        height: 200px;
+
+
+    }
+
+    #insideabout {
+        width: 200px;
+        height: 200px;
+    }
+
+    #insideinstitutions {
+        width: 200px;
+        height: 200px;
+    }
+
+    #insideprojects {
+        width: 200px;
+        height: 200px;
+    }
+
+    #insideskills {
+        width: 200px;
+        height: 200px;
+    }
+
+    #insidecontact {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.footerwrapper {
+    margin-top: 100px;
+}
