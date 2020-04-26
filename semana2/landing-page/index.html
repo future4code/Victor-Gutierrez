@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upfour - Empréstimo para quem precisa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="icon" href="images/upfour.png">
+
+</head>
+
+<body>
+    <!-- Modal CONTATO -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <form id="form" method="POST" action="https://formspree.io/xbjkbjrz">
+                <h5> Envie suas informações e entraremos em contato </h5>
+                <input id="name" type="text" name="message" placeholder="Seu nome" required>
+                <label for="name">Seu nome</label>
+                <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    placeholder="email@email.com" required>
+                <label for="email">Seu melhor email</label>
+                <textarea name="message" id="textarea" cols="30" rows="30"
+                    placeholder="Deixe uma mensagem se desejar"></textarea>
+                <button id="submiter" type="submit">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- MODAL CONTATO -->
+
+    <!-- MODAL FAQ -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h3>FAQ - Perguntas Frequentes</h3>
+            <ul>
+                <li><strong>Vou precisar passar por algum tipo de análise?</strong> <br> A Upfour analisará seu perfil
+                    apenas nos serviços de linha de crédito. Como prezamos pela total transparência; caso você não seja
+                    aprovado, lhe enviaremos o motivo. Nossas unicas restrições são: Nossas únicas restrições são: ter
+                    no mínimo 18 anos, ser residente do Brasil, estar com o CPF regular perante a Receita Federal. </li>
+                <li><strong>Se meu pedido for aprovado, qual o próximo passo?</strong> <br> Nesse caso, entraremos em
+                    contato, por email ou telefone, para informa-lo dos procedimentos a serem feitos. Tudo é 100%
+                    online. </li>
+                    <li><strong>Preciso ser uma pessoa jurídica?</strong> <br> Não, você não precisa. Nosso objetivo é tornar acessível esse tipo de crédito; seja para autônomos ou Micro Empreendedores Individuais (MEI). </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button id="btnclose" class="modal-close">Voltar </button>
+        </div>
+    </div>
+    <!-- MODAL FAQ -->
+
+    <div id="start" class="navbartop"><img src="images/upfour.png" alt=""></div>
+
+    <!-- MENU MOBILE -->
+    <nav id="navbartoggle"><img src="images/menu.png" alt=""></nav>
+    <!-- MENU MOBILE -->
+
+
+    <!-- Corpo do site -->
+
+    <header>
+        <nav id="navbardesktop" class="navbar">
+            <a href="#start">Início</a>
+            <a href="#quemsomos">Quem somos</a>
+            <a href="#servicos">Nossos serviços</a>
+            <a href="#nossotime">Nosso time</a>
+            <a href="#cases">Cases de sucesso</a>
+            <a class="modal-trigger" href="#modal1">Contato</a>
+            <a class="modal-trigger" href="#modal2">Perguntas Frequentes</a>
+        </nav>
+        <!-- MENU MOBILE -->
+        <nav id="navbarmobile" class="navbar hide">
+            <a href="#start">Início</a>
+            <a href="#quemsomos">Quem somos</a>
+            <a href="#servicos">Nossos serviços</a>
+            <a href="#nossotime">Nosso time</a>
+            <a href="#cases">Cases de sucesso</a>
+            <a class="modal-trigger" href="#modal1">Contato</a>
+            <a class="modal-trigger" href="#modal2">Perguntas Frequentes</a></a>
+        </nav>
+        <!-- MENU MOBILE -->
+    </header>
+
+    <main id="homepagewrapper" class="homepagewrapper">
+        <div class="parallax-container">
+            <div class="parallax"><img
+                    src="https://kondzilla.com/wp-content/uploads/2019/08/Empreendedores-da-Quebrada-Dia-4-60-e1567019729945.jpg">
+            </div>
+        </div>
+        <div id="quemsomos" class="statement" data-aos-duration="1000" data-aos="fade-right">
+
+            <h4>A Upfour é uma empresa que fornece crédito para moradores da periferia
+                começarem seu próprio negócio. Nosso objetivo é potencializar o maior ativo do país: o brasileiro.
+            </h4>
+            <div><img id="uphomelogo" src="images/upfour.png" alt=""></div>
+
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img
+                    src="https://kondzilla.com/wp-content/uploads/2019/08/Empreendedores-da-Quebrada-Dia-4-60-e1567019729945.jpg">
+            </div>
+        </div>
+        <div id="servicos" class="statement">
+            <div data-aos="fade-right" data-aos-duration="1000"><img class="circle" src="images/credit.jpg" alt="">
+            </div>
+            <h4>Oferecemos dois produtos que consideramos essenciais:
+                <br><br>
+                <li>Linhas de crédito pessoal e</li>
+                <li>Sistemas para controle e orientação financeira</li><br>
+                Sempre visando soluções favoráveis para o cliente; geramos valor emponderando empreendedores.
+            </h4>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="https://blog.urbanadventures.com/wp-content/uploads/2015/04/DSC_6091.jpg">
+            </div>
+        </div>
+        <div id="nossotime" class="statement">
+            <div data-aos-duration="1000" data-aos="fade-left">
+                <h4>Somos mais de 150 pessoas espalhadas em 7 cidades do Brasil com um objetivo claro: tornar
+                    <b>você</b>
+                    o prontagonista no seu contexto social.</h4><br><br>
+                <a href="#nossotime">Saiba Mais</a>
+            </div>
+
+            </h4>
+            <div><img src="images/earth.png" alt=""></div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="https://blog.urbanadventures.com/wp-content/uploads/2015/04/DSC_6091.jpg">
+            </div>
+        </div>
+        <div id="cases" class="statement">
+
+            <div data-aos-duration="1000" data-aos="fade-right">
+                <h4 id="carrouselh4">Conheça alguns cases de sucesso:</h4>
+
+                <div class="carousel carousel-slider" data-indicators="true">
+                    <div id="dv8" class="carousel-item">
+                        <h5>DAV8, loja de bonés e camisetas, quer se firmar como marca da periferia. Formado em Gestão e
+                            Logística, Clayton Rodrigo dos Santos, 30, dono da marca , quer montar uma rede de lojas em
+                            comunidades. “A marca é bairrista”, diz ele, que exporta bonés e camisetas para Argentina,
+                            Alemanha e Cuba. <br><a
+                                href="https://especiais.dcomercio.com.br/comunidades/personagem1.htm?iframe=true&width=950&height=100%">Saiba
+                                mais</a>
+                        </h5>
+                    </div>
+                    <div id="ayoeventos" class="carousel-item">
+                        <h5>A Ayo Eventos insere belas meninas da periferia no mercado da moda. Marleyse Moraes, 23
+                            anos,
+                            modelo há quatro anos, dona da agência de modelo Ayo Eventos, tem 130 meninas cadastradas
+                            pelo
+                            Facebook. Site que está sendo montado pela agência deve ajudar meninas a se maquiar e a se
+                            vestir. <br><a
+                                href="https://especiais.dcomercio.com.br/comunidades/personagem2.htm?iframe=true&width=950&height=100%">Saiba
+                                mais</a>
+                        </h5>
+                    </div>
+                    <div id="mercadopereira" class="carousel-item">
+                        <h5>O Mercado Pereira, no começo, era apenas uma área de 12 m², que vendia apenas refrigerantes
+                            e
+                            cervejas. Hoje, José Pereira Filho e Maria Aparecida Pereira são donos de três imóveis no
+                            Heliópolis, na Zona Sul de São Paulo – dois deles funcionam como supermercados administrados
+                            pelo casal.<br><a
+                                href="https://especiais.dcomercio.com.br/comunidades/personagem3.htm?iframe=true&width=950&height=100%">Saiba
+                                mais</a>
+                        </h5>
+                    </div>
+                    <div id="comunidadeforro" class="carousel-item">
+                        <h5>A Comunidade do Forró promove festas semanais e movimenta a economia do Jardim São
+                            Francisco, na
+                            Zona Leste de São Paulo. Vem gente de todo lugar – de dentro e de fora da comunidade. Seis
+                            pequenos comerciantes realizam eventos que atraem cerca de 800 pessoas de sexta a domingo.
+                            Artistas do "forró eletrônico" são chamariz de público. Próximo passo é formalizar a
+                            iniciativa
+                            como negócio.<br><a
+                                href="https://especiais.dcomercio.com.br/comunidades/personagem4.htm?iframe=true&width=950&height=100%">Saiba
+                                mais</a>
+                        </h5>
+                    </div>
+                    <div id="ratusfit" class="carousel-item">
+                        <h5>A Rattus Fitness oferece aulas de ginástica a preços acessíveis. Wilson Leandro de Lima, 54,
+                            dono da academia com mais de 600 alunos no Jardim Carumbé, que tem mesmas aulas que as
+                            academias
+                            de bairros nobres<br><a
+                                href="https://especiais.dcomercio.com.br/comunidades/personagem5.htm?iframe=true&width=950&height=100%">Saiba
+                                mais</a>
+                        </h5>
+                    </div>
+                    <div id="luciohair" class="carousel-item">
+                        <h5>O Lúcio Hair Stilus vai virar uma rede – pelo menos essa é a vontade de Lúcio Ferreira
+                            Araújo,
+                            28.
+                            Cabeleireiro desde os 13 anos, atende de 25 a 30 clientes por dia. Para abrir um salão e ter
+                            sucesso, diz ele, é preciso estudar bem o mercado, ser persistente e um bom
+                            profissional.<br><a
+                                href="https://especiais.dcomercio.com.br/comunidades/personagem6.htm?iframe=true&width=950&height=100%">Saiba
+                                mais</a>
+                        </h5>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img
+                    src="https://i2.wp.com/www.lifeismyoyster.com/wp-content/uploads/2015/09/IMG_9223.jpg">
+            </div>
+        </div>
+
+
+        <footer>
+            <div class="footerprops">
+                <div class="socials"><a href="https://www.facebook.com/" target="_blank"> <img src="images/facebook.png"
+                            alt=""> </a></div>
+                <div class="socials"><a href="https://www.linkedin.com/" target="_blank"> <img src="images/linked.png"
+                            alt=""> </a></div>
+                <div class="socials"><a href="https://www.youtube.com" target="_blank"> <img src="images/youtube.png"
+                            alt=""> </a></div>
+            </div>
+
+            <div class="footerprops">
+                <h4>Matérias Relevantes</h4>
+                <ul>
+                    <li><a href="https://kondzilla.com/m/favelas-podem-girar-mais-de-r-7-bilhoes-em-2019/#materia">Favelas
+                            podem girar mais de R$ 7 Bilhões no país inteiro</a></li><br>
+                    <li><a
+                            href="https://www.sebrae.com.br/sites/PortalSebrae/ufs/rj/institucional/empreendedorismo-em-comunidades,f84b9e5d32055410VgnVCM1000003b74010aRCRD">O
+                            Sebrae Rio atua nas favelas da cidade do Rio de Janeiro promovendo a inclusão produtiva
+                            e o fortalecimento dos pequenos negócios</a>
+                    </li><br>
+                    <li><a
+                            href="https://catracalivre.com.br/carreira/empreender-na-favela-e-um-desafio-mas-nao-e-impossivel/">Em
+                            ascensão durante a crise, o business marginal chega à programação do Festival Path 2019
+                            para falar sobre resiliência, produtividade e geração de renda</a>
+                    </li><br>
+                    <li><a
+                            href="https://kondzilla.com/m/o-favela-business-passa-visao-sobre-empreendedorismo-na-quebrada/#materia">O
+                            "Favela Business" passa a visão sobre empreendedorismo na quebrada</a>
+                    </li><br>
+                    <li><a
+                            href="https://exame.abril.com.br/pme/40-dos-moradores-de-favelas-querem-empreender-diz-pesquisa/">40%
+                            dos moradores de favelas querem empreender, diz pesquisa</a>
+                    </li><br>
+                </ul>
+            </div>
+
+            <div class="disclaimer">
+                <p>Upfour - Todos os direitos reservados ©2020 </p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Corpo do site -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.js"
+        integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Scripts -->
+
+</body>
+
+</html>

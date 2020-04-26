@@ -1,0 +1,490 @@
+/* Estilos persistentes */
+
+body {
+    background-color: #292D3E;
+    overflow-x: hidden;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    animation-name: fadein;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        height: 0;
+    }
+    
+    to {
+        opacity: 1;
+        height: 100%;
+    }
+}
+
+
+header {
+    top: 0;
+    z-index: 4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav a {
+    transition: all 0.5s ease-in-out;
+}
+
+
+button {
+    color: #D2C2B0;
+    background-color: #292D3E;
+    border: 1px solid #D2C2B0;
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    height: 32px;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover,
+nav a:hover {
+    box-shadow: 1px 1px #FFFFFF,
+        2px 2px #FFFFFF,
+        3px 3px #D2C2B0;
+    transform: translateX(-3px);
+    padding: 0 35px;
+}
+
+button:active,
+button:focus {
+    background-color: #D2C2B0;
+    color: #292D3E;
+}
+
+/* CABEÇALHO */
+
+.homepagewrapper {
+    width: 100vw;
+    height: 4000px;
+    z-index: 0;
+
+}
+
+.navbartop {
+    background-color: #1F1F24;
+    display: flex;
+    justify-content: center
+}
+
+.navbartop img {
+    height: 60px;
+}
+
+.navbar button {
+    border: none;
+    color: white;
+
+}
+
+#navbartoggle,
+#navbarmobile {
+    opacity: 0;
+    height: 0;
+}
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    align-items: center;
+    background-color: #292D3E;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 3;
+}
+
+/* Modais */
+
+
+.modal li{
+    margin: 15px 0;
+}
+
+.modal {
+    border-radius: 15px;
+    overflow-x: hidden;
+}
+
+.modal button {
+    margin-right: 20px;
+}
+
+form h5 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+form a {
+    margin-left: 15px;
+}
+
+form input,
+form textarea {
+    color: black
+}
+
+form textarea {
+    margin-top: 50px;
+    height: 200px;
+}
+
+form button {
+    align-self: center;
+    justify-self: center;
+    margin-top: 15px;
+}
+
+/* Modais */
+
+/* Cabeçalho */
+
+/* Abas de conteudo */
+
+.statement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #1F1F24;
+    width: 100%;
+    height: 400px;
+}
+
+.statement h4 {
+    color: white;
+    text-indent: 5%;
+    padding: 15px;
+}
+
+.statement img {
+    width: 350px;
+    padding: 15px;
+}
+
+#nossotime a {
+    margin-left: 15px;
+}
+
+#cases {
+    display: flex;
+    padding: 15px;
+    height: 700px;
+    align-items: center;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    color: white;
+
+}
+
+.carousel,
+.carousel-item {
+    width: 700px !important;
+}
+
+#carrouselh4 {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 55px;
+    text-indent: 0%;
+}
+
+.carousel-item h5 {
+    background-color: rgba(0, 0, 0, 0.678);
+    font-size: 20px;
+    width: 90%;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#dv8 {
+    background-image: url(https://especiais.dcomercio.com.br/comunidades/personagens/personagem1/galeria/diario-do-comercio-espeicias-micro-empreendedor-na-comunidademercados-dav8.jpg);
+    background-size: cover;
+}
+
+#ayoeventos {
+    background-image: url(https://especiais.dcomercio.com.br/comunidades/personagens/personagem2/galeria/diario-do-comercio-espeicias-micro-empreendedor-na-comunidade-marleyse-morais-modelo3.jpg);
+    background-size: cover;
+}
+
+#mercadopereira {
+    background-image: url(https://especiais.dcomercio.com.br/comunidades/personagens/personagem3/galeria/diario-do-comercio-espeicias-micro-empreendedor-na-comunidademercados-pereira.jpg);
+    background-size: cover;
+}
+
+#comunidadeforro {
+    background-image: url(https://especiais.dcomercio.com.br/comunidades/personagens/personagem4/galeria/diario-do-comercio-espeicias-micro-empreendedor-na-comunidade-forro1.jpg);
+    background-size: cover;
+}
+
+#ratusfit {
+    background-image: url(https://especiais.dcomercio.com.br/comunidades/personagens/personagem5/galeria/diario-do-comercio-espeicias-micro-empreendedor-na-comunidade-wilson-rattus-academia3.jpg);
+    background-size: cover;
+}
+
+#luciohair {
+    background-image: url(https://especiais.dcomercio.com.br/comunidades/personagens/personagem6/galeria/diario-do-comercio-espeicias-micro-empreendedor-na-comunidade-lucio-cabeleireiro.jpg);
+    background-size: cover;
+}
+
+/* abas de conteudo */
+
+/* Footer */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    height: 800px;
+
+}
+
+
+footer img {
+    height: 83px;
+}
+
+footer h4 {
+    align-self: center;
+    color: aliceblue;
+    padding: 20px;
+}
+
+.footerprops:first-of-type {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    }
+
+.footerprops {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+
+}
+
+.disclaimer {
+    width: 100%;
+    color: wheat;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+
+}
+
+/* Footer */
+
+@media screen and (max-width: 1440px) {
+
+
+    /* Persistentes */
+
+    /* Cabeçalho */
+
+
+    .navbartop img {
+        height: 80px;
+    }
+
+    /* Abas de conteúdo */
+
+    .statement {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        background-color: #1F1F24;
+        width: 100%;
+        height: 400px;
+    }
+
+    .statement h4 {
+        font-size: 18px;
+    }
+
+    .statement h5 {
+        font-size: 14px;
+    }
+
+    .statement img {
+        width: 350px;
+        padding: 15px;
+    }
+
+}
+
+@media screen and (max-width:849px) {
+
+
+    #navbardesktop {
+        display: none
+    }
+
+
+    #navbarmobile {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 430px;
+        animation-name: scrolldown;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        opacity: 1;
+    }
+
+    #navbartoggle {
+        display: flex;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+        background-color: #292D3E;
+        z-index: 4;
+        transition: all 1s ease;
+        opacity: 1;
+
+    }
+
+    #navbartoggle img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hide {
+        opacity: 0;
+
+    }
+
+    @keyframes scrolldown {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+
+    }
+
+
+    /* footer */
+
+    footer {
+        justify-content: space-around;
+    }
+
+    footer img {
+        height: 63px;
+    }
+
+
+    .footerprops:first-of-type {
+        margin-top: auto;
+        width: 60%;
+    }
+
+
+    .footerprops {
+        margin-top: 65px;
+        width: 50%;
+    }
+
+
+}
+
+@media screen and (max-width:689px) {
+
+
+
+    /* Cabeçalho */
+
+
+    /* Abas de conteúdo */
+
+    .carousel,
+    .carousel-item {
+        width: 500px !important;
+    }
+
+    .footerprops:first-of-type {
+        margin-top: 120px;
+
+    }
+
+    @media screen and (max-width:500px) {
+
+
+
+        /* Abas de conteúdo */
+
+        .carousel,
+        .carousel-item {
+            width: 300px !important;
+        }
+
+
+        .statement img {
+            width: 150px;
+            padding: 15px;
+        }
+
+        
+        /* footer */
+
+        footer {
+            justify-content: space-around;
+        }
+
+        footer img {
+            height: 45px;
+        }
+
+        .footerprops:first-of-type {
+            flex-direction: row;            
+            width: 50%;
+            justify-content: space-between;
+        }
+
+        .footerprops {
+            margin-right: 32px;
+            width: 50%;
+            font-size: 12px;
+        }
+
+        .footerprops h4 {
+            padding: 15px;
+        }
+
+
+    }
+}
