@@ -292,7 +292,7 @@ if (tipo === "IN") {
         }
         tipo = "Internacional"
         etapa = "Semifinal"
-        console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
+        console.table(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
              \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: US$ ` + valuation * 4.1 + `\n Valor total: US$ ` + totalValuation * 4.1);
 
     } else if (etapa === "DT") {
