@@ -1,4 +1,3 @@
-
 const bool1 = true
 const bool2 = false
 const bool3 = !bool2
@@ -171,7 +170,7 @@ if (userNumber1 > userNumber2) {
     console.log(`${userNumber1}, ${userNumber2}`)
 } else if (userNumber1 === userNumber2) {
     alert("É o mesmo número")
-} else if (userNumber2 < userNumber1) {
+} else if (userNumber2 > userNumber1) {
     alert(`${userNumber2}, ${userNumber1}`);
     console.log(`${userNumber2}, ${userNumber1}`)
 }
@@ -273,11 +272,10 @@ let totalValuation
 let etapa
 
 
-
 if (tipo === "IN") {
     let etapa = prompt("Indique a etapa do jogo, SF para semifinal, DT para decisão de terceiro lugar e FI para Final")
     if (etapa === "SF") {
-        let categoria = prompt("Selecione a categoria de 1 a 4")
+        let categoria = Number(prompt("Selecione a categoria de 1 a 4"))
         let qtd = prompt("Indique a quantidade de ingressos")
         if (categoria === 1) {
             valuation = 1320;
@@ -292,10 +290,13 @@ if (tipo === "IN") {
             valuation = 220;
             totalValuation = qtd * valuation;
         }
+        tipo = "Internacional"
         etapa = "Semifinal"
+        console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
+             \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: US$ ` + valuation * 4.1 + `\n Valor total: US$ ` + totalValuation * 4.1);
 
     } else if (etapa === "DT") {
-        let categoria = prompt("Selecione a categoria de 1 a 4")
+        let categoria = Number(prompt("Selecione a categoria de 1 a 4"))
         let qtd = prompt("Indique a quantidade de ingressos")
         if (categoria === 1) {
             valuation = 660;
@@ -310,10 +311,13 @@ if (tipo === "IN") {
             valuation = 170;
             totalValuation = qtd * valuation;
         }
-        etapa = "Disputa pelo terceiro lugar"
+        tipo = "Internacional"
+        etapa = "Disputa do terceiro lugar"
+        console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
+             \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: US$ ` + valuation * 4.1 + `\n Valor total: US$ ` + totalValuation * 4.1);
 
     } else if (etapa === "FI") {
-        let categoria = prompt("Selecione a categoria de 1 a 4")
+        let categoria = Number(prompt("Selecione a categoria de 1 a 4"))
         let qtd = prompt("Indique a quantidade de ingressos")
         if (categoria === 1) {
             valuation = 1980;
@@ -333,15 +337,15 @@ if (tipo === "IN") {
         }
         tipo = "Internacional"
         etapa = "Final"
+        console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
+             \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: US$ ` + valuation * 4.1 + `\n Valor total: US$ ` + totalValuation * 4.1);
     }
-    console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
-         \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: R$ ${valuation} \n Valor total: R$ ${totalValuation}`);
 
 } else if (tipo === "DO") {
     {
         let etapa = prompt("Indique a etapa do jogo, SF para semifinal, DT para decisão de terceiro lugar e FI para Final")
         if (etapa === "SF") {
-            let categoria = prompt("Selecione a categoria de 1 a 4")
+            let categoria = Number(prompt("Selecione a categoria de 1 a 4"))
             let qtd = prompt("Indique a quantidade de ingressos")
             if (categoria === 1) {
                 valuation = 1320;
@@ -356,10 +360,13 @@ if (tipo === "IN") {
                 valuation = 220;
                 totalValuation = qtd * valuation;
             }
+            tipo = "Nacional"
             etapa = "Semifinal"
+            console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
+             \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: R$ ${valuation} \n Valor total: R$ ${totalValuation}`);
 
         } else if (etapa === "DT") {
-            let categoria = prompt("Selecione a categoria de 1 a 4")
+            let categoria = Number(prompt("Selecione a categoria de 1 a 4"))
             let qtd = prompt("Indique a quantidade de ingressos")
             if (categoria === 1) {
                 valuation = 660;
@@ -374,10 +381,13 @@ if (tipo === "IN") {
                 valuation = 170;
                 totalValuation = qtd * valuation;
             }
+            tipo = "Nacional"
             etapa = "Disputa pelo terceiro lugar"
+            console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
+             \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: R$ ${valuation} \n Valor total: R$ ${totalValuation}`);
 
         } else if (etapa === "FI") {
-            let categoria = prompt("Selecione a categoria de 1 a 4")
+            let categoria = Number(prompt("Selecione a categoria de 1 a 4"))
             let qtd = prompt("Indique a quantidade de ingressos")
             if (categoria === 1) {
                 valuation = 1980;
@@ -395,12 +405,11 @@ if (tipo === "IN") {
                 valuation = 330;
                 totalValuation = qtd * valuation;
             }
+            tipo = "Nacional"
             etapa = "Final"
             tipo = "Nacional"
+            console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
+            \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: R$ ${valuation} \n Valor total: R$ ${totalValuation}`);
         }
     }
-    console.log(`---Dados da Compra--- \n Nome do cliente: ${nome} \n Tipo do jogo: ${tipo}\n Etapa do jogo: ${etapa} \nCategoria: ${categoria} 
-    \n Quantidade de Ingressos: ${qtd} ingressos \n ----- Valores -------- \n Valor do ingresso: R$ ${valuation} \n Valor total: R$` + (valuation * qtd));
 }
-
-
