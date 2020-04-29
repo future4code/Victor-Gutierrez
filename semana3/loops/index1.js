@@ -78,7 +78,7 @@ console.log(`c) ${evenArr}`)
 let strArr = ["c)"]
 
 for (i = 0; i < array.length; i++) {
-    strArr.push(`O elemento do index ${array.indexOf(array[i])} é ${array[i]}`);
+    strArr.push(`O elemento do index ${0 + i} é ${array[i]}`);
 }
 
 console.table(strArr)
