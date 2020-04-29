@@ -512,9 +512,11 @@ for (i = 0; i >= 0; i++) {
     if (promptPlayer1 === promptPlayer2) {
         console.log(`Você acertou! Levou apenas ${i + 1} tentativas`);
         break
-    } else if (promptPlayer1 !== promptPlayer2) {
-        console.log("ERROUUUUUUUUU NEYMAAARRRRR");
-        console.log("Tente novamente")
+    } else if (promptPlayer1 > promptPlayer2) {
+        console.log("Você errou! Seu número é menor do que a resposta!!!")
+
+    } else if (promptPlayer1 < promptPlayer2) {
+        console.log("Você errou! Seu número é maior do que a resposta!!!")
     }
 }
 
@@ -529,9 +531,11 @@ for (i = 0; i >= 0; i++) {
     if (pcGenerator === manAgainstMachine) {
         console.log(`Você acertou! Levou apenas ${i + 1} tentativas`);
         break
-    } else if (pcGenerator !== manAgainstMachine) {
-        console.log("ERROUUUUUUUUU NEYMAAARRRRR");
-        console.log("Tente novamente")
+    } else if (pcGenerator > manAgainstMachine) {
+        console.log("Você errou! Seu número é menor do que a resposta!!!")
+
+    } else if (pcGenerator < manAgainstMachine) {
+        console.log("Você errou! Seu número é maior do que a resposta!!!")
     }
 }
 
