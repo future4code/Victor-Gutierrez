@@ -534,3 +534,5 @@ for (i = 0; i >= 0; i++) {
         console.log("Tente novamente")
     }
 }
+
+/* A alteração foi simples aprender a usar o freio foi bem bacana */
