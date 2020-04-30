@@ -24,8 +24,6 @@ if (confirm("Quer iniciar uma nova rodada?")) {
    console.log("Fim de jogo")
 }
 
-
-
 /* SEGUNDA TRIAGEM DOS VALORES, ONDE O JOGADOR ESCOLHE SE QUER SEGUIR OU SE QUER PARAR */
 if (arrayUser.reduce(sumArray) < 21 && arrayCOM.reduce(sumArray) < 21) {
    if (confirm(`Deseja pedir mais cartas? Você tem: ${arrayUser.reduce(sumArray)} sendo ${arrayUser_naipe}`)) {
