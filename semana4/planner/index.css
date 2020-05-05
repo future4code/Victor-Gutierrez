@@ -76,7 +76,7 @@ button:hover {
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: auto;
+    width: 200px;
 }
 
 .day-container>p:first-of-type {
