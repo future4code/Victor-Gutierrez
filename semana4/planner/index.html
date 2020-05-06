@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📅Planner</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Adicione suas tarefas da semana!</h1>
+    <section>
+        <div id="form-tarefas">
+            <label>Nome da Tarefa</label>
+            <input type="text" required>
+            <label for="horas">A que horas?</label>
+            <input list="hours" required>
+            <datalist id="hours">
+                <option value="1:00"></option>
+                <option value="2:00"></option>
+                <option value="3:00"></option>
+                <option value="4:00"></option>
+                <option value="5:00"></option>
+                <option value="6:00"></option>
+                <option value="7:00"></option>
+                <option value="8:00"></option>
+                <option value="9:00"></option>
+                <option value="10:00"></option>
+                <option value="11:00"></option>
+                <option value="12:00"></option>
+            </datalist>
+            <label for="horas">Qual parte do dia?</label>
+            <input list="turn" required>
+            <datalist id="turn">
+                <option value="AM"></option>
+                <option value="PM"></option>
+
+            </datalist>
+
+            <label>Qual dia da semana?</label>
+            <input list="days" type="text" required>
+            <datalist id="days">
+                <option value="Domingo"></option>
+                <option value="Segunda"></option>
+                <option value="Terça"></option>
+                <option value="Quarta"></option>
+                <option value="Quinta"></option>
+                <option value="Sexta"></option>
+                <option value="Sábado"></option>
+            </datalist>
+            <button id="insert-task">Inserir Tarefa</button>
+        </div>
+    </section>
+
+
+    <div id="days-wrapper">
+        <div class="day-container">
+            <p>Domingo</p>
+            <div class="day" id="Domingo"></div>
+        </div>
+        <div class="day-container">
+            <p>Segunda</p>
+            <div class="day" id="Segunda"></div>
+        </div>
+        <div class="day-container">
+            <p>Terça</p>
+            <div class="day" id="Terça"></div>
+        </div>
+        <div class="day-container">
+            <p>Quarta</p>
+            <div class="day" id="Quarta"></div>
+        </div>
+        <div class="day-container">
+            <p>Quinta</p>
+            <div class="day" id="Quinta"></div>
+        </div>
+        <div class="day-container">
+            <p>Sexta</p>
+            <div class="day" id="Sexta"></div>
+        </div>
+        <div class="day-container">
+            <p>Sábado</p>
+            <div class="day" id="Sábado"></div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
