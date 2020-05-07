@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" rel="stylesheet">
+    <title>EveryBlogging</title>
+</head>
+
+<body>
+
+    <header>
+        <h2>EveryBlogging</h2>
+        <nav>
+            <ul>
+                <a>Homepage</a>
+                <a>Meus posts</a>
+                <a>Sobre</a>
+            </ul>
+        </nav>
+    </header>
+
+    <aside>
+        <button id="modaltoggler">  Criar Post </button>
+        <form class="hide" id="formmodal">
+            <h3>Crie seu post</h3>
+            <label for="">Seu nickname</label>
+            <input id="nickname" type="text" required>
+            <label for="">Coloque uma foto sua via url &#160:D</label>
+            <input id="photoUrl" type="url" required>
+            <label for="">Título do Post</label>
+            <input id="postTitle" type="text">
+            <label for="">Seu post:</label>
+            <textarea id="postContent" name cols="30" rows="10"></textarea>
+            <button id="sender" type="submit">Enviar</button>
+        </form>
+    </aside>
+
+    <main role="main">
+        <h2>Posts do dia</h2>
+        <section>
+            <div id="newpostarea">
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h5>EveryBlogging - Labenu Corporation</h5>
+    </footer>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
