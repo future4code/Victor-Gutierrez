@@ -83,8 +83,8 @@ function getEvenPlusOne(number) {
     if (i % 2 === 0) {
       nEvens.push(i);
     }
-    nEvens.push(nEvens[nEvens.length - 1] + 2);
   }
+  nEvens.push(nEvens[nEvens.length - 1] + 2);
   console.log(nEvens + "\n\n");
 }
 
@@ -141,6 +141,7 @@ function checkRemainder(num1, num2) {
     return `Ambos não são divisíveis um pelo outro`;
   }
 }
+
 function checkGap(num1, num2) {
   if (num1 > num2) {
     return `A diferença entre eles é ${num1 - num2}`;
@@ -151,14 +152,287 @@ function checkGap(num1, num2) {
 
 comparison(24, 224);
 
-/* Funções --------------------------------------------------- */
+/* FUNÇÕES --------------------------------------------------- */
 console.log("FUNÇÕES ----------------------------------------------- \n");
 
 let RandomArray = [12, 52, 31, 423, 54, 65, 77, 18, 94, 10];
 
 function noSenseFiltering(array) {
-    array.sort()
-    return `O segundo maior é ${array[array.length - 2]}\n O segundo menor é ${array[1]}`
+  array.sort();
+  return `O segundo maior é ${array[array.length - 2]}\n O segundo menor é ${
+    array[1]
+  }\n\n`;
 }
 
-console.log(noSenseFiltering(RandomArray))
+console.log(noSenseFiltering(RandomArray));
+
+/* * Funções --------------------------------------------------- */
+
+console.log(
+  "Exercício 2 ------------------------------------------------------------------\n"
+);
+
+/* let anonimal = () => {
+    alert("Hello Future4 or, for the intimates: Labenu");
+}
+anonimal() */
+console.log("Alert in page\n\n");
+
+/* OBJETOS --------------------------------------------------- */
+console.log("OBJETOS ----------------------------------------------- \n");
+
+console.log(
+  "Exercício 1 ------------------------------------------------------------------\n"
+);
+/* Quando precisamos registrar diversos valores correspondentes a um mesmo item podemos utilizar objetos e utilizar as suas chaves e valores, arrays já ajudam a armazenad valores menos complexos */
+console.log(
+  "Quando precisamos registrar diversos valores correspondentes a um mesmo item podemos utilizar objetos e utilizar as suas chaves e valores, arrays já ajudam a armazenad valores menos complexos\n\n"
+);
+
+console.log(
+  "Exercício 2 ------------------------------------------------------------------\n"
+);
+
+let triangleArr = [];
+
+function criaTriangulo(width, height) {
+  let triangle = {};
+  triangle.largura = width;
+  triangle.altura = height;
+  triangle.perimetro = 2 * width + height;
+  triangle.area = width * height;
+  console.log(triangle);
+}
+
+criaTriangulo(12, 3);
+
+console.log(
+  "Exercício 3 ------------------------------------------------------------------\n"
+);
+
+let movies = [
+  {
+    nome: "The Shawnshank Redemption",
+    prontagonista: "Tim Robbins",
+    coadjuvante: "Morgan Freeman",
+    diretor: "Frank Darabont",
+    ano: "1994",
+    IMDb: "9,3",
+  },
+];
+
+console.log(`Venha assistir ao clássico ${movies[0].nome}, de ${movies[0].ano}. Prontagonizado por ${movies[0].prontagonista}, um banqueiro é acusado de um crime e procura redenção em atos de decência.
+Uma verdadeira obra prima de ${movies[0].diretor}. Um dos coadjuvantes é ninguém mais ninguém menos que ${movies[0].coadjuvante}! O sucesso emplacou uma nota de ${movies[0].IMDb} no IMDb.\n\n`);
+
+console.log(
+  "Exercício 4 ------------------------------------------------------------------\n"
+);
+
+let person = {
+  nome: "Alan Mathison Turing ",
+  idade: 41,
+  profissao: "Gênio injustiçado",
+  vidasSalvas: 14000,
+  email: "turing@enigma.get.this",
+};
+
+function hideFromGovernment(object) {
+  object.nome = object.nome.replace(/[a-z]/gi, ".- -. --- -. .. -- ---");
+  object.profissao = object.profissao.replace(" injustiçado", "");
+  object.vidasSalvas = ".. -. ..-. .. -. .. - ---";
+  console.log(object);
+}
+
+hideFromGovernment(person);
+
+/* Arrays --------------------------------------------------- */
+console.log("\n\nArrays ----------------------------------------------- \n");
+console.log(
+  "Exercício 1 ------------------------------------------------------------------\n"
+);
+
+let people = [
+  {
+    nome: "Pedro",
+    idade: 20,
+  },
+  {
+    nome: "João",
+    idade: 10,
+  },
+  {
+    nome: "Paula",
+    idade: 12,
+  },
+  {
+    nome: "Artur",
+    idade: 89,
+  },
+];
+
+let older = people.filter((index) => {
+  if (index.idade >= 20) {
+    return true;
+  }
+});
+
+let newer = people.filter((index) => {
+  if (index.idade < 20) {
+    return true;
+  }
+});
+
+console.log(older);
+console.log(newer);
+
+console.log(
+  "\nExercício 2 ------------------------------------------------------------------\n"
+);
+
+const testArray = [1, 2, 3, 4, 5, 6];
+
+let mapToTwice = testArray.map((arg) => {
+  return arg * 2;
+});
+
+let mapTostring = testArray.map((arg) => {
+  return (arg * 3).toString();
+});
+
+let mapTowhatever = testArray.map((arg) => {
+  if (arg % 2 === 0) {
+    return `${arg} é par`;
+  } else {
+    return `${arg} é ímpar`;
+  }
+});
+
+console.log(mapToTwice);
+console.log(mapTostring);
+console.log(mapTowhatever);
+
+console.log(
+  "\nExercício 3 ------------------------------------------------------------------\n"
+);
+
+const pessoasParq = [
+  {
+    nome: "Paula",
+    idade: 12,
+    altura: 1.8,
+  },
+  {
+    nome: "João",
+    idade: 20,
+    altura: 1.3,
+  },
+  {
+    nome: "Pedro",
+    idade: 15,
+    altura: 1.9,
+  },
+  {
+    nome: "Luciano",
+    idade: 22,
+    altura: 1.8,
+  },
+  {
+    nome: "Artur",
+    idade: 10,
+    altura: 1.2,
+  },
+  {
+    nome: "Soter",
+    idade: 70,
+    altura: 1.9,
+  },
+];
+
+let getIn = pessoasParq.filter((arg) => {
+  if (arg.idade > 14 && arg.altura > 1.5 && arg.idade < 60) {
+    return true;
+  }
+});
+
+let getTFO = pessoasParq.filter((arg) => {
+  if (arg.idade < 14 || arg.idade > 60) {
+    return true;
+  } else if (arg.altura < 1.5) {
+    return true;
+  }
+});
+
+console.log(getIn);
+console.log(getTFO);
+
+console.log(
+  "\nExercício 4 ------------------------------------------------------------------\n"
+);
+
+const consultas = [
+  {
+    promtrat: "Sr.",
+    promF: "lo",
+    nome: "João",
+    genero: "masculino",
+    cancelada: true,
+    dataDaConsulta: "01/10/2019",
+  },
+  {
+    promtrat: "Sr.",
+    promF: "lo",
+    nome: "Pedro",
+    genero: "masculino",
+    cancelada: false,
+    dataDaConsulta: "02/10/2019",
+  },
+  {
+    promtrat: "Sra.",
+    promF: "la",
+    nome: "Paula",
+    genero: "feminino",
+    cancelada: true,
+    dataDaConsulta: "03/11/2019",
+  },
+  {
+    promtrat: "Sra.",
+    promF: "la",
+    nome: "Márcia",
+    genero: "feminino",
+    cancelada: false,
+    dataDaConsulta: "04/11/2019",
+  },
+];
+
+let mailingConfirm = consultas.map((arg) => {
+  return `Olá, ${arg.promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${arg.promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+});
+
+let mailingCancel = consultas.map((arg) => {
+  return `Olá, ${arg.promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+});
+
+console.log(mailingConfirm);
+console.log(mailingCancel);
+
+console.log(
+  "\nExercício 5 ------------------------------------------------------------------\n"
+);
+
+const contas = [
+  { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+  { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+  { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+  { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+  { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+  { cliente: "Soter", saldoTotal: 1200, compras: [] },
+];
+
+function fixBalance(array) {
+  for (items in contas) {
+    array[items].saldoTotal -= array[items].compras.reduce((a, b) => a + b, 0);
+    console.log(array[items]);
+  }
+}
+
+console.log(fixBalance(contas));
