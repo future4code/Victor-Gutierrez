@@ -223,7 +223,7 @@ console.log(
 let movies = [
   {
     nome: "The Shawnshank Redemption",
-    prontagonista: "Tim Robbins",
+    protagonista: "Tim Robbins",
     coadjuvante: "Morgan Freeman",
     diretor: "Frank Darabont",
     ano: "1994",
@@ -231,7 +231,7 @@ let movies = [
   },
 ];
 
-console.log(`Venha assistir ao clássico ${movies[0].nome}, de ${movies[0].ano}. Prontagonizado por ${movies[0].prontagonista}, um banqueiro é acusado de um crime e procura redenção em atos de decência.
+console.log(`Venha assistir ao clássico ${movies[0].nome}, de ${movies[0].ano}. Protagonizado por ${movies[0].prontagonista}, um banqueiro é acusado de um crime e procura redenção em atos de decência.
 Uma verdadeira obra prima de ${movies[0].diretor}. Um dos coadjuvantes é ninguém mais ninguém menos que ${movies[0].coadjuvante}! O sucesso emplacou uma nota de ${movies[0].IMDb} no IMDb.\n\n`);
 
 console.log(
