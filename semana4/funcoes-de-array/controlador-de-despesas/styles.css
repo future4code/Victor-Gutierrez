@@ -45,3 +45,10 @@ form{
     border: 1px solid black;
     max-height: 550px;
 }
+#error-output{
+    color: red;
+}
+
+#details-output{
+    color: blue;
+}

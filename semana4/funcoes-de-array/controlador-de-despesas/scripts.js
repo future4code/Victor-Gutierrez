@@ -47,19 +47,11 @@ function render() {
         <h2>${passives[count].description}</h2>
         <p><strong>${passives[count].type}<strong></p>
         <p>R$ ${passives[count].amount}</p>
-        <button onclick=id="deleteThis"> Apagar este lançamento</button>
         </div>`;
     document.getElementById("totalVal").innerText = `R$ ${extratoSum.reduce(
       (a, n) => a + n,
       0
     )}`;
-  }
-}
-
-function deletePassive() => {
-  let sure = confirm("Deseja apagar este lançamento?");
-  if (sure === true) {
-    document.getElementById("deleteThis").parentElement.style = "display: none" ;
   }
 }
 
