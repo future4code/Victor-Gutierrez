@@ -3,6 +3,18 @@ const passives = [];
 const extratoSum = [];
 let count = -1;
 
+function newType() {
+  let newTypeInput = document.getElementById("newTypeInput").value;
+  if (newTypeInput != "") {
+    document.getElementById(
+      "type"
+    ).innerHTML += `<option label=${newTypeInput}>${newTypeInput}</option>`;
+    newTypeInput = null;
+  } else {
+    alert("Classe inválida, insira somente texto e não deixe vazio");
+  }
+}
+
 formButton.addEventListener("click", () => {
   event.preventDefault();
   let amount = +document.getElementById("amount").value;
@@ -42,9 +54,10 @@ function render() {
     count--;
   } else {
     document.getElementById("extrato-output").innerHTML += `
-        <div>
+        <div class="passiveItself">
+        <a href="#" onclick="deletePassive()"> ❌ </a>
         <h3>Despesa:</h3>
-        <h2>${passives[count].description}</h2>
+        <h2 class="passiveDesc">${passives[count].description}</h2>
         <p><strong>${passives[count].type}<strong></p>
         <p>R$ ${passives[count].amount}</p>
         </div>`;
@@ -52,6 +65,14 @@ function render() {
       (a, n) => a + n,
       0
     )}`;
+  }
+}
+
+function deletePassive() {
+  let sure = confirm("Quer mesmo apagar esta despesa?");
+  if (sure === true) {
+    event.target.parentElement.style = "display: none";
+    document.getElementById("totalVal").innerText -= 
   }
 }
 
@@ -80,15 +101,18 @@ const getFromFilter = () => {
         document.getElementById(
           "error-output"
         ).innerHTML = `<h3>Não existe despesa com estes parametros</h3>`;
+        document.getElementById("details-output").innerHTML = "";
       }
     });
     console.log(filter);
   }
 
   for (i = 0; i < wrapper.length; i++) {
-    document.getElementById("details-output").innerHTML += `<div>
+    document.getElementById(
+      "details-output"
+    ).innerHTML += `<div class="passiveItself">
           <h3>Despesa:</h3>
-          <h2>${wrapper[i].description}</h2>
+          <h2 class="passiveDesc">${wrapper[i].description}</h2>
           <p><strong>${wrapper[i].type}<strong>  </p>
           <p>R$ ${wrapper[i].amount}  </p>
           </div>`;
