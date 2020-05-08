@@ -172,10 +172,10 @@ console.log(
   "Exercício 2 ------------------------------------------------------------------\n"
 );
 
-/* let anonimal = () => {
+let anonimal = () => {
     alert("Hello Future4 or, for the intimates: Labenu");
 }
-anonimal() */
+anonimal()
 console.log("Alert in page\n\n");
 
 /* OBJETOS --------------------------------------------------- */
