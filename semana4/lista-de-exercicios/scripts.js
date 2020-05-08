@@ -120,8 +120,8 @@ console.log(
 
 function comparison(num1, num2) {
   console.log(checkParity(num1, num2));
-    console.log(checkRemainder(num1, num2));
-    console.log(checkGap(num1, num2))
+  console.log(checkRemainder(num1, num2));
+  console.log(checkGap(num1, num2));
 }
 
 function checkParity(num1, num2) {
@@ -142,11 +142,23 @@ function checkRemainder(num1, num2) {
   }
 }
 function checkGap(num1, num2) {
-    if (num1 > num2) {
-        return `A diferença entre eles é ${num1 - num2}`;
-    } else {
-        return `A diferença entre eles é ${num2 - num1}`;
-    }
+  if (num1 > num2) {
+    return `A diferença entre eles é ${num1 - num2}`;
+  } else {
+    return `A diferença entre eles é ${num2 - num1}\n\n\n`;
+  }
 }
 
 comparison(24, 224);
+
+/* Funções --------------------------------------------------- */
+console.log("FUNÇÕES ----------------------------------------------- \n");
+
+let RandomArray = [12, 52, 31, 423, 54, 65, 77, 18, 94, 10];
+
+function noSenseFiltering(array) {
+    array.sort()
+    return `O segundo maior é ${array[array.length - 2]}\n O segundo menor é ${array[1]}`
+}
+
+console.log(noSenseFiltering(RandomArray))
