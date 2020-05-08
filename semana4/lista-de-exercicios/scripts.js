@@ -76,19 +76,18 @@ console.log(
 
 /* Não funciona e gera um loop infinito, corrigindo o código: */
 
-function getEvenPlusOne(number) {
+function getEvenPlus(number) {
   let nEvens = [];
 
-  for (i = 0; i < number; i++) {
+  for (i = 0; i < number*2; i++) {
     if (i % 2 === 0) {
       nEvens.push(i);
     }
   }
-  nEvens.push(nEvens[nEvens.length - 1] + 2);
-  console.log(nEvens + "\n\n");
+   console.log(nEvens + "\n\n");
 }
 
-getEvenPlusOne(5);
+getEvenPlus(6);
 
 console.log(
   "Exercício 4 ------------------------------------------------------------------"
