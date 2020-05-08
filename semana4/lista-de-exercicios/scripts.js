@@ -79,12 +79,22 @@ console.log(
 function getEvenPlus(number) {
   let nEvens = [];
 
-  for (i = 0; i < number*2; i++) {
+  for (i = 0; i < number * 2; i++) {
     if (i % 2 === 0) {
       nEvens.push(i);
     }
   }
-   console.log(nEvens + "\n\n");
+  console.log(nEvens + "\n\n");
+}
+
+/* Corrigindo a implemenação dele: */
+const quantidadeDeNumerosPares = 5;
+let i = 0
+while (i < quantidadeDeNumerosPares * 2) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+  i++
 }
 
 getEvenPlus(6);
@@ -172,9 +182,9 @@ console.log(
 );
 
 let anonimal = () => {
-    alert("Hello Future4 or, for the intimates: Labenu");
-}
-anonimal()
+  alert("Hello Future4 or, for the intimates: Labenu");
+};
+anonimal();
 console.log("Alert in page\n\n");
 
 /* OBJETOS --------------------------------------------------- */
