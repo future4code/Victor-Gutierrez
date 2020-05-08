@@ -61,6 +61,7 @@ function render() {
         <p><strong>${passives[count].type}<strong></p>
         <p>R$ ${passives[count].amount}</p>
         </div>`;
+
     document.getElementById("totalVal").innerText = `R$ ${extratoSum.reduce(
       (a, n) => a + n,
       0
@@ -72,7 +73,6 @@ function deletePassive() {
   let sure = confirm("Quer mesmo apagar esta despesa?");
   if (sure === true) {
     event.target.parentElement.style = "display: none";
-    document.getElementById("totalVal").innerText -= 
   }
 }
 
