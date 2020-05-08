@@ -83,7 +83,6 @@ let searchbtn = document.getElementById("search-btn");
 
 const getFromFilter = () => {
   event.preventDefault();
-
   let valMax = document.getElementById("valMax").value;
   let valMin = document.getElementById("valMin").value;
   let findtype = document.getElementById("search-type").value;
@@ -101,22 +100,21 @@ const getFromFilter = () => {
         wrapper.push(idx);
         console.log(wrapper);
       } else {
-        document.getElementById(
-          "error-output"
-        ).innerHTML = `<h3>Não existe despesa com estes parametros</h3>`;
+        document.getElementById("error-output").innerHTML = `<h3>Não existe despesa com estes parametros</h3>`;
         document.getElementById("details-output").innerHTML = "";
       }
     });
     console.log(filter);
   }
 
-  for (i = 0; i < wrapper.length; i++) {
-    document.getElementById("details-output").innerHTML += `<div class="passiveItself">
+  for (item in wrapper) {
+    document.getElementById("details-output").innerHTML +=
+      `<div class="passiveItself">
           <h3>Despesa:</h3>
-          <h2 class="passiveDesc">${wrapper[i].description}</h2>
-          <p><strong>${wrapper[i].type}<strong></p>
-          <p>R$ ${wrapper[i].amount}</p>
-          </div>`;
+          <h2 class="passiveDesc">${wrapper[item].description}</h2>
+          <p><strong>${wrapper[item].type}<strong></p>
+          <p>R$ ${wrapper[item].amount}</p>
+        </div>`;
     document.getElementById("error-output").innerHTML = "";
   }
 };
