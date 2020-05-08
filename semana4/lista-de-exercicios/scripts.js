@@ -96,6 +96,9 @@ console.log(
 
 function checkTriangle(a, b, c) {
   switch (true) {
+    case Number(a + b + c) === NaN:
+      console.log(`Insira apenas números`);
+      break;
     case a === b && b === c:
       console.log(`É um triângulo equilátero`);
       break;
@@ -110,9 +113,40 @@ function checkTriangle(a, b, c) {
       break;
   }
 }
-
-checkTriangle(2, 2, 10);
-
+checkTriangle(2, 2, "aaa");
 console.log(
-    "Exercício 5 ------------------------------------------------------------------"
+  "Exercício 5 ------------------------------------------------------------------"
 );
+
+function comparison(num1, num2) {
+  console.log(checkParity(num1, num2));
+    console.log(checkRemainder(num1, num2));
+    console.log(checkGap(num1, num2))
+}
+
+function checkParity(num1, num2) {
+  if (num1 > num2) {
+    return `O maior é ${num1}`;
+  } else {
+    return `O maior é ${num2}`;
+  }
+}
+
+function checkRemainder(num1, num2) {
+  if (num1 % num2 == 0) {
+    return `${num1} é divisível por ${num2}`;
+  } else if (num2 % num1 == 0) {
+    return `${num2} é divisível por ${num1}`;
+  } else if (num1 % num2 !== 0 && num2 % num1 !== 0) {
+    return `Ambos não são divisíveis um pelo outro`;
+  }
+}
+function checkGap(num1, num2) {
+    if (num1 > num2) {
+        return `A diferença entre eles é ${num1 - num2}`;
+    } else {
+        return `A diferença entre eles é ${num2 - num1}`;
+    }
+}
+
+comparison(24, 224);
