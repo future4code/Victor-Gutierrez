@@ -203,9 +203,9 @@ console.log(
   "Exercício 2 ------------------------------------------------------------------\n"
 );
 
-let triangleArr = [];
+let rectangleArr = [];
 
-function criaTriangulo(width, height) {
+function criaretangulo(width, height) {
   let triangle = {};
   triangle.largura = width;
   triangle.altura = height;
@@ -214,7 +214,7 @@ function criaTriangulo(width, height) {
   console.log(triangle);
 }
 
-criaTriangulo(12, 3);
+criaretangulo(12, 3);
 
 console.log(
   "Exercício 3 ------------------------------------------------------------------\n"
