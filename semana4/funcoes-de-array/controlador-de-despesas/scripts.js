@@ -2,13 +2,13 @@ let formButton = document.getElementById("formButton");
 const passives = [];
 const extratoSum = [];
 let count = -1;
+const cleanInput = () => document.getElementsByTagName("input").value = ""
 
 function newType() {
   let newTypeInput = document.getElementById("newTypeInput").value;
   if (newTypeInput != "") {
-    document.getElementById(
-      "type"
-    ).innerHTML += `<option label=${newTypeInput}>${newTypeInput}</option>`;
+    document.getElementById("type").innerHTML += `<option label="${newTypeInput}"> ${newTypeInput} </option>`;
+    document.getElementById("search-type").innerHTML += `<option label="${newTypeInput}"> ${newTypeInput} </option>`
     newTypeInput = null;
   } else {
     alert("Classe inválida, insira somente texto e não deixe vazio");
@@ -20,6 +20,7 @@ formButton.addEventListener("click", () => {
   let amount = +document.getElementById("amount").value;
   let type = document.getElementById("type").value;
   let description = document.getElementById("description").value;
+
 
   if (amount === "" || description === "") {
     alert("Não deixe campos vazios");
@@ -41,7 +42,9 @@ function factory(amount, type, description) {
 
   passives.push(passive);
   extratoSum.push(passive.amount);
+  cleanInput()
   render();
+
 }
 
 function render() {
@@ -108,13 +111,11 @@ const getFromFilter = () => {
   }
 
   for (i = 0; i < wrapper.length; i++) {
-    document.getElementById(
-      "details-output"
-    ).innerHTML += `<div class="passiveItself">
+    document.getElementById("details-output").innerHTML += `<div class="passiveItself">
           <h3>Despesa:</h3>
           <h2 class="passiveDesc">${wrapper[i].description}</h2>
-          <p><strong>${wrapper[i].type}<strong>  </p>
-          <p>R$ ${wrapper[i].amount}  </p>
+          <p><strong>${wrapper[i].type}<strong></p>
+          <p>R$ ${wrapper[i].amount}</p>
           </div>`;
     document.getElementById("error-output").innerHTML = "";
   }

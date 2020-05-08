@@ -46,7 +46,7 @@ form{
     border: 1px solid black;
     box-shadow: 10px 10px 1px gray;
     padding: 30px;
-    max-height: 750px;
+    min-height: 750px;
 }
 #error-output{
     color: red;
