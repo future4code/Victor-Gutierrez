@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    grid-template-columns: repeat(autofit, 40%);
+    grid-template-rows: repeat(autofit, 40%);;
+}
+
+body h1{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form *{
+    margin: 15px 0;
+}

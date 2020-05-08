@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
     <script src="scripts.js" defer></script>
-    <title>Document</title>
+    <title>Controlador de Passivos</title>
 </head>
 
 <body>
@@ -23,18 +23,21 @@
             <option label="Despesas de Viagem">Despesas de Viagem</option>
             <option label="Despesas de Festas">Despesas de Festas</option>
         </select>
+        
+        
         <label for="description">Descreva a Despesa</label>
         <input id="description" type="text" required>
         <button id="formButton" type="submit"> Inserir </button>
     </form>
+    
 
     <section id="details">
         <form>
             <h2>Despesas Detalhadas</h2>
-            <label for="">Com o valor máximo de :</label>
-            <input id="search-valMax" type="number">
             <label for="">Com o valor mínimo de :</label>
-            <input id="search-valMin" type="number">
+            <input id="valMin" type="number">
+            <label for="">Com o valor máximo de :</label>
+            <input id="valMax" type="number">
             
             <label for="type">Insira o tipo da despesa para a pesquisa</label>
             <select id="search-type">
@@ -43,9 +46,10 @@
                 <option label="Despesas de Viagem">Despesas de Viagem</option>
                 <option label="Despesas de Festas">Despesas de Festas</option>
             </select>
-            <button id="search-btn">Pesquisar</button>
+            <button id="search-btn" type="submit" onclick="getFromFilter()">Pesquisar</button>
+            <button id="resetbtn" onclick="resetParam()">Resetar Parametros</button>
         </form>
-
+        <div id="error-output"></div>
         <div id="details-output">
 
         </div>
