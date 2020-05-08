@@ -44,14 +44,22 @@ function render() {
     document.getElementById("extrato-output").innerHTML += `
         <div>
         <h3>Despesa:</h3>
-        <p>${passives[count].description}</p>
-        <p>${passives[count].type}  </p>
-        <p>R$ ${passives[count].amount}  </p>
+        <h2>${passives[count].description}</h2>
+        <p><strong>${passives[count].type}<strong></p>
+        <p>R$ ${passives[count].amount}</p>
+        <button onclick=id="deleteThis"> Apagar este lançamento</button>
         </div>`;
     document.getElementById("totalVal").innerText = `R$ ${extratoSum.reduce(
       (a, n) => a + n,
       0
     )}`;
+  }
+}
+
+function deletePassive() => {
+  let sure = confirm("Deseja apagar este lançamento?");
+  if (sure === true) {
+    document.getElementById("deleteThis").parentElement.style = "display: none" ;
   }
 }
 
@@ -88,8 +96,8 @@ const getFromFilter = () => {
   for (i = 0; i < wrapper.length; i++) {
     document.getElementById("details-output").innerHTML += `<div>
           <h3>Despesa:</h3>
-          <p>${wrapper[i].description}</p>
-          <p>${wrapper[i].type}  </p>
+          <h2>${wrapper[i].description}</h2>
+          <p><strong>${wrapper[i].type}<strong>  </p>
           <p>R$ ${wrapper[i].amount}  </p>
           </div>`;
     document.getElementById("error-output").innerHTML = "";

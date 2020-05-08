@@ -1,26 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   padding: 0;
   outline: 0;
   box-sizing: border-box;
+  font-family: 'Roboto',
+  sans-serif;
 }
 
 body{
-    display: grid;
-    grid-template-columns: repeat(autofit, 40%);
-    grid-template-rows: repeat(autofit, 40%);;
+    background-color:wheat;
+    
 }
 
 body h1{
     text-align: center;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.wrapperbody{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 25%);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: space-evenly;
+}
+
+#Extrato > h2{
+    text-align: center;
+}
+
+#extrato-output {
+    color: green;
+    
 }
 
 form *{
     margin: 15px 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    max-height: 550px;
 }
