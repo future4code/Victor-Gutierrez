@@ -48,3 +48,18 @@ iterateArray(baseArray)
 
 
 /* ------------------------------------------------------------------------------ */
+console.log("Exercício 2 ------------------------------------------------------------------")
+
+console.log("a) false \nb)false \nc) true \nd)true \ne)true ")
+
+/* "a) false b)false c) true d)true e)true */
+
+
+console.log("Exercício 3 ------------------------------------------------------------------")
+
+const quantidadeDeNumerosPares = []
+let i = 0
+
+while (i <= quantidadeDeNumerosPares) {
+    console.log(i * 2)
+}
