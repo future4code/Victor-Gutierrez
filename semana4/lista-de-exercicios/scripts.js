@@ -184,6 +184,7 @@ console.log(
 let anonimal = () => {
   alert("Hello Future4 or, for the intimates: Labenu");
 };
+
 anonimal();
 console.log("Alert in page\n\n");
 
