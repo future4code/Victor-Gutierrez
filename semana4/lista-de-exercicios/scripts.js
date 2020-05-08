@@ -209,7 +209,7 @@ function criaTriangulo(width, height) {
   let triangle = {};
   triangle.largura = width;
   triangle.altura = height;
-  triangle.perimetro = 2 * width + height;
+  triangle.perimetro = 2 * (width + height);
   triangle.area = width * height;
   console.log(triangle);
 }
