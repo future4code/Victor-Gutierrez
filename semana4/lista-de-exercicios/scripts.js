@@ -381,32 +381,24 @@ console.log(
 
 const consultas = [
   {
-    promtrat: "Sr.",
-    promF: "lo",
     nome: "João",
     genero: "masculino",
     cancelada: true,
     dataDaConsulta: "01/10/2019",
   },
   {
-    promtrat: "Sr.",
-    promF: "lo",
     nome: "Pedro",
     genero: "masculino",
     cancelada: false,
     dataDaConsulta: "02/10/2019",
   },
   {
-    promtrat: "Sra.",
-    promF: "la",
     nome: "Paula",
     genero: "feminino",
     cancelada: true,
     dataDaConsulta: "03/11/2019",
   },
   {
-    promtrat: "Sra.",
-    promF: "la",
     nome: "Márcia",
     genero: "feminino",
     cancelada: false,
@@ -415,18 +407,35 @@ const consultas = [
 ];
 
 let mailingConfirm = consultas.map((arg) => {
-  if (arg.cancelada === false) {
-    return `Olá, ${arg.promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${arg.promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+  let promtrat;
+  let promF;
+  if (arg.genero === "masculino") {
+    promtrat = "Sr.";
+    promF = "lo";
   } else {
-    return "-";
+    promtrat = "Sra.";
+    promF = "la";
+  }
+  if (arg.cancelada === false) {
+    return `Olá, ${promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+  } else {
+    return "*";
   }
 });
 
 let mailingCancel = consultas.map((arg) => {
-  if (arg.cancelada === true) {
-    return `Olá, ${arg.promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+  let promtrat;
+  if (arg.genero === "masculino") {
+    promtrat = "Sr.";
+    promF = "lo";
   } else {
-    return "-";
+    promtrat = "Sra.";
+    promF = "la";
+  }
+  if (arg.cancelada === true) {
+    return `Olá, ${promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+  } else {
+    return "*";
   }
 });
 
@@ -436,14 +445,37 @@ console.log(mailingCancel);
 console.log(
   "\nExercício 5 ------------------------------------------------------------------\n"
 );
-
 const contas = [
-  { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
-  { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
-  { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
-  { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
-  { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
-  { cliente: "Soter", saldoTotal: 1200, compras: [] },
+  {
+    cliente: "João",
+    saldoTotal: 1000,
+    compras: [100, 200, 300],
+  },
+  {
+    cliente: "Paula",
+    saldoTotal: 7500,
+    compras: [200, 1040],
+  },
+  {
+    cliente: "Pedro",
+    saldoTotal: 10000,
+    compras: [5140, 6100, 100, 2000],
+  },
+  {
+    cliente: "Luciano",
+    saldoTotal: 100,
+    compras: [100, 200, 1700],
+  },
+  {
+    cliente: "Artur",
+    saldoTotal: 1800,
+    compras: [200, 300],
+  },
+  {
+    cliente: "Soter",
+    saldoTotal: 1200,
+    compras: [],
+  },
 ];
 
 function fixBalance(array) {
