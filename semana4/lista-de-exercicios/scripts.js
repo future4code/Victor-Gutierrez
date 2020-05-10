@@ -89,12 +89,12 @@ function getEvenPlus(number) {
 
 /* Corrigindo a implemenação dele: */
 const quantidadeDeNumerosPares = 5;
-let i = 0
+let i = 0;
 while (i < quantidadeDeNumerosPares * 2) {
   if (i % 2 === 0) {
     console.log(i);
   }
-  i++
+  i++;
 }
 
 getEvenPlus(6);
@@ -415,11 +415,19 @@ const consultas = [
 ];
 
 let mailingConfirm = consultas.map((arg) => {
-  return `Olá, ${arg.promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${arg.promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+  if (arg.cancelada === false) {
+    return `Olá, ${arg.promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${arg.promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+  } else {
+    return "-";
+  }
 });
 
 let mailingCancel = consultas.map((arg) => {
-  return `Olá, ${arg.promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+  if (arg.cancelada === true) {
+    return `Olá, ${arg.promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+  } else {
+    return "-";
+  }
 });
 
 console.log(mailingConfirm);
