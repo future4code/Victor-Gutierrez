@@ -439,7 +439,7 @@ const contas = [
 ];
 
 function fixBalance(array) {
-  for (items in contas) {
+  for (items in array) {
     array[items].saldoTotal -= array[items].compras.reduce((a, b) => a + b, 0);
     console.log(array[items]);
   }
