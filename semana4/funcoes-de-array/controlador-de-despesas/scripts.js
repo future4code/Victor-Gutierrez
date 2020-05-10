@@ -108,7 +108,7 @@ const getFromFilter = () => {
   }
 
   for (item in wrapper) {
-    document.getElementById("details-output").innerHTML +=
+    document.getElementById("details-output").innerHTML =
       `<div class="passiveItself">
           <h3>Despesa:</h3>
           <h2 class="passiveDesc">${wrapper[item].description}</h2>
