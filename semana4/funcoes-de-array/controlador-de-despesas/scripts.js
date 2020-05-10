@@ -2,13 +2,17 @@ let formButton = document.getElementById("formButton");
 const passives = [];
 const extratoSum = [];
 let count = -1;
-const cleanInput = () => document.getElementsByTagName("input").value = ""
+const cleanInput = () => (document.getElementsByTagName("input").value = "");
 
 function newType() {
   let newTypeInput = document.getElementById("newTypeInput").value;
   if (newTypeInput != "") {
-    document.getElementById("type").innerHTML += `<option label="${newTypeInput}"> ${newTypeInput} </option>`;
-    document.getElementById("search-type").innerHTML += `<option label="${newTypeInput}"> ${newTypeInput} </option>`
+    document.getElementById(
+      "type"
+    ).innerHTML += `<option label="${newTypeInput}"> ${newTypeInput} </option>`;
+    document.getElementById(
+      "search-type"
+    ).innerHTML += `<option label="${newTypeInput}"> ${newTypeInput} </option>`;
     newTypeInput = null;
   } else {
     alert("Classe inválida, insira somente texto e não deixe vazio");
@@ -20,7 +24,6 @@ formButton.addEventListener("click", () => {
   let amount = +document.getElementById("amount").value;
   let type = document.getElementById("type").value;
   let description = document.getElementById("description").value;
-
 
   if (amount === "" || description === "") {
     alert("Não deixe campos vazios");
@@ -42,9 +45,8 @@ function factory(amount, type, description) {
 
   passives.push(passive);
   extratoSum.push(passive.amount);
-  cleanInput()
+  cleanInput();
   render();
-
 }
 
 function render() {
@@ -100,7 +102,9 @@ const getFromFilter = () => {
         wrapper.push(idx);
         console.log(wrapper);
       } else {
-        document.getElementById("error-output").innerHTML = `<h3>Não existe despesa com estes parametros</h3>`;
+        document.getElementById(
+          "error-output"
+        ).innerHTML = `<h3>Não existe despesa com estes parametros</h3>`;
         document.getElementById("details-output").innerHTML = "";
       }
     });
@@ -108,8 +112,9 @@ const getFromFilter = () => {
   }
 
   for (item in wrapper) {
-    document.getElementById("details-output").innerHTML =
-      `<div class="passiveItself">
+    document.getElementById(
+      "details-output"
+    ).innerHTML += `<div class="passiveItself">
           <h3>Despesa:</h3>
           <h2 class="passiveDesc">${wrapper[item].description}</h2>
           <p><strong>${wrapper[item].type}<strong></p>
