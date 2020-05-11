@@ -417,30 +417,14 @@ let mailingConfirm = consultas.map((arg) => {
     promF = "la";
   }
   if (arg.cancelada === false) {
-    return `Olá, ${promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+    return `Olá, ${promtrat} ${arg.nome}. Estamos enviando esta mensagem para lembrá-${promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
   } else {
-    return "*";
-  }
-});
-
-let mailingCancel = consultas.map((arg) => {
-  let promtrat;
-  if (arg.genero === "masculino") {
-    promtrat = "Sr.";
-    promF = "lo";
-  } else {
-    promtrat = "Sra.";
-    promF = "la";
-  }
-  if (arg.cancelada === true) {
-    return `Olá, ${promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
-  } else {
-    return "*";
+    return  `Olá, ${promtrat} ${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
   }
 });
 
 console.log(mailingConfirm);
-console.log(mailingCancel);
+
 
 console.log(
   "\nExercício 5 ------------------------------------------------------------------\n"
