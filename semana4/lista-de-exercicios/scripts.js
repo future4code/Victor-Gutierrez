@@ -89,12 +89,12 @@ function getEvenPlus(number) {
 
 /* Corrigindo a implemenação dele: */
 const quantidadeDeNumerosPares = 5;
-let i = 0
+let i = 0;
 while (i < quantidadeDeNumerosPares * 2) {
   if (i % 2 === 0) {
     console.log(i);
   }
-  i++
+  i++;
 }
 
 getEvenPlus(6);
@@ -220,14 +220,16 @@ console.log(
   "Exercício 3 ------------------------------------------------------------------\n"
 );
 
-let movies = [{
-  nome: "The Shawnshank Redemption",
-  protagonista: "Tim Robbins",
-  coadjuvante: "Morgan Freeman",
-  diretor: "Frank Darabont",
-  ano: "1994",
-  IMDb: "9,3",
-}, ];
+let movies = [
+  {
+    nome: "The Shawnshank Redemption",
+    protagonista: "Tim Robbins",
+    coadjuvante: "Morgan Freeman",
+    diretor: "Frank Darabont",
+    ano: "1994",
+    IMDb: "9,3",
+  },
+];
 
 console.log(`Venha assistir ao clássico ${movies[0].nome}, de ${movies[0].ano}. Protagonizado por ${movies[0].prontagonista}, um banqueiro é acusado de um crime e procura redenção em atos de decência.
 Uma verdadeira obra prima de ${movies[0].diretor}. Um dos coadjuvantes é ninguém mais ninguém menos que ${movies[0].coadjuvante}! O sucesso emplacou uma nota de ${movies[0].IMDb} no IMDb.\n\n`);
@@ -259,7 +261,8 @@ console.log(
   "Exercício 1 ------------------------------------------------------------------\n"
 );
 
-let people = [{
+let people = [
+  {
     nome: "Pedro",
     idade: 20,
   },
@@ -322,7 +325,8 @@ console.log(
   "\nExercício 3 ------------------------------------------------------------------\n"
 );
 
-const pessoasParq = [{
+const pessoasParq = [
+  {
     nome: "Paula",
     idade: 12,
     altura: 1.8,
@@ -375,7 +379,8 @@ console.log(
   "\nExercício 4 ------------------------------------------------------------------\n"
 );
 
-const consultas = [{
+const consultas = [
+  {
     promtrat: "Sr.",
     promF: "lo",
     nome: "João",
@@ -412,13 +417,17 @@ const consultas = [{
 let mailingConfirm = consultas.map((arg) => {
   if (arg.cancelada === false) {
     return `Olá, ${arg.promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${arg.promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
-  } else {}
+  } else {
+    return "-";
+  }
 });
 
 let mailingCancel = consultas.map((arg) => {
   if (arg.cancelada === true) {
     return `Olá, ${arg.promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
-  } else {}
+  } else {
+    return "-";
+  }
 });
 
 console.log(mailingConfirm);
@@ -428,35 +437,36 @@ console.log(
   "\nExercício 5 ------------------------------------------------------------------\n"
 );
 
-const contas = [{
+const contas = [
+  {
     cliente: "João",
     saldoTotal: 1000,
-    compras: [100, 200, 300]
+    compras: [100, 200, 300],
   },
   {
     cliente: "Paula",
     saldoTotal: 7500,
-    compras: [200, 1040]
+    compras: [200, 1040],
   },
   {
     cliente: "Pedro",
     saldoTotal: 10000,
-    compras: [5140, 6100, 100, 2000]
+    compras: [5140, 6100, 100, 2000],
   },
   {
     cliente: "Luciano",
     saldoTotal: 100,
-    compras: [100, 200, 1700]
+    compras: [100, 200, 1700],
   },
   {
     cliente: "Artur",
     saldoTotal: 1800,
-    compras: [200, 300]
+    compras: [200, 300],
   },
   {
     cliente: "Soter",
     saldoTotal: 1200,
-    compras: []
+    compras: [],
   },
 ];
 
