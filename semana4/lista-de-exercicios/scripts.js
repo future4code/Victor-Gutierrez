@@ -381,24 +381,32 @@ console.log(
 
 const consultas = [
   {
+    promtrat: "Sr.",
+    promF: "lo",
     nome: "João",
     genero: "masculino",
     cancelada: true,
     dataDaConsulta: "01/10/2019",
   },
   {
+    promtrat: "Sr.",
+    promF: "lo",
     nome: "Pedro",
     genero: "masculino",
     cancelada: false,
     dataDaConsulta: "02/10/2019",
   },
   {
+    promtrat: "Sra.",
+    promF: "la",
     nome: "Paula",
     genero: "feminino",
     cancelada: true,
     dataDaConsulta: "03/11/2019",
   },
   {
+    promtrat: "Sra.",
+    promF: "la",
     nome: "Márcia",
     genero: "feminino",
     cancelada: false,
@@ -407,28 +415,28 @@ const consultas = [
 ];
 
 let mailingConfirm = consultas.map((arg) => {
-  let promtrat;
-  let promF;
-  if (arg.genero === "masculino") {
-    promtrat = "Sr.";
-    promF = "lo";
-  } else {
-    promtrat = "Sra.";
-    promF = "la";
-  }
   if (arg.cancelada === false) {
-    return `Olá, ${promtrat} ${arg.nome}. Estamos enviando esta mensagem para lembrá-${promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+    return `Olá, ${arg.promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${arg.promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
   } else {
-    return  `Olá, ${promtrat} ${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+    return "-";
+  }
+});
+
+let mailingCancel = consultas.map((arg) => {
+  if (arg.cancelada === true) {
+    return `Olá, ${arg.promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+  } else {
+    return "-";
   }
 });
 
 console.log(mailingConfirm);
-
+console.log(mailingCancel);
 
 console.log(
   "\nExercício 5 ------------------------------------------------------------------\n"
 );
+
 const contas = [
   {
     cliente: "João",
@@ -465,8 +473,8 @@ const contas = [
 function fixBalance(array) {
   for (items in array) {
     array[items].saldoTotal -= array[items].compras.reduce((a, b) => a + b, 0);
-    console.log(array[items]);
+    console.table(array[items]);
   }
 }
 
-console.log(fixBalance(contas));
+console.table(fixBalance(contas));

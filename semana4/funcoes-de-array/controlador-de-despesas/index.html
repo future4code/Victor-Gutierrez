@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="scripts.js" defer></script>
+    <script src="cleanInput.js" defer></script>
+    <title>Controlador de Passivos</title>
+</head>
+
+<body>
+    <div class="wrapperbody">
+        <form action="">
+            <h1>Controlador de Despesas</h1>
+            <h2>Cadastro de despesas </h2>
+            <label for="value">Insira o valor da despesa: </label>
+            <input id="amount" type="number" value>
+            <label for="type">Insira o tipo da despesa:</label>
+
+            <select id="type" aria-required="true">
+                <option label="Despesas de Casa">Despesas de Casa</option>
+                <option label="Despesas com Alimentação">Despesas com Alimentação</option>
+                <option label="Despesas de Viagem">Despesas de Viagem</option>
+                <option label="Despesas de Festas">Despesas de Festas</option>
+            </select>
+            <label for="newtype">Ou crie um tipo:</label>
+            <input id="newTypeInput" placeholder="Após criar selecione acima type=" text">
+            <a href="#" onclick="newType()">Adicionar novo tipo</a>
+
+            <label for="description">Descreva a Despesa</label>
+            <input id="description" type="text" required>
+            <button id="formButton" type="submit"> Inserir </button>
+        </form>
+
+        <section id="details">
+            <form>
+                <h2>Despesas Detalhadas</h2>
+                <label for="">Com o valor mínimo de :</label>
+                <input id="valMin" type="number" oninput="getFromFilter()">
+                <label for="">Com o valor máximo de :</label>
+                <input id="valMax" type="number" oninput="getFromFilter()">
+
+                <label for="type">Insira o tipo da despesa para a pesquisa:</label>
+                <select id="search-type" oninput="getFromFilter()">
+                    <option label="Despesas de Casa">Despesas de Casa</option>
+                    <option label="Despesas com Alimentação">Despesas com Alimentação</option>
+                    <option label="Despesas de Viagem">Despesas de Viagem</option>
+                    <option label="Despesas de Festas">Despesas de Festas</option>
+                </select>
+
+                <h3>A pesquisa é dinâmica, insira os parâmetros e o filtro localizará</h3>
+                <button id="resetbtn" onclick="resetParam()">Resetar Parametros</button>
+            </form>
+            <div id="error-output"></div>
+            <div id="details-output">
+            </div>
+        </section>
+
+        <section id="Extrato">
+            <h2>Extrato</h2>
+            <div id="extrato-output">
+                <h2>Total:</h2>
+                <h2 id="totalVal"></h2>
+                <hr>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
