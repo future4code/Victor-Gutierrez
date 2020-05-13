@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./SecaoComentario.css";
+import { Comentarios } from "./../Comentarios/comentarios";
 
 export class SecaoComentario extends Component {
   state = {
@@ -8,7 +9,9 @@ export class SecaoComentario extends Component {
 
   onChangeComentario = (e) => {
     console.log(e.target.value);
-    this.setState({ comment: e.target.value });
+    this.setState({
+      comment: e.target.value,
+    });
   };
 
   render() {
@@ -21,8 +24,9 @@ export class SecaoComentario extends Component {
             value={this.state.comment}
             onChange={this.onChangeComentario}
           />
-          <button onClick={this.props.aoEnviar}>Enviar</button>
+          <button onClick={this.props.aoEnviar}> Enviar </button>
         </div>
+        <Comentarios content={this.state.comment} />
       </>
     );
   }
