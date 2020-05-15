@@ -8,7 +8,6 @@ export default props => {
         const data = await response.json();
         console.log(data)
     })
-
     /* MEU SONHO É TIRAR ESSE JSON DAQUI MEU DEUS DO CÉU, talvez eu deva reestruturar como classe... tenho que pensar nisso. */
 
     let videoGo = `https://www.youtube.com/watch?v=${props.videoID}`
