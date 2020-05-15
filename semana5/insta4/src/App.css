@@ -1,0 +1,20 @@
+.title {
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app-container {
+  display: grid;
+  margin-top: 100px;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(autofill, 500px);
+  gap: 20px;
+
+}
