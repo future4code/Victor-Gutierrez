@@ -3,7 +3,6 @@ import { Container, Final, Error, Display } from "./styles";
 
 /* Eu comecei este projeto e recomecei do zero. Infelizmente, não consegui concluí-lo usando States. */
 
-
 export default function Form() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -16,7 +15,7 @@ export default function Form() {
     const [complements, setCompl] = useState("");
     const [error, setError] = useState("");
 
-/* Aqui listei varios estados para facilitar a requisição deles lá embaixo. Poderia ter sido feito um objeto, mas o tempo era curto para refatorar */
+    /* Aqui listei varios estados para facilitar a requisição deles lá embaixo. Poderia ter sido feito um objeto, mas o tempo era curto para refatorar */
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -64,7 +63,7 @@ export default function Form() {
 
     const setPageValue = () => {
         switch (scholar) {
-            case "Ensino Médio Completo":       // O Condicional Inicial que define qual página deve ser exibida após o primeiro formulário.
+            case "Ensino Médio Completo": // O Condicional Inicial que define qual página deve ser exibida após o primeiro formulário.
                 return 3;
             case "Ensino Fundamental":
                 return 3;
@@ -81,11 +80,11 @@ export default function Form() {
         if (
             course === " " ||
             institutions === "" ||
-            motivation === "" ||                       // O Condicional que permite ou não o acesso à página final.
+            motivation === "" || // O Condicional que permite ou não o acesso à página final.
             complements === ""
         ) {
             alert("Não deixe campos vazios");
-            setError("Preencha todos os campos");
+            setError("Este campo é obrigatório");
         } else {
             setPage(4);
         }
@@ -94,7 +93,7 @@ export default function Form() {
     const handleNewPage = (e) => {
         e.preventDefault();
         if (name === "" || email === "" || age === "") {
-            setError("Preencha todos os campos");
+            setError("Este campo é obrigatório");
             alert("Não deixe nenhum campo vazio");
         } else {
             setPage(setPageValue());
@@ -106,7 +105,7 @@ export default function Form() {
             case 1:
                 return etapa1;
             case 2:
-                return ensinosuperior;                     // O Condicional que renderiza tudo com base na escolaridade
+                return ensinosuperior; // O Condicional que renderiza tudo com base na escolaridade
             case 3:
                 return ensinomedio;
             case 4:
@@ -116,9 +115,7 @@ export default function Form() {
         }
     };
 
-
     // As próximas constantes de referem a estruturas HTML que são chamadas nas funções
-
 
     const etapa1 = (
         <Container>
@@ -261,7 +258,6 @@ export default function Form() {
     );
 
     // Fim das constantes de estrutura
-
 
     //Renderização da função
     return <>{renderPage()}</>;
