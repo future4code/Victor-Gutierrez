@@ -1,13 +1,14 @@
 import React from "react";
 import { GlobalStyle } from "./styledcomponents/GlobalStyles";
 import Form from "./components/Form/Form";
+import Header from "./components/Header/header";
 
 function App() {
     return (
         <>
+            <Header />
             <Form />
             <GlobalStyle />
-            <h1>Hello World!</h1>
         </>
     );
 }
