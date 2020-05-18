@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+/* Componentes estilizados utilizados no arquivo Form.js */
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;

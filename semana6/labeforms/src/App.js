@@ -6,9 +6,9 @@ import Header from "./components/Header/header";
 function App() {
     return (
         <>
-            <Header />
-            <Form />
-            <GlobalStyle />
+            <Header /> {/* Aqui se encontram os componentes do Header */}
+            <Form /> {/* Aqui se encontra toda a lógica do formulário */}
+            <GlobalStyle />  {/* Aqui se encontram estilos globais do meu template React */}
         </>
     );
 }

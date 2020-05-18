@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Container, Final, Error, Display } from "./styles";
 
+/* Eu comecei este projeto e recomecei do zero. Infelizmente, não consegui concluí-lo usando States. */
+
+
 export default function Form() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -12,6 +15,8 @@ export default function Form() {
     const [motivation, setWhy] = useState("");
     const [complements, setCompl] = useState("");
     const [error, setError] = useState("");
+
+/* Aqui listei varios estados para facilitar a requisição deles lá embaixo. Poderia ter sido feito um objeto, mas o tempo era curto para refatorar */
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -33,15 +38,15 @@ export default function Form() {
 
     const handleCourse = (e) => {
         setCourse(e.target.value);
-        setWhy("NOTEMPTY");
-        setCompl("NOTEMPTY");
+        setWhy("NOTEMPTY"); //Para que não haja uma interferência no feedback dado no final atribuo valores vazios aos estados não utilizados isso acabou diminuindo a verbosidade final, pois menos condicionais foram criados
+        setCompl("NOTEMPTY"); // Você verá esse padrão se repetindo nas próximas funções
         setError("");
     };
 
     const handleInstitution = (e) => {
         setInstitution(e.target.value);
         setWhy("NOTEMPTY");
-        setCompl("NOTEMPTY"); //Para que não haja uma interferência no feedback dado no final atribuo valores vazios aos estados não utilizados
+        setCompl("NOTEMPTY");
         setError("");
     };
     const handleBecause = (e) => {
@@ -53,13 +58,13 @@ export default function Form() {
     const handleComplement = (e) => {
         setCompl(e.target.value);
         setCourse("NOTEMPTY");
-        setInstitution("NOTEMPTY"); //Para que não haja uma interferência no feedback dado no final atribuo valores vazios aos estados não utilizados
+        setInstitution("NOTEMPTY");
         setError("");
     };
 
     const setPageValue = () => {
         switch (scholar) {
-            case "Ensino Médio Completo":
+            case "Ensino Médio Completo":       // O Condicional Inicial que define qual página deve ser exibida após o primeiro formulário.
                 return 3;
             case "Ensino Fundamental":
                 return 3;
@@ -76,7 +81,7 @@ export default function Form() {
         if (
             course === " " ||
             institutions === "" ||
-            motivation === "" ||
+            motivation === "" ||                       // O Condicional que permite ou não o acesso à página final.
             complements === ""
         ) {
             alert("Não deixe campos vazios");
@@ -101,7 +106,7 @@ export default function Form() {
             case 1:
                 return etapa1;
             case 2:
-                return ensinosuperior;
+                return ensinosuperior;                     // O Condicional que renderiza tudo com base na escolaridade
             case 3:
                 return ensinomedio;
             case 4:
@@ -110,6 +115,10 @@ export default function Form() {
                 console.log("");
         }
     };
+
+
+    // As próximas constantes de referem a estruturas HTML que são chamadas nas funções
+
 
     const etapa1 = (
         <Container>
@@ -251,5 +260,9 @@ export default function Form() {
         </Final>
     );
 
+    // Fim das constantes de estrutura
+
+
+    //Renderização da função
     return <>{renderPage()}</>;
 }
