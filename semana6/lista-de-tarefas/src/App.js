@@ -117,8 +117,9 @@ class App extends React.Component {
 
   deleteStorage = () => {
     localStorage.clear();
-    alert("Você excluiu todos os dados, recarregue a página para fazer efeito");
-    window.location.reload(false);
+    if (window.confirm("Você deseja excluir todos os dados?")) {
+      window.location.reload(false);
+    }
   };
 
   render() {
