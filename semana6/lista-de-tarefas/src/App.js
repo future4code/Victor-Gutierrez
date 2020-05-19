@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import "./styles.css";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 const TarefaList = styled.ul`
   padding: 0;
@@ -48,8 +47,8 @@ class App extends React.Component {
       id: Date.now(),
       texto: this.state.inputValue,
       completa: false,
-      delete: "x",
-      edit: "Editar",
+      delete: "(x)",
+      edit: "----Editar----",
     };
     if (newTask.texto === "") {
       alert("Esta tarefa é nula");
@@ -68,8 +67,8 @@ class App extends React.Component {
           completa: !item.completa,
           texto: item.texto,
           id: Date.now(),
-          delete: "x",
-          edit: "Editar",
+          delete: "(x)",
+          edit: "----Editar----",
         };
       } else {
         return item;
@@ -116,6 +115,12 @@ class App extends React.Component {
     });
   };
 
+  deleteStorage = () => {
+    localStorage.clear();
+    alert("Você excluiu todos os dados, recarregue a página para fazer efeito");
+    window.location.reload(false);
+  };
+
   render() {
     let keyGen = () => Math.random() * 5;
 
@@ -145,7 +150,7 @@ class App extends React.Component {
               <li>Para excluir clique duas vezes no "x"</li>
               <li>Para concluir clique na tarefa</li>
             </ul>
-            <button>Excluir Tudo!</button>
+            <button onClick={this.deleteStorage}>Excluir Todas</button>
           </InputsContainer>
         </div>
         <br />
