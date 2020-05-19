@@ -6,7 +6,7 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 const TarefaList = styled.ul`
   padding: 0;
   width: 300px;
-  height: auto;
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -48,8 +48,8 @@ class App extends React.Component {
       id: Date.now(),
       texto: this.state.inputValue,
       completa: false,
-      delete: <AiFillDelete />,
-      edit: <AiFillEdit />,
+      delete: "x",
+      edit: "Editar",
     };
     if (newTask.texto === "") {
       alert("Esta tarefa é nula");
@@ -68,8 +68,8 @@ class App extends React.Component {
           completa: !item.completa,
           texto: item.texto,
           id: Date.now(),
-          delete: <AiFillDelete />,
-          edit: <AiFillEdit />,
+          delete: "x",
+          edit: "Editar",
         };
       } else {
         return item;
@@ -104,8 +104,8 @@ class App extends React.Component {
         return {
           texto: edit,
           id: Date.now(),
-          delete: <AiFillDelete />,
-          edit: <AiFillEdit />,
+          delete: "(x)",
+          edit: "----Editar----",
         };
       } else {
         return item;
@@ -141,10 +141,11 @@ class App extends React.Component {
             />
             <button onClick={this.criaTarefa}>Adicionar</button>
             <ul>
-              <li>Para editar clique uma vez no lápis</li>
-              <li>Para excluir clique duas vezes na lixeira</li>
+              <li>Para editar clique uma vez no "Editar"</li>
+              <li>Para excluir clique duas vezes no "x"</li>
               <li>Para concluir clique na tarefa</li>
             </ul>
+            <button>Excluir Tudo!</button>
           </InputsContainer>
         </div>
         <br />
