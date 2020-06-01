@@ -37,7 +37,6 @@ class App extends React.Component {
   componentDidMount() {
     this.setState({ tarefas: JSON.parse(localStorage.getItem("tasks")) || [] });
   }
-
   onChangeInput = (event) => {
     this.setState({ inputValue: event.target.value });
   };
@@ -50,6 +49,7 @@ class App extends React.Component {
       delete: "(x)",
       edit: "----Editar----",
     };
+
     if (newTask.texto === "") {
       alert("Esta tarefa é nula");
     } else {
@@ -99,15 +99,13 @@ class App extends React.Component {
   editItem = (id) => {
     let edit = prompt("Deseja editar? Insira o novo conteúdo abaixo");
     let renderAgain = this.state.tarefas.map((item) => {
-      if (item.id === id) {
+      if (item.id === id && edit !== "") {
         return {
           texto: edit,
           id: Date.now(),
           delete: "(x)",
           edit: "----Editar----",
         };
-      } else {
-        return item;
       }
     });
     this.setState({
