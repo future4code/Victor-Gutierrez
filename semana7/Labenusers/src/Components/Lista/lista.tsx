@@ -3,6 +3,8 @@ import { api } from './../../Services/api';
 import loadingImg from './../../Assets/Orbit-32px.gif';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { AiFillEdit } from 'react-icons/ai';
+import { Container, Input } from './lista_styles';
+import { toast } from 'react-toastify';
 
 interface usersFromList {
     id: string;
@@ -19,13 +21,16 @@ export default function Lista() {
             setList(response.data);
             setloading(false);
         });
-    }, []);
+    }, [userList]);
 
     const deleteUser = (id: string) => {
         setloading(true);
         let sure = window.confirm('Deseja mesmo deletar este usuário?');
         if (sure) {
-            api.delete(`/users/${id}`).then(() => setloading(false));
+            api.delete(`/users/${id}`).then(() => {
+                setloading(false);
+                toast.dark('Usuário deletado com sucesso');
+            });
         } else {
             setloading(false);
         }
@@ -63,7 +68,9 @@ export default function Lista() {
             };
         }
 
-        api.put(`/users/${id}`, requestBody);
+        api.put(`/users/${id}`, requestBody).then(() => {
+            toast.dark('Usuário editado com sucesso');
+        });
     };
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,12 +80,13 @@ export default function Lista() {
     const smartSearch = new RegExp(search, 'gi');
 
     return (
-        <div>
-            <input
+        <Container>
+            <Input
                 type="text"
                 placeholder="Procure por um usuário"
                 onChange={handleSearch}
             />
+
             <ul>
                 {loading === true ? (
                     <img src={loadingImg} alt="loading" />
@@ -112,6 +120,6 @@ export default function Lista() {
                     </>
                 )}
             </ul>
-        </div>
+        </Container>
     );
 }

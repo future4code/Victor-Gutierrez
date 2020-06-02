@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { api } from './../../Services/api';
 import { toast } from 'react-toastify';
+import { Container, Form } from './cadastro_styles';
 
 interface UserData {
     name: string;
@@ -17,8 +18,15 @@ export default function Cadastro() {
         };
 
         api.post<UserData>('/users', requestBody)
-            .then(() => toast('sucesso'))
-            .catch((error) => toast('error'));
+            .then(() => {
+                toast.dark('Seu usuário foi criado com sucesso!');
+                setUserData({ name: '', email: '' });
+            })
+            .catch(() =>
+                toast.error(
+                    'Seu usuário não pôde ser criado. Verifique se ele já existe.',
+                ),
+            );
     };
 
     const handleUserName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,22 +38,24 @@ export default function Cadastro() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Nome</label>
-            <input
-                value={userData.name}
-                onChange={handleUserName}
-                type="text"
-                required
-            />
-            <label htmlFor="email">email</label>
-            <input
-                value={userData.email}
-                onChange={handleUserEmail}
-                type="email"
-                required
-            />
-            <button>Enviar Cadastro</button>
-        </form>
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <input
+                    value={userData.name}
+                    onChange={handleUserName}
+                    type="text"
+                    required
+                    placeholder="Seu nome"
+                />
+                <input
+                    value={userData.email}
+                    onChange={handleUserEmail}
+                    type="email"
+                    required
+                    placeholder="Seu e-mail"
+                />
+                <button>Enviar Cadastro</button>
+            </Form>
+        </Container>
     );
 }

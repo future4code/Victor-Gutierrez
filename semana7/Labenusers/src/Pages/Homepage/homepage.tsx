@@ -7,11 +7,11 @@ export default function Homepage() {
 
     return (
         <div>
-            <h1>LabeUser</h1>
-            <a href="#" onClick={() => setToggle(!toggle)}>
-                Ver usuários cadastrados
-            </a>
+            <h1>LabeUsers</h1>
             {toggle === false ? <Cadastro /> : <Lista />}
+            <a href="#" onClick={() => setToggle(!toggle)}>
+                {toggle === false ? 'Ver usuários cadastrados' : 'Voltar'}
+            </a>
         </div>
     );
 }
