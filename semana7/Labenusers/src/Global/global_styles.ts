@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
      background: #121214;
      color: white;
      text-align: center;
-     padding: 50px;
+
      }
 
     a{
@@ -59,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-       max-width: 1020px;
+       max-width: 1220px;
        margin: 0 auto;
        padding: 0 20px 50px;
    }
@@ -69,6 +69,7 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    height: 150px;
 
     nav * {
         margin: 0 15px;
