@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 
   * {
     margin: 0;
@@ -27,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
     }
 
-    h1{
+    h3{
       margin: 50px;
 
      }
@@ -64,4 +65,12 @@ const GlobalStyle = createGlobalStyle`
    }
   `;
 
-export default GlobalStyle;
+export const Header = styled.header`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    nav * {
+        margin: 0 15px;
+    }
+`;
