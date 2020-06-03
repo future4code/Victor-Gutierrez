@@ -27,10 +27,14 @@ export default function Lista() {
         setloading(true);
         let sure = window.confirm('Deseja mesmo deletar este usuário?');
         if (sure) {
-            api.delete(`/users/${id}`).then(() => {
-                setloading(false);
-                toast.dark('Usuário deletado com sucesso');
-            });
+            api.delete(`/users/${id}`)
+                .then(() => {
+                    setloading(false);
+                    toast.dark('Usuário deletado com sucesso');
+                })
+                .catch((error) =>
+                    toast.error(`Houve um erro ao editar o usuário. ${error}`),
+                );
         } else {
             setloading(false);
         }
@@ -68,9 +72,13 @@ export default function Lista() {
             };
         }
 
-        api.put(`/users/${id}`, requestBody).then(() => {
-            toast.dark('Usuário editado com sucesso');
-        });
+        api.put(`/users/${id}`, requestBody)
+            .then(() => {
+                toast.dark('Usuário editado com sucesso');
+            })
+            .catch((error) =>
+                toast.error(`Houve um erro ao deletar o usuário. ${error}`),
+            );
     };
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
