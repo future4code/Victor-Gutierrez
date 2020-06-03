@@ -28,7 +28,6 @@ export default function Details({
         email: null,
     });
 
-    //tem que podeer deletar.
 
     useEffect(() => {
         getUserInfo();
