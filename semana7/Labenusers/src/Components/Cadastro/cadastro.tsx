@@ -24,7 +24,12 @@ export default function Cadastro() {
             toast.dark('Seu usuário foi criado com sucesso!');
             setUserData({ name: '', email: '' });
         } catch (error) {
-            toast.error(`Seu usuário não pôde ser criado. ${error}`);
+            toast.error(
+                `Seu usuário não pôde ser criado. Verifique se ele já existe `,
+            );
+            toast.error(`${error}`, {
+                position: 'bottom-center',
+            });
         }
     };
 

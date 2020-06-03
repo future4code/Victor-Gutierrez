@@ -32,9 +32,12 @@ export default function Lista() {
                     setloading(false);
                     toast.dark('Usuário deletado com sucesso');
                 })
-                .catch((error) =>
-                    toast.error(`Houve um erro ao editar o usuário. ${error}`),
-                );
+                .catch((error) => {
+                    toast.error('Houve um erro ao deletar o usuário.');
+                    toast.error(`${error}`, {
+                        position: 'bottom-center',
+                    });
+                });
         } else {
             setloading(false);
         }
@@ -76,9 +79,14 @@ export default function Lista() {
             .then(() => {
                 toast.dark('Usuário editado com sucesso');
             })
-            .catch((error) =>
-                toast.error(`Houve um erro ao deletar o usuário. ${error}`),
-            );
+            .catch((error) => {
+                toast.error(
+                    'Houve um erro ao editar o usuário. Verifique se inseriu um e-mail válido',
+                );
+                toast.error(`${error}`, {
+                    position: 'bottom-center',
+                });
+            });
     };
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
