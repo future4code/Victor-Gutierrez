@@ -37,7 +37,6 @@ Leezer - A mini playlist creator
 
 - ⚛ **React** — A library to build user interfaces
 - 💅 **CSS** — styled-components
-- 🌸 **Reactotron** - Helps debugging process
 - 💖 **Lint** — ESlint/Prettier/Editor Config
 - 🗺 **React-Router-DOM** — Routes in React made easy
 - 🎶 **DeezerAPI** - To retrieve metadata and previews
