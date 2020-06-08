@@ -37,6 +37,11 @@ export const Container = styled.main`
         text-align: center;
         width: 200px;
         animation: ${transition} 1s linear;
+        z-index: 3;
+    }
+
+    h1 {
+        margin: 200px 0px;
     }
 `;
 
@@ -51,4 +56,14 @@ export const AddPlaylist = styled.div`
     cursor: pointer;
     text-align: center;
     width: 200px;
+    background: #f7f7f7;
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: all 1s ease;
+    z-index: 3;
+
+    &:hover {
+        background: #f680c5;
+        color: white;
+    }
 `;

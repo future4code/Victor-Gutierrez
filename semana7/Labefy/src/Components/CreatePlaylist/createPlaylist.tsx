@@ -13,9 +13,11 @@ export default function CreatePlaylist() {
 
         try {
             await api.post('/playlists', requestBody);
-            //toast
+            setCreationName('');
         } catch (error) {
-            //error toast
+            alert(
+                'Parece que essa playlist já existe... que tal escolher outro nome?',
+            );
         }
     };
 
@@ -26,7 +28,14 @@ export default function CreatePlaylist() {
     return (
         <div>
             <form onSubmit={handleNewSubmit}>
-                <input onChange={handleNewName} placeholder="Insira um nome" required type="text" />
+                <input
+                    value={creationName}
+                    onChange={handleNewName}
+                    placeholder="Insira um nome"
+                    required
+                    type="text"
+                    title="Aqui você pode inserir o nome que desejar"
+                />
                 <button type="submit">Criar</button>
             </form>
         </div>

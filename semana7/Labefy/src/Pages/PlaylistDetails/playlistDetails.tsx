@@ -4,7 +4,11 @@ import Createsong from './../../Components/CreateSong/createsong';
 import { useHistory, Link } from 'react-router-dom';
 import SongCard from './../../Components/SongCard/songCard';
 import { IoIosTrash } from 'react-icons/io';
-import { Container } from './playlistdetailsStyles';
+import {
+    Container,
+    RemovePlaylist,
+    PlaylistName,
+} from './playlistdetailsStyles';
 
 interface songList {
     id: string;
@@ -19,26 +23,44 @@ export default function PlaylistDetails({
     },
 }) {
     const [songs, setSongs] = useState<songList[]>([]);
+    const [playlistName, setName] = useState<string>();
     const history = useHistory();
 
     useEffect(() => {
         api.get(`/playlists/${id}/tracks`).then((response) => {
             setSongs(response.data.result.tracks);
         });
+
+        // eslint-disable-next-line
     }, [songs]);
 
+    useEffect(() => {
+        api.get(`/playlists`).then((response) => {
+            const findPlaylist = response.data.result.list.findIndex(
+                (i) => i.id === id,
+            );
+            setName(response.data.result.list[findPlaylist].name);
+        });
+    }, []);
+
     const handleDelete = async () => {
-        try {
-            await api.delete(`/playlists/${id}`);
-            history.push('/');
-        } catch (error) {
-            //toast
+        let sure = window.confirm('Você tem certeza?');
+
+        if (sure) {
+            try {
+                await api.delete(`/playlists/${id}`);
+                alert('Você será redirecionado para a página inicial');
+                setTimeout(history.push('/'), 2000);
+            } catch (error) {
+                console.error(error);
+            }
         }
     };
 
     return (
         <>
             <Createsong id={id} />
+            <PlaylistName>{playlistName}</PlaylistName>
             <Container>
                 {songs.map((i) => {
                     return (
@@ -52,10 +74,25 @@ export default function PlaylistDetails({
                         />
                     );
                 })}
-                <div onClick={handleDelete}>
+                <RemovePlaylist
+                    onClick={handleDelete}
+                    title="Cuidado ! Essa ação é irreversível."
+                >
                     <IoIosTrash size={50} />
                     <p>Deletar esta playlist</p>
-                </div>
+                </RemovePlaylist>
+                <Link
+                    style={{
+                        textDecoration: 'none',
+                        color: 'black',
+                        fontWeight: 'bold',
+                        alignSelf: 'flex-end',
+                        margin: 'auto',
+                    }}
+                    to="/"
+                >
+                    Voltar
+                </Link>
             </Container>
         </>
     );

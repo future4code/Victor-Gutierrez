@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from './../../Services/api';
 import { Container, AddSong } from './createSongStyles';
 import { IoIosAddCircleOutline } from 'react-icons/io';
+import deezer from './../../Services/deezer';
 
 interface songRequest {
     name: string;
-    artist: string;
+    artist: string | undefined;
     url: string;
 }
 
@@ -16,18 +17,29 @@ export default function Createsong(props) {
         url: '',
     });
     const [showForm, setFormState] = useState<boolean>(false);
+    const [list, setList] = useState<any>([]);
+    const [artist, setArtist] = useState<string>();
 
-    const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setNewSong({ ...newSong, [name]: value });
+    useEffect(() => {
+        deezer.get(`/search?q=${artist}`).then((response) => {
+            setList(response.data.data);
+        });
+    }, [artist]);
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setArtist(e.target.value);
     };
-    const handleArtist = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setNewSong({ ...newSong, [name]: value });
-    };
-    const handleUrl = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setNewSong({ ...newSong, [name]: value });
+
+    const handleSong = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const FindSong = list.findIndex((i) => {
+            return i.id === Number(e.target.value);
+        });
+
+        setNewSong({
+            artist: list[FindSong].artist.name,
+            url: list[FindSong].preview,
+            name: list[FindSong].title_short,
+        });
     };
 
     const SendInformation = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,20 +50,19 @@ export default function Createsong(props) {
         try {
             await api.post(`/playlists/${props.id}/tracks`, requestBody);
             setFormState(!showForm);
-            //tooast
-        } catch (error) {
-            //tooaste
-        }
+        } catch (error) {}
     };
 
     return (
         <>
             <AddSong
+                title="Clique aqui para inserir uma música"
                 onClick={() => {
                     setFormState(!showForm);
                 }}
             >
-                <IoIosAddCircleOutline size={50} /> <p>Adicionar Música</p>
+                <IoIosAddCircleOutline size={50} />{' '}
+                <p>{showForm === false ? 'Adicionar Música' : 'Fechar'}</p>
             </AddSong>
 
             {showForm === false ? (
@@ -60,23 +71,24 @@ export default function Createsong(props) {
                 <>
                     <Container onSubmit={SendInformation}>
                         <input
-                            onChange={handleName}
-                            name="name"
                             type="text"
-                            placeholder="Nome da música"
+                            onChange={handleSearch}
+                            placeholder={`Buscar`}
+                            value={artist}
+                            title="Busque por um artista, uma música ou um gênero e veja os resultados no campo abaixo, você só precisa digitar !"
                         />
-                        <input
-                            onChange={handleArtist}
-                            name="artist"
-                            type="text"
-                            placeholder="Nome do artista"
-                        />
-                        <input
-                            onChange={handleUrl}
-                            name="url"
-                            type="text"
-                            placeholder="Url da música"
-                        />
+                        <select onChange={handleSong}>
+                            <option value="0">Selecione uma música</option>
+                            {list === undefined ||
+                            list === [] ||
+                            list.lenght === 0
+                                ? ''
+                                : list.map((i) => (
+                                      <option key={i.id} value={i.id}>
+                                          {i.title} - {i.artist.name}
+                                      </option>
+                                  ))}
+                        </select>
                         <button type="submit">Adicionar música</button>
                     </Container>
                 </>

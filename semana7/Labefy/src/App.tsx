@@ -1,9 +1,8 @@
 import React from 'react';
 import GlobalStyle from './Global/global_styles';
-import Home from './Pages/Home/home';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import PlaylistDetails from './Pages/PlaylistDetails/playlistDetails';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Components/Header/header';
+import Routes from './routes';
 
 function App() {
     return (
@@ -11,15 +10,7 @@ function App() {
             <GlobalStyle />
             <Router>
                 <Header />
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route
-                        path="/details/:id"
-                        render={(props) => <PlaylistDetails {...props} />}
-                    />
-                </Switch>
+                <Routes />
             </Router>
         </>
     );

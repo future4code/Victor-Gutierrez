@@ -20,6 +20,12 @@ export const Container = styled.form`
     right: 50px;
     width: 200px;
     animation: ${transition} 1s linear;
+    z-index: 2;
+
+    select {
+        position: relative;
+        bottom: 2.5px;
+    }
 `;
 export const AddSong = styled.div`
     display: flex;
@@ -32,4 +38,14 @@ export const AddSong = styled.div`
     cursor: pointer;
     text-align: center;
     width: 200px;
+    z-index: 2;
+    background: #f7f7f7;
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: all 1s ease;
+
+    &:hover {
+        background: #f680c5;
+        color: white;
+    }
 `;
