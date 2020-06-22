@@ -14,19 +14,19 @@ import { Animated } from 'react-animated-css';
 import { GiChewedHeart } from 'react-icons/gi';
 import { Profile } from '../../Types/interfaces';
 import astromatch from './../../Services/astromatch_api';
-import { profileChangeListener } from '../../Global/context';
+import { profileChangeListener } from '../../Context/profileChangeListener_Context';
 
 export default function Matches() {
     const [matches, setMatches] = useState<Profile[]>([]);
     const [toggle, setToggle] = useState<boolean>(false);
     const [toggleAnimation, setAnimationToggle] = useState<boolean>(false);
-    const { contextState } = useContext(profileChangeListener);
+    const { newNumber } = useContext(profileChangeListener);
 
     useEffect(() => {
         getMatches();
         // O CardChooser dispara uma mudança no context toda vez que o profile é alterado, foi a forma que encontrei
         // para manter a lista atualizada em tempo real
-    }, [contextState]);
+    }, [newNumber]);
 
     const getMatches = async () => {
         astromatch

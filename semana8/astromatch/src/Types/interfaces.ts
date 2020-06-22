@@ -26,3 +26,8 @@ export interface ControlsProps {
 export interface WelcomeProps {
     virtualLoading: boolean;
 }
+
+export interface Context_profileChangeListener {
+    newNumber: number;
+    setNewNumberForUpdateListener(content: number): void;
+}

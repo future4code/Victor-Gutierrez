@@ -18,7 +18,7 @@ import InfinityLoading from '../../Assets/images/loadinginfinity.svg';
 import Match from '../../Assets/images/itsamatch.gif';
 import UIfx from 'uifx';
 import astromatch from './../../Services/astromatch_api';
-import { profileChangeListener } from '../../Global/context';
+import { profileChangeListener } from '../../Context/profileChangeListener_Context';
 
 export default function CardChooser() {
     const [profile, setProfile] = useState<Profile>({
@@ -32,17 +32,24 @@ export default function CardChooser() {
     const [showBio, setBio] = useState<boolean>(false);
     const [isMatch, setIsMatch] = useState<boolean>(false);
     const [swipeDirection, setSwipeDirection] = useState<string>('left');
-    const { setContextState } = useContext(profileChangeListener);
-
-    const sucess = new UIfx(require('../../Assets/audio/success.mp3'));
+    const { setNewNumberForUpdateListener } = useContext(profileChangeListener);
     const [mileAge, setMileage] = useState(() => Math.ceil(Math.random() * 10));
+    const sucess = new UIfx(require('../../Assets/audio/success.mp3'));
+
+    useEffect(() => {
+        setMileage(() => Math.ceil(Math.random() * 10));
+    }, [profile]);
+
+    useEffect(() => {
+        getNewPerson();
+    }, []);
 
     const getNewPerson = useCallback(async () => {
         setSwipeDirection('left');
         setLoading(true);
         setIsMatch(false);
+        setNewNumberForUpdateListener(Date.now());
         // A função gera uma mudança no Context que está nas dependências do UseEffect da lista de matches.
-        setContextState(Date.now());
 
         try {
             const response = await astromatch.get<ProfileItems>('/person');
@@ -57,15 +64,7 @@ export default function CardChooser() {
         } catch (error) {
             console.error(error);
         }
-    }, [setContextState]);
-
-    useEffect(() => {
-        getNewPerson();
-    }, [getNewPerson]);
-
-    useEffect(() => {
-        setMileage(() => Math.ceil(Math.random() * 10));
-    }, [profile]);
+    }, [setNewNumberForUpdateListener]);
 
     const matchPerson = async (id: string) => {
         setSwipeDirection('right');
