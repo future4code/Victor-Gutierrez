@@ -12,11 +12,6 @@ const GlobalStyle = createGlobalStyle`
   body {
      -webkit-font-smoothing: antialiased;
      background: #FF5A55;
-     overflow: hidden;
-
-
-
-
   }
 
   button {
@@ -27,7 +22,6 @@ const GlobalStyle = createGlobalStyle`
        max-width: 1320px;
        margin: 0 auto;
        padding: 0 20px 50px;
-
    }
 
 

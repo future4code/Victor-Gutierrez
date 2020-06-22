@@ -10,7 +10,7 @@ import {
 } from './CardChooser_styles';
 import { BounceLoader, SkewLoader } from 'react-spinners';
 import { Profile, ProfileItems } from './../../Types/interfaces';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { Animated } from 'react-animated-css';
 import Controls from '../Controls/Controls';
@@ -44,7 +44,7 @@ export default function CardChooser() {
         getNewPerson();
     }, []);
 
-    const getNewPerson = useCallback(async () => {
+    const getNewPerson = async () => {
         setSwipeDirection('left');
         setLoading(true);
         setIsMatch(false);
@@ -64,7 +64,7 @@ export default function CardChooser() {
         } catch (error) {
             console.error(error);
         }
-    }, [setNewNumberForUpdateListener]);
+    };
 
     const matchPerson = async (id: string) => {
         setSwipeDirection('right');

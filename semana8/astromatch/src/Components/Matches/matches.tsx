@@ -100,7 +100,12 @@ export default function Matches() {
                                 </CloseButton>
                             </>
                         ) : (
-                            <h4>Você ainda não possui nenhum match</h4>
+                            <>
+                                <h4>Você ainda não possui nenhum match</h4>
+                                <CloseButton onClick={toggleItems}>
+                                    FECHAR
+                                </CloseButton>
+                            </>
                         )}
                     </ListContainer>
                 )}

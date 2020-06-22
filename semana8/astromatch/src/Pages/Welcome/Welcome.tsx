@@ -1,10 +1,8 @@
-import React from 'react';
-
-import AstroMatch from '../../Assets/images/astro.png';
 import { Animated } from 'react-animated-css';
-
+import AstroMatch from '../../Assets/images/astro.png';
 import { BounceLoader } from 'react-spinners';
 import { Container } from './Welcome_styles';
+import React from 'react';
 import { WelcomeProps } from '../../Types/interfaces';
 
 export default function Welcome({ virtualLoading }: WelcomeProps) {
