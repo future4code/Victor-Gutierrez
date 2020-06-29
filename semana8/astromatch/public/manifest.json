@@ -1,0 +1,24 @@
+{
+    "short_name": "AstroMatch",
+    "name": "An app created by Victor Gutierrez",
+    "icons": [{
+            "src": "astro.png",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "astro.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "astro.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#FF5A55",
+    "background_color": "#FF5A55"
+}
