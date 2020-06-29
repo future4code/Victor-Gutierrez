@@ -5,7 +5,7 @@ const LabeXAdmin = axios.create({
         'https://us-central1-labenu-apis.cloudfunctions.net/labeX/victorgutierrez',
     timeout: 10000,
     headers: {
-        auth: JSON.parse(sessionStorage.getItem('adminToken')!),
+        auth: sessionStorage.getItem('adminToken'),
     },
 });
 

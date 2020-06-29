@@ -20,6 +20,26 @@ const GlobalStyle = createGlobalStyle`
    cursor: pointer;
   }
 
+  ::-webkit-scrollbar {
+        width: 20px;
+
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border: 0.5px solid white;
+        background: black;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: black;
+    }
+
   .fade-enter {
         opacity: 0.01;
     }
@@ -35,6 +55,20 @@ const GlobalStyle = createGlobalStyle`
         opacity: 0.01;
         transition: opacity 500ms ease-in;
     }
+
+    .Toastify__toast--dark {
+        background: black;
+        text-align: center;
+        font-size: 12px
+
+
+}
+
+.Toastify__progress-bar--dark {
+    color: #EBEAEA;
+    background: #EBEAEA
+}
+
 
   `;
 

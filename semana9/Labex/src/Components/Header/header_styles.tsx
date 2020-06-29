@@ -14,6 +14,31 @@ export const Container = styled.header`
         height: 200px;
         width: auto;
     }
+
+    a {
+        cursor: pointer;
+    }
+
+    p {
+        align-self: center;
+        color: white;
+    }
+
+    @media (max-width: 715px) {
+        img {
+            height: 150px;
+        }
+
+        p {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        p {
+            display: none;
+        }
+    }
 `;
 
 export const StaffHeading = styled.h2`

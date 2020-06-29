@@ -1,16 +1,32 @@
+import React from 'react';
 import { Container, StaffHeading } from './header_styles';
 import { LinkBox } from '../SharedStyles/SharedStyles';
 import { HeaderProps } from '../../Types/interfaces';
 import { Link, useHistory } from 'react-router-dom';
-import React from 'react';
+import fastStorage from '../../Hooks/useStorage';
 
 export default function Header({ location = '/' }: HeaderProps) {
     const history = useHistory();
+    const {
+        removeItemfromLocalStorage,
+        removeItemFromSessionStorage,
+        retrieveItemFromLocalStorage,
+    } = fastStorage();
+    const userName = retrieveItemFromLocalStorage('user');
 
     const Logout = () => {
-        sessionStorage.removeItem('adminToken');
-        localStorage.removeItem('virtualUserToken');
         history.push('/');
+
+        setTimeout(() => {
+            removeItemfromLocalStorage('user');
+            removeItemFromSessionStorage('adminToken');
+            removeItemfromLocalStorage('virtualUserToken');
+            window.location.reload();
+        }, 1000);
+    };
+
+    const goBack = () => {
+        history.goBack();
     };
 
     const renderBasedOnLocation = () => {
@@ -19,10 +35,14 @@ export default function Header({ location = '/' }: HeaderProps) {
                 return <Link to="/login">INICIAR MINHA JORNADA</Link>;
             case '/trips':
                 return (
-                    <Link onClick={Logout} to="/">
-                        SAIR
-                    </Link>
+                    <>
+                        <Link to="/application">ME CANDIDATAR</Link>
+                        <Link onClick={Logout} to="/">
+                            SAIR
+                        </Link>
+                    </>
                 );
+
             case '/login':
                 return (
                     <>
@@ -42,19 +62,13 @@ export default function Header({ location = '/' }: HeaderProps) {
                 return (
                     <>
                         <StaffHeading>STAFF</StaffHeading>
+                        <button onClick={goBack}>VOLTAR</button>
                     </>
                 );
             default:
                 return (
                     <>
-                        <Link
-                            onClick={() => {
-                                history.goBack();
-                            }}
-                            to="/"
-                        >
-                            VOLTAR
-                        </Link>
+                        <button onClick={goBack}>VOLTAR</button>
                         <Link onClick={Logout} to="/">
                             SAIR
                         </Link>
@@ -72,6 +86,19 @@ export default function Header({ location = '/' }: HeaderProps) {
                         alt="logo"
                     />
                 </Link>
+                {location !== '/' ? (
+                    <>
+                        <p>
+                            {userName !== null ? (
+                                `Logado como ${userName}`
+                            ) : (
+                                <></>
+                            )}
+                        </p>
+                    </>
+                ) : (
+                    <></>
+                )}
                 <LinkBox>{renderBasedOnLocation()}</LinkBox>
             </Container>
         </>

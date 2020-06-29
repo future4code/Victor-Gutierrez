@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Trip, TripDetail } from '../Types/interfaces';
 import LabeXAdmin from './../Services/LabeXAdmin';
 import LabeX from '../Services/LabeX';
+import { toast } from 'react-toastify';
 
 export function useLabeX_getTrip() {
     const [trips, setTrips] = useState<Trip[]>([] as Trip[]);
@@ -13,9 +14,9 @@ export function useLabeX_getTrip() {
     const getTrips = async () => {
         try {
             const response = await LabeX.get('/trips');
-            setTrips(response.data);
+            setTrips(response.data.trips);
         } catch (error) {
-            console.error(error);
+            toast.error('Houve um erro recuperando as viagens');
         }
     };
 
@@ -41,4 +42,27 @@ export function useLabeX_getTripDetail(id: string) {
     }, [getTripDetail]);
 
     return [tripDetails];
+}
+
+export async function LabeX_decideCandidate(
+    requestRaw: boolean,
+    tripID: string,
+    candidateID: string,
+) {
+    try {
+        await LabeXAdmin.put(
+            `/trips/${tripID}/candidates/${candidateID}/decide`,
+            {
+                approve: requestRaw,
+            },
+        );
+
+        if (requestRaw) {
+            toast.dark(`O candidato ${candidateID} foi aprovado`);
+        } else {
+            toast.dark(`O candidato ${candidateID} foi rejeitado`);
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
