@@ -24,14 +24,13 @@ describe("Checa Palíndromo", () => {
     expect(result).toBe(true);
   });
 
-  it("retorna false para `Socorram-me subi no onibus em marrocos`", () => {
+  it("retorna true para `Socorram-me subi no onibus em marrocos`", () => {
     //preparação
     const item = "Socorram-me subi no onibus em marrocos";
     //execução
     const result = checaPalindromo(item);
     //verificação
-    expect(result).toBe(false);
-    //Palindrono que retornou false ! ! !
+    expect(result).toBe(true);
   });
 
   it("retorna true para `Asa`", () => {
@@ -40,7 +39,6 @@ describe("Checa Palíndromo", () => {
     //execução
     const result = checaPalindromo(item);
     //verificação
-    expect(result).toBe(false);
-    //Asa é um palindromo porém a função não entende as diferenças de case.
+    expect(result).toBe(true);
   });
 });

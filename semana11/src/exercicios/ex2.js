@@ -1,9 +1,5 @@
-export function checaPalindromo(frase) {
+function checaPalindromo(frase) {
   return (
-    frase ===
-    frase
-      .split("")
-      .reverse()
-      .join("")
+    frase.toLowerCase() === frase.split("").reverse().join("").toLowerCase()
   );
 }

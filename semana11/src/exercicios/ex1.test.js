@@ -44,7 +44,7 @@ describe("Checa bissexto", () => {
 
   test("retorna false para 1", () => {
     //preparação
-    const ano = 1;
+    const ano = 500;
     //execução
     const resultado = checaBissexto(ano);
     //verificação

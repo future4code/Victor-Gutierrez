@@ -37,18 +37,18 @@ describe("Checa itens duplicados", () => {
     expect(resultado).toBe(true);
   });
 
-  it("Retorna false para repetição de strings", () => {
+  it("Retorna true para repetição de floats", () => {
     //preparação
-    const arrayDeItens = ["a", "b", "a"];
+    const arrayDeItens = [1.3, 3.982, 1.32341, 1.4, 1.3];
     //execução
     const resultado = checaItensDuplicados(arrayDeItens);
     //verificação
-    expect(resultado).toBe(false);
+    expect(resultado).toBe(true);
   });
 
-  it("Retorna true para repetição de Floats", () => {
+  it("Retorna true para repetição mais de uma vez", () => {
     //preparação
-    const arrayDeItens = [1.3, 3.982, 1.32341, 1.4, 1.3];
+    const arrayDeItens = [1.3, 3.982, 1.32341, 1.4, 1.3, 1.3];
     //execução
     const resultado = checaItensDuplicados(arrayDeItens);
     //verificação
