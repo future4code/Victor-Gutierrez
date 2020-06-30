@@ -27,10 +27,9 @@ const App = () => {
       setInputValue("");
     } else {
       setErrorMessage(true);
-
       setTimeout(() => {
         setErrorMessage(false);
-      }, 3000);
+      }, 2000);
     }
   };
 
@@ -98,7 +97,9 @@ const App = () => {
         </h4>
       )}
       {errorMessage ? (
-        <h2 style={{ color: "red" }}>Essa ação é proibida</h2>
+        <h2 data-testid={"warning-h2"} style={{ color: "red" }}>
+          Essa ação é proibida
+        </h2>
       ) : (
         <></>
       )}

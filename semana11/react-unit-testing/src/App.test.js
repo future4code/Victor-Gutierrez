@@ -81,8 +81,13 @@ test("O input deve esvaziar após a adição de um novo post", () => {
   expect(addPostInput).toHaveTextContent("");
 });
 
-test("O usuário não deve conseguir criar posts vazios e deve receber um aviso na tela caso tente, o aviso deve desaparecer após 3s", () => {
-  const { getByPlaceholderText, getByText, getByTestId } = render(<App />);
+test("O usuário não deve conseguir criar posts vazios e deve receber um aviso na tela caso tente, o aviso deve desaparecer após 3s", async () => {
+  const {
+    getByPlaceholderText,
+    getByText,
+    getByTestId,
+    queryByTestId,
+  } = render(<App />);
 
   const addPostInput = getByPlaceholderText("Novo post");
 
@@ -93,12 +98,15 @@ test("O usuário não deve conseguir criar posts vazios e deve receber um aviso 
 
   fireEvent.click(addPostButton);
 
-  expect(getByText("Essa ação é proibida")).toBeInTheDocument();
+  expect(getByTestId("warning-h2")).toBeInTheDocument();
   expect(postsDiv).toHaveTextContent("Nenhum Post"); //Para garantir que nada foi criado
 
-  wait(() => {
-    expect(getByText("Essa ação é proibida")).not.toBeInTheDocument();
-  });
+  await wait(
+    () => {
+      expect(queryByTestId(/warning/i)).toBeNull();
+    },
+    { timeout: 3000 }
+  );
 });
 
 test("Deve existir uma mensagem `Nenhum Post` caso não haja nenhum. ", () => {
