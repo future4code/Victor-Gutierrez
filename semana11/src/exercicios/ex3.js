@@ -9,7 +9,7 @@ export function checaItensDuplicados(array) {
 
   /* Set é um constructor  de um objeto que só armazena valores únicos de cada tipo */
 
-/* Set is a new data object introduced in ES6. Because Set only lets you store unique values. When you pass in an array, it will remove any duplicate values. */
-  
+  /* Set is a new data object introduced in ES6. Because Set only lets you store unique values. When you pass in an array, it will remove any duplicate values. */
+
   // Aqui ele está comparando o seu tamanho com o tamanho da array pura, uma vez que o Set não aceita valores repetidos, e retornando true ou false.
 }

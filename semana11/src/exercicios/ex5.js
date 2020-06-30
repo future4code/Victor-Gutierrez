@@ -9,4 +9,4 @@ export const uppecaseLetters = (sentence) => {
   return items.join(" ");
 };
 
-console.log(uppecaseLetters("olá, mundo !"));
+
