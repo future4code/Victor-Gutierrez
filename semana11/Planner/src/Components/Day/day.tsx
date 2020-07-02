@@ -7,7 +7,7 @@ const Day = ({ day }: DayProps) => {
 
   return (
     <>
-      <h1>{day}</h1>
+      <h1 data-testid="day-title">{day}</h1>
       {tasks.map((item: Task) =>
         item.day === day ? <li key={item.id}>{item.text}</li> : <></>,
       )}
