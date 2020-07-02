@@ -9,9 +9,14 @@ const useTasks = () => {
   const [tasks, setTasks] = useState<Task[]>([] as Task[]);
 
   useEffect(() => {
-    planner.get('').then((response) => {
-      setTasks(response.data);
-    });
+    planner
+      .get('')
+      .then((response) => {
+        setTasks(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   return [tasks];

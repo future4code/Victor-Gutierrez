@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Task } from '../../Types/interfaces';
 import { days } from '../../Assets/json/days';
-import planner from '../../Services/planner';
+import { createTask } from './taskcreator_services';
 
 const TaskCreator: React.FC = () => {
   const [task, setTask] = useState<Task>({} as Task);
@@ -17,11 +17,9 @@ const TaskCreator: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await planner.post('', task);
-    } catch (error) {
-      alert(error);
-    }
+    await createTask(task).then(() => {
+      setTask({ ...task, text: '' });
+    });
   };
 
   return (
@@ -34,6 +32,7 @@ const TaskCreator: React.FC = () => {
           onChange={handleInput}
           type="text"
           id="text"
+          value={task.text}
         />
         <label htmlFor="day">Dia da tarefa</label>
         <select
@@ -49,7 +48,9 @@ const TaskCreator: React.FC = () => {
             </option>
           ))}
         </select>
-        <button data-testid="createButton" type="submit">Criar Tarefa</button>
+        <button data-testid="createButton" type="submit">
+          Criar Tarefa
+        </button>
       </form>
     </>
   );
