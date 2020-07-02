@@ -7,8 +7,14 @@ import { TodoItemProps } from '../../Types/interfaces';
 const TodoItem = ({ text, id }: TodoItemProps) => {
   const [editMode, setEditMode] = useState<boolean>(false);
 
+  const closeEditMode = (event: React.KeyboardEvent) => {
+    if (Number(event.keyCode) === 27) {
+      setEditMode(false);
+    }
+  };
+
   return (
-    <TaskBox>
+    <TaskBox onKeyDown={(e) => closeEditMode(e)}>
       {text}
 
       {editMode ? (

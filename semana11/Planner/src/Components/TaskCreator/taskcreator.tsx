@@ -4,7 +4,7 @@ import { days } from '../../Assets/json/days';
 import { createTask } from './taskcreator_services';
 
 const TaskCreator: React.FC = () => {
-  const [task, setTask] = useState<Task>({} as Task);
+  const [task, setTask] = useState<Task>({ ...({} as Task), text: '' });
 
   const handleInput = (
     e:
@@ -33,6 +33,7 @@ const TaskCreator: React.FC = () => {
           type="text"
           id="text"
           value={task.text}
+          placeholder="Insira um nome para sua tarefa"
         />
         <label htmlFor="day">Dia da tarefa</label>
         <select
