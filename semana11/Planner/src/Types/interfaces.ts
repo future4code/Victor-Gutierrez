@@ -7,4 +7,9 @@ export interface Task {
 }
   export interface DayProps {
     day: string;
-    }
+  }
+    
+  export interface TodoItemProps {
+    text: string;
+    id: string;
+  }
