@@ -1,9 +1,9 @@
-import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TaskCreator from './taskcreator';
-import '@testing-library/jest-dom/extend-expect';
+import React from 'react';
 import planner from '../../Services/planner';
+import TaskCreator from './taskcreator';
 
 jest.mock('../../Services/planner.ts');
 test('TaskCreator should render properly', () => {
@@ -20,10 +20,20 @@ test('User should not be able to send an empty form', () => {
 
   userEvent.click(addButton);
 
-  expect(
-    planner.post,
-  ).not.toHaveBeenCalledWith(
-    'https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-mello-victorgutierrez',
-    { day: '', text: '' },
-  );
+  expect(planner.post).not.toBeCalledWith('', { day: '', text: '' });
+});
+
+test('User should be able to create a new task', async () => {
+  const { getByText, getByTestId } = render(<TaskCreator />);
+
+  const addButton = getByTestId('createButton');
+  const taskInput = getByTestId('task-input');
+  const selectInput = getByTestId('day-input');
+  const generatedTextInput = 'Teste automatizado gerado 123';
+
+  await userEvent.type(taskInput, generatedTextInput);
+  userEvent.selectOptions(selectInput, getByText(/Domingo/));
+  userEvent.click(addButton);
+
+  expect(planner.post).toBeCalled();
 });

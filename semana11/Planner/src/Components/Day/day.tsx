@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Task } from '../../Types/interfaces';
-import planner from '../../Services/planner';
+import React from 'react';
+import { DayProps, Task } from '../../Types/interfaces';
+import useTasks from '../../Hooks/useTask';
 
-const Day: React.FC = ({ day }) => {
-  const [tasks, setTasks] = useState<Task[]>([] as Task[]);
-
-  useEffect(() => {
-    planner.get('').then((response) => {
-      setTasks(response.data);
-    });
-  }, []);
+const Day = ({ day }: DayProps) => {
+  const [tasks] = useTasks();
 
   return (
     <>
       <h1>{day}</h1>
-      {tasks.map((item) => {
-        if (item.day === day) {
-          return <li key={item.text}>{item.text}</li>;
-        }
-      })}
+      {tasks.map((item: Task) =>
+        item.day === day ? <li key={item.id}>{item.text}</li> : <></>,
+      )}
     </>
   );
 };

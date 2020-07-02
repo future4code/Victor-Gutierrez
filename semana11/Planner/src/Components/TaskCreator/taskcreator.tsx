@@ -49,7 +49,7 @@ const TaskCreator: React.FC = () => {
             </option>
           ))}
         </select>
-        <button type="submit">Criar Tarefa</button>
+        <button data-testid="createButton" type="submit">Criar Tarefa</button>
       </form>
     </>
   );
