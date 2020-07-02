@@ -2,9 +2,16 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TaskCreator from './taskcreator';
-import axios from 'axios';
+import '@testing-library/jest-dom/extend-expect';
+import planner from '../../Services/planner';
 
-axios.post = jest.fn().mockResolvedValue('Created');
+jest.mock('../../Services/planner.ts');
+test('TaskCreator should render properly', () => {
+  const { getByTestId } = render(<TaskCreator />);
+
+  expect(getByTestId('day-input')).toBeInTheDocument();
+  expect(getByTestId('task-input')).toBeInTheDocument();
+});
 
 test('User should not be able to send an empty form', () => {
   const { getByText } = render(<TaskCreator />);
@@ -13,15 +20,10 @@ test('User should not be able to send an empty form', () => {
 
   userEvent.click(addButton);
 
-  expect(axios.post).toBeCalledTimes(0);
-});
-
-test('User should  be able to send a completed form', () => {
-  const { getByText } = render(<TaskCreator />);
-
-  const addButton = getByText('Criar Tarefa');
-
-  userEvent.click(addButton);
-
-  expect(axios.post).toBeCalledTimes(0);
+  expect(
+    planner.post,
+  ).not.toHaveBeenCalledWith(
+    'https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-mello-victorgutierrez',
+    { day: '', text: '' },
+  );
 });

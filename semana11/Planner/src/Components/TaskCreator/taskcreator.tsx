@@ -28,9 +28,20 @@ const TaskCreator: React.FC = () => {
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="day">Tarefa</label>
-        <input required  data-testid="task-input" onChange={handleInput} type="text" id="text" />
+        <input
+          required
+          data-testid="task-input"
+          onChange={handleInput}
+          type="text"
+          id="text"
+        />
         <label htmlFor="day">Dia da tarefa</label>
-        <select required onChange={handleInput} id="day">
+        <select
+          data-testid="day-input"
+          required
+          onChange={handleInput}
+          id="day"
+        >
           <option value=""></option>
           {days.map((item) => (
             <option key={item} value={item}>
