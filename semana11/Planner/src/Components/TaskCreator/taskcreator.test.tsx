@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import TaskCreator from './taskcreator';
 import userEvent from '@testing-library/user-event';
-import planner from '../../Services/planner';
 
 test('TaskCreator should render properly', () => {
   const { getByTestId } = render(<TaskCreator />);
@@ -12,7 +11,7 @@ test('TaskCreator should render properly', () => {
   expect(getByTestId('task-input')).toBeInTheDocument();
 });
 
-test('TaskCreator input should clean after submit', async () => {
+test('TaskCreator input should be clean after submit', () => {
   const { getByTestId, getByText } = render(<TaskCreator />);
 
   userEvent.type(getByTestId('task-input'), 'Testing');

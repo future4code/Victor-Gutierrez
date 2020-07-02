@@ -11,8 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
      -webkit-font-smoothing: antialiased;
-     background-size: cover;
-  }
+      }
 
   button {
    cursor: pointer;

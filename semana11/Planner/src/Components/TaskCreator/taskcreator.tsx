@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Task } from '../../Types/interfaces';
 import { days } from '../../Assets/json/days';
 import { createTask } from './taskcreator_services';
+import { Container } from './taskcreator_styles';
 
 const TaskCreator: React.FC = () => {
   const [task, setTask] = useState<Task>({ ...({} as Task), text: '' });
@@ -23,7 +24,7 @@ const TaskCreator: React.FC = () => {
   };
 
   return (
-    <>
+    <Container>
       <form onSubmit={handleSubmit}>
         <label htmlFor="day">Tarefa</label>
         <input
@@ -53,7 +54,7 @@ const TaskCreator: React.FC = () => {
           Criar Tarefa
         </button>
       </form>
-    </>
+    </Container>
   );
 };
 
