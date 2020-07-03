@@ -5,55 +5,57 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import TodoItem from './todoitem';
 
-test('TodoItem should render properly based on passed props', () => {
-  const { getByText } = render(<TodoItem id="TaskID" text="TaskName" />);
-  const TaskTitle = getByText('TaskName');
+describe('TodoItem funcionalities', () => {
+  test('TodoItem should render properly based on passed props', () => {
+    const { getByText } = render(<TodoItem id="TaskID" text="TaskName" />);
+    const TaskTitle = getByText('TaskName');
 
-  expect(TaskTitle).toBeInTheDocument();
-});
+    expect(TaskTitle).toBeInTheDocument();
+  });
 
-test('Edit mode should be reachable', () => {
-  const { getByText, getByPlaceholderText } = render(
-    <TodoItem id="TaskID" text="TaskName" />,
-  );
+  test('Edit mode should be reachable', () => {
+    const { getByText, getByPlaceholderText } = render(
+      <TodoItem id="TaskID" text="TaskName" />,
+    );
 
-  const EditToggle = getByText('Editar');
+    const EditToggle = getByText('Editar');
 
-  userEvent.click(EditToggle);
+    userEvent.click(EditToggle);
 
-  expect(getByPlaceholderText('Insira o novo conteúdo')).toBeInTheDocument(); //toBeInTheDOM will be deprecated
-});
+    expect(getByPlaceholderText('Insira o novo conteúdo')).toBeInTheDocument(); //toBeInTheDOM will be deprecated
+  });
 
-test('Edit mode should be avoidable', () => {
-  const { getByText, getByPlaceholderText, queryByText } = render(
-    <TodoItem id="TaskID" text="TaskName" />,
-  );
+  test('Edit mode should be avoidable', () => {
+    const { getByText, getByPlaceholderText, queryByText } = render(
+      <TodoItem id="TaskID" text="TaskName" />,
+    );
 
-  const EditToggle = getByText('Editar');
+    const EditToggle = getByText('Editar');
 
-  userEvent.click(EditToggle);
+    userEvent.click(EditToggle);
 
-  expect(getByPlaceholderText('Insira o novo conteúdo')).toBeInTheDocument();
+    expect(getByPlaceholderText('Insira o novo conteúdo')).toBeInTheDocument();
 
-  const Cancel = getByText(/Cancelar/);
+    const Cancel = getByText(/Cancelar/);
 
-  userEvent.click(Cancel);
+    userEvent.click(Cancel);
 
-  expect(queryByText('Insira o novo conteúdo')).toBeNull();
-});
+    expect(queryByText('Insira o novo conteúdo')).toBeNull();
+  });
 
-test('Edit mode should close in ESC keypress', () => {
-  const { getByText, getByPlaceholderText, queryByText } = render(
-    <TodoItem id="TaskID" text="TaskName" />,
-  );
+  test('Edit mode should close in ESC keypress', () => {
+    const { getByText, getByPlaceholderText, queryByText } = render(
+      <TodoItem id="TaskID" text="TaskName" />,
+    );
 
-  const EditToggle = getByText('Editar');
+    const EditToggle = getByText('Editar');
 
-  userEvent.click(EditToggle);
+    userEvent.click(EditToggle);
 
-  expect(getByPlaceholderText('Insira o novo conteúdo')).toBeInTheDocument();
+    expect(getByPlaceholderText('Insira o novo conteúdo')).toBeInTheDocument();
 
-  userEvent.type(getByPlaceholderText('Insira o novo conteúdo'), '{esc}');
+    userEvent.type(getByPlaceholderText('Insira o novo conteúdo'), '{esc}');
 
-  expect(queryByText('Insira o novo conteúdo')).toBeNull();
+    expect(queryByText('Insira o novo conteúdo')).toBeNull();
+  });
 });

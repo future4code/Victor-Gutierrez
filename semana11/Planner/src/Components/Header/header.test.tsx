@@ -3,9 +3,11 @@ import Header from './header';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-test('Header should render properly', () => {
-  const { getByText } = render(<Header />);
-  const HeaderTitle = getByText('Planner');
+describe('Header Rendering', () => {
+  test('Header should render properly', () => {
+    const { getByText } = render(<Header />);
+    const HeaderTitle = getByText('Planner');
 
-  expect(HeaderTitle).toBeInTheDocument()
+    expect(HeaderTitle).toBeInTheDocument();
+  });
 });

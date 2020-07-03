@@ -4,14 +4,16 @@ import React from 'react';
 import TaskCreator from './taskcreator';
 import userEvent from '@testing-library/user-event';
 
-test('TaskCreator should render properly', () => {
-  const { getByTestId } = render(<TaskCreator />);
+describe('TaskCreator render test', () => {
+  test('TaskCreator should render properly', () => {
+    const { getByTestId } = render(<TaskCreator />);
 
-  expect(getByTestId('day-input')).toBeInTheDocument();
-  expect(getByTestId('task-input')).toBeInTheDocument();
+    expect(getByTestId('day-input')).toBeInTheDocument();
+    expect(getByTestId('task-input')).toBeInTheDocument();
+  });
 });
 
-describe('Submit Testing', () => {
+describe('TaskCreator Submit Testing', () => {
   let emit: any;
 
   beforeAll(() => {
