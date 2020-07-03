@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Task } from '../Types/interfaces';
+import { Task } from '../Types';
 import planner from '../Services/planner';
 
 //Why ? I did not want this function to render and call API seven times
@@ -9,7 +9,11 @@ const useTasks = () => {
   const [tasks, setTasks] = useState<Task[]>([] as Task[]);
 
   useEffect(() => {
-    planner
+    getTasks();
+  }, []);
+
+  const getTasks = async () => {
+    await planner
       .get('')
       .then((response) => {
         setTasks(response.data);
@@ -17,7 +21,7 @@ const useTasks = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  };
 
   return [tasks];
 };

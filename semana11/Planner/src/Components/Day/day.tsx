@@ -1,5 +1,5 @@
 import React from 'react';
-import { DayProps, Task } from '../../Types/interfaces';
+import { DayProps, Task } from '../../Types';
 import useTasks from '../../Hooks/useTask';
 import { Container } from '../Day/day_styles';
 import TodoItem from '../TodoItem/todoitem';

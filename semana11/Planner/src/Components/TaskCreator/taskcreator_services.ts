@@ -1,4 +1,4 @@
-import { Task } from '../../Types/interfaces';
+import { Task } from '../../Types';
 import planner from '../../Services/planner';
 
 export const createTask = async (task: Task) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { TaskBox } from './todoitem_styles';
 import { useState } from 'react';
 import { deleteTask } from './todoitem_services';
-import { TodoItemProps } from '../../Types/interfaces';
+import { TodoItemProps } from '../../Types';
 
 const TodoItem = ({ text, id }: TodoItemProps) => {
   const [editMode, setEditMode] = useState<boolean>(false);

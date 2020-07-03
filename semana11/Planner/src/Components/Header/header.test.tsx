@@ -7,5 +7,5 @@ test('Header should render properly', () => {
   const { getByText } = render(<Header />);
   const HeaderTitle = getByText('Planner');
 
-  expect(HeaderTitle).toBeInTheDocument();
+  expect(HeaderTitle).toBeInTheDocument()
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Task } from '../../Types/interfaces';
+import { Task } from '../../Types';
 import { days } from '../../Assets/json/days';
 import { createTask } from './taskcreator_services';
 import { Container } from './taskcreator_styles';
@@ -19,7 +19,7 @@ const TaskCreator: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await createTask(task).then(() => {
-      setTask({ ...task, text: '' });
+      setTask({ ...task, text: 'aaa' });
     });
   };
 
