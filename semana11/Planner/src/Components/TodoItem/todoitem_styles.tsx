@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TodoItemTextProps } from '../../Types/index';
 
 export const TaskBox = styled.li`
   width: 80%;
@@ -9,10 +10,6 @@ export const TaskBox = styled.li`
   display: flex;
   flex-direction: column;
 `;
-
-interface TodoItemTextProps {
-  completion: boolean;
-}
 
 export const TaskText = styled.p<TodoItemTextProps>`
   color: ${(props) => (props.completion ? 'gray' : 'black')};

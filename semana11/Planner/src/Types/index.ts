@@ -1,6 +1,6 @@
 
 export interface Task {
-    text: string;
+  text: string;
   day: string;
   id: string;
      
@@ -21,4 +21,8 @@ export interface Task {
 
   export interface ProviderProps {
     children: React.ReactNode;
+  }
+
+  export interface TodoItemTextProps {
+    completion: boolean;
   }
