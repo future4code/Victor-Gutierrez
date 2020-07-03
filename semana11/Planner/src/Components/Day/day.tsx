@@ -3,6 +3,7 @@ import { DayProps, Task } from '../../Types';
 import useTasks from '../../Hooks/useTask';
 import { Container } from '../Day/day_styles';
 import TodoItem from '../TodoItem/todoitem';
+import { useState } from 'react';
 
 const Day = ({ day }: DayProps) => {
   const [tasks] = useTasks();

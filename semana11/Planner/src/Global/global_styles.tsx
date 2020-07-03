@@ -51,6 +51,27 @@ button:disabled:hover {
   background-color:gray;
 }
   
+.Toastify__toast--success {
+  background: #d05a76 ;
+  border-radius: 10px 10px 0px 10px;
+ }
+
+ input, select{
+   padding: 3px 5px;
+   border-radius: 5px;
+   border: 0.5px dashed #d05a76; 
+   box-shadow: 2.5px 2.5px 1px #0000003b;
+   margin: 2.5px 0 5px 0;
+   background: white
+ }
+
+ option{
+   background: white;
+   text-align: center;
+   border: none;
+ }
+
+
   
   
   `;

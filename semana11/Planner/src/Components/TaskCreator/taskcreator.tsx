@@ -31,8 +31,9 @@ const TaskCreator: React.FC = () => {
 
   return (
     <Container>
+      <h5>Crie sua tarefa</h5>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="day">Tarefa</label>
+        <label htmlFor="day">Nome da tarefa</label>
         <input
           required
           data-testid="task-input"
@@ -40,7 +41,7 @@ const TaskCreator: React.FC = () => {
           type="text"
           id="text"
           value={task.text}
-          placeholder="Insira um nome para sua tarefa"
+          placeholder="Insira um nome"
         />
         <label htmlFor="day">Dia da tarefa</label>
         <select
@@ -49,7 +50,7 @@ const TaskCreator: React.FC = () => {
           onChange={handleInput}
           id="day"
         >
-          <option value=""></option>
+          <option value="">Selecione o dia</option>
           {days.map((item) => (
             <option key={item} value={item}>
               {item}

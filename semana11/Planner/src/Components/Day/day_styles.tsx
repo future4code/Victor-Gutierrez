@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 20px;
   height: 300px;
   width: 300px;
-  border-bottom: 1px dashed black;
+  border-bottom: 5px dashed white;
   list-style: none;
   text-align: center;
   break-before: auto;
@@ -38,5 +38,6 @@ export const Container = styled.div`
     position: sticky;
     top: 0px;
     background: white;
+    border-radius: 5px;
   }
 `;

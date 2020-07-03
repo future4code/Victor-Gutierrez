@@ -40,7 +40,13 @@ const TodoItem = ({ text, id }: TodoItemProps) => {
         </>
       ) : (
         <>
-          <button onClick={() => setCompletion((prev) => !prev)}>
+          <button
+            style={{
+              background: completed ? '#d05a76' : 'white',
+              color: completed ? 'white' : 'black',
+            }}
+            onClick={() => setCompletion((prev) => !prev)}
+          >
             {completed ? 'Atividade Completa!' : 'Completar'}
           </button>
           <button onClick={() => setEditMode(true)}>Editar</button>

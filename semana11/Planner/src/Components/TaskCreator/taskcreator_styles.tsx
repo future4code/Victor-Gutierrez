@@ -4,24 +4,28 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px auto;
-  height: 200px;
+  margin: 15px;
+  height: 230px;
   width: 300px;
-  position: sticky;
   background: white;
   border: 2px dashed #d05a76;
+  padding: 10px 10px;
 
-  padding: 20px 10px;
-  top: 10px;
   z-index: 2;
   text-align: center;
   border-radius: 2px 30px 30px 30px;
+
+  h5 {
+    color: black;
+    margin-bottom: 10px;
+  }
 
   form {
     display: flex;
     flex-direction: column;
 
     label {
+      color: black;
       margin-top: 5px;
       margin-bottom: 5px;
     }
