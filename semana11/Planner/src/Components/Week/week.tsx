@@ -7,7 +7,7 @@ const Week: React.FC = () => {
   return (
     <Container>
       {days.map((item) => (
-        <Day key={Date.now()} day={item} />
+        <Day key={item} day={item} />
       ))}
     </Container>
   );

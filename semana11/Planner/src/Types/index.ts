@@ -13,3 +13,12 @@ export interface Task {
     text: string;
     id: string;
   }
+
+  export interface IsmartReloadContext {
+    reloadSwitch: number;
+    Load: () => void;
+  }
+
+  export interface ProviderProps {
+    children: React.ReactNode;
+  }

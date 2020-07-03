@@ -1,16 +1,28 @@
 import React from 'react';
 import { TaskBox } from './todoitem_styles';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { deleteTask } from './todoitem_services';
 import { TodoItemProps } from '../../Types';
+import { smartReloadContext } from '../../Context/smartReload/smartReload';
 
 const TodoItem = ({ text, id }: TodoItemProps) => {
   const [editMode, setEditMode] = useState<boolean>(false);
+  const { Load } = useContext(smartReloadContext);
 
   const closeEditMode = (event: React.KeyboardEvent) => {
     if (Number(event.keyCode) === 27) {
       setEditMode(false);
     }
+  };
+
+  const handleDelete = async (id: string) => {
+    await deleteTask(id)
+      .then(() => {
+        Load();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -26,7 +38,7 @@ const TodoItem = ({ text, id }: TodoItemProps) => {
       ) : (
         <>
           <button onClick={() => setEditMode(true)}>Editar</button>
-          <button onClick={() => deleteTask(id)}>Deletar</button>
+          <button onClick={() => handleDelete(id)}>Deletar</button>
         </>
       )}
     </TaskBox>

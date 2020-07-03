@@ -17,15 +17,18 @@ describe('TaskCreator Submit Testing', () => {
   let emit: any;
 
   beforeAll(() => {
-    ({ emit } = window._virtualConsole); // addressing JS-DOM submit implementation  problem
+    // @ts-ignore: Type is not relevant in here but the lack of declaration still throwing errors
+    ({ emit } = window._virtualConsole); // addressing JS-DOM submit library implementation  problem
   });
 
   beforeEach(() => {
-    window._virtualConsole.emit = jest.fn(); // addressing JS-DOM submit implementation  problem
+    // @ts-ignore: Type is not relevant in here but the lack of declaration still throwing errors
+    window._virtualConsole.emit = jest.fn(); // addressing JS-DOM submit library implementation  problem
   });
 
   afterAll(() => {
-    window._virtualConsole.emit = emit; // addressing JS-DOM submit  implementation problem
+    // @ts-ignore: Type is not relevant in here but the lack of declaration still throwing errors
+    window._virtualConsole.emit = emit; // addressing JS-DOM submit library implementation problem
   });
 
   test('TaskCreator form should trigger submit function on submit button click', () => {

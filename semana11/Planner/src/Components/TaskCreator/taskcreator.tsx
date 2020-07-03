@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Task } from '../../Types';
 import { days } from '../../Assets/json/days';
 import { createTask } from './taskcreator_services';
 import { Container } from './taskcreator_styles';
+import { smartReloadContext } from '../../Context/smartReload/smartReload';
 
 const TaskCreator: React.FC = () => {
   const [task, setTask] = useState<Task>({ ...({} as Task), text: '' });
-
+  const { Load } = useContext(smartReloadContext);
   const handleInput = (
     e:
       | React.ChangeEvent<HTMLInputElement>
@@ -18,9 +19,14 @@ const TaskCreator: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createTask(task).then(() => {
-      setTask({ ...task, text: 'aaa' });
-    });
+    await createTask(task)
+      .then(() => {
+        setTask({ ...task, text: '' });
+        Load();
+      })
+      .catch(() => {
+        setTask({ ...task, text: '' });
+      });
   };
 
   return (
