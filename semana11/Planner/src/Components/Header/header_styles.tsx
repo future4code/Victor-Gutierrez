@@ -7,6 +7,6 @@ export const Container = styled.div`
   flex-direction: column;
   height: 150px;
   width: 100%;
-  color: coral;
-  background: bisque;
+  color: black;
+  background: #d05a76;
 `;

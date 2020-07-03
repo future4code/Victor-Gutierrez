@@ -1,10 +1,12 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+
 import React from 'react';
 import Day from './day';
 import { Container } from '../TaskCreator/taskcreator_styles';
 import TodoItem from '../TodoItem/todoitem';
 import { Task } from '../../Types/index';
+import userEvent from '@testing-library/user-event';
 
 describe('Day component funcionalities', () => {
   test('Day component should render properly based on prop', () => {

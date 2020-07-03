@@ -26,9 +26,12 @@ describe('TodoItem funcionalities', () => {
   });
 
   test('Edit mode should be avoidable', () => {
-    const { getByText, getByPlaceholderText, queryByText } = render(
-      <TodoItem id="TaskID" text="TaskName" />,
-    );
+    const {
+      getByText,
+      getByPlaceholderText,
+      queryByText,
+      queryByPlaceholderText,
+    } = render(<TodoItem id="TaskID" text="TaskName" />);
 
     const EditToggle = getByText('Editar');
 
@@ -40,7 +43,8 @@ describe('TodoItem funcionalities', () => {
 
     userEvent.click(Cancel);
 
-    expect(queryByText('Insira o novo conteúdo')).toBeNull();
+    expect(queryByText('Enviar')).toBeNull();
+    expect(queryByPlaceholderText('Insira o novo conteúdo')).toBeNull();
   });
 
   test('Edit mode should close in ESC keypress', () => {
@@ -57,5 +61,27 @@ describe('TodoItem funcionalities', () => {
     userEvent.type(getByPlaceholderText('Insira o novo conteúdo'), '{esc}');
 
     expect(queryByText('Insira o novo conteúdo')).toBeNull();
+  });
+
+  test('User should be able to perform a non-persistent completion of task', () => {
+    const { getByText } = render(<TodoItem id="TaskID" text="TaskName" />);
+
+    const TaskText = getByText('TaskName');
+    const CompleteButton = getByText('Completar');
+
+    userEvent.click(CompleteButton);
+
+    expect(TaskText).toHaveStyle('text-decoration: line-through');
+    expect(CompleteButton).toHaveTextContent('Atividade Completa!');
+  });
+
+  test('Delete task button should render properly', async () => {
+    const { getByText } = render(<TodoItem id="TaskID" text="TaskName" />);
+
+    const DeleteButton = getByText('Deletar');
+
+    userEvent.click(DeleteButton);
+
+    expect(DeleteButton).not.toBeNull();
   });
 });

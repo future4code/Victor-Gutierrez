@@ -3,9 +3,6 @@ import { Task } from '../Types';
 import planner from '../Services/planner';
 import { smartReloadContext } from '../Context/smartReload/smartReload';
 
-//Why ? I did not want this function to render and call API seven times
-// not sure about this fix but it made sense to me at this point
-
 const useTasks = () => {
   const [tasks, setTasks] = useState<Task[]>([] as Task[]);
   const { reloadSwitch } = useContext(smartReloadContext);
