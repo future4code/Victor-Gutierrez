@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { smartReloadContext } from './smartReload';
 import { ProviderProps } from '../../Types/index';
 
-export default function SmartReloadProvider({ children }: ProviderProps) {
+const SmartReloadProvider = ({ children }: ProviderProps) => {
   const [reloadSwitch, setReloadSwitch] = useState<number>(0);
 
   const Load = () => {
@@ -14,4 +14,6 @@ export default function SmartReloadProvider({ children }: ProviderProps) {
       {children}
     </smartReloadContext.Provider>
   );
-}
+};
+
+export default SmartReloadProvider;

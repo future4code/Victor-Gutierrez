@@ -27,7 +27,7 @@ const TodoItem = ({ text, id }: TodoItemProps) => {
   };
 
   return (
-    <TaskBox onKeyDown={(e) => closeEditMode(e)}>
+    <TaskBox data-testid="task-box" onKeyDown={(e) => closeEditMode(e)}>
       <TaskText completion={completed}>{text}</TaskText>
 
       {editMode ? (

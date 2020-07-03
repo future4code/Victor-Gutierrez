@@ -5,7 +5,7 @@ import { createTask } from './taskcreator_services';
 import { Container } from './taskcreator_styles';
 import { smartReloadContext } from '../../Context/smartReload/smartReload';
 
-const TaskCreator: React.FC = () => {
+const TaskCreator = () => {
   const [task, setTask] = useState<Task>({ ...({} as Task), text: '' });
   const { Load } = useContext(smartReloadContext);
   const handleInput = (

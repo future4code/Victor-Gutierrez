@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Container as ContainerFromTaskCreator } from '../TaskCreator/taskcreator_styles';
 
-export const Container = styled.div`
+export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -3,9 +3,9 @@ import { days } from '../../Assets/json/days';
 import Day from '../Day/day';
 import { Container } from './week_styles';
 
-const Week: React.FC = () => {
+const Week = () => {
   return (
-    <Container>
+    <Container data-testid="day-container">
       {days.map((item) => (
         <Day key={item} day={item} />
       ))}
