@@ -13,7 +13,6 @@ function App() {
       <ToastContainer position="bottom-right" />
       <SmartReloadProvider>
         <Header />
-
         <Week />
       </SmartReloadProvider>
     </>

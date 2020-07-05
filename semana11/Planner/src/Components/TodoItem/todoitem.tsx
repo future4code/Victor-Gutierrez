@@ -24,9 +24,11 @@ const TodoItem = ({ text, id, done }: TodoItemProps) => {
   };
 
   const handleComplete = async () => {
-    await completeTask(id).then(() => {
-      Load();
-    });
+    if (done !== true) {
+      await completeTask(id).then(() => {
+        Load();
+      });
+    }
   };
 
   const handleEdit = (e: React.ChangeEvent<HTMLInputElement>) => {

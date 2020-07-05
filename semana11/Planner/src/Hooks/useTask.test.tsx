@@ -12,11 +12,13 @@ test('Should increment the amount of tasks when those are added to state', () =>
         day: 'Domingo',
         text: 'Testing',
         id: 'GeneratedID',
+        done: false,
       },
       {
         day: 'Segunda',
         text: 'Testing',
         id: 'GeneratedID2',
+        done: false,
       },
     ]);
   });

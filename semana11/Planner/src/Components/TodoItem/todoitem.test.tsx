@@ -49,7 +49,7 @@ describe('TodoItem funcionalities', () => {
     expect(queryByPlaceholderText('Insira o novo conteúdo')).toBeNull();
   });
 
-  test('Edit mode should close in ESC keypress', () => {
+  test('Edit mode should dismiss in ESC keypress', () => {
     const { getByText, getByPlaceholderText, queryByText } = render(
       <TodoItem done={false} id="TaskID" text="TaskName" />,
     );
@@ -75,5 +75,15 @@ describe('TodoItem funcionalities', () => {
     userEvent.click(DeleteButton);
 
     expect(DeleteButton).not.toBeNull();
+  });
+  test('User should not be able to complete an already completed task', async () => {
+    const { queryByText } = render(
+      <TodoItem done={true} id="TaskID" text="TaskName" />,
+    );
+
+    const completedButton = queryByText('Atividade Completa!');
+
+    expect(queryByText('Completar')).not.toBeInTheDocument();
+    expect(completedButton).toBeInTheDocument();
   });
 });

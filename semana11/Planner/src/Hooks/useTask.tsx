@@ -13,7 +13,7 @@ const useTasks = () => {
 
   const getTasks = async () => {
     await planner
-      .get('')
+      .get('/')
       .then((response) => {
         setTasks(response.data);
       })
