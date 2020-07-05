@@ -12,7 +12,12 @@ const Day = ({ day }: DayProps) => {
       <h1 data-testid="day-title">{day}</h1>
       {tasks.map((item: Task) =>
         item.day === day ? (
-          <TodoItem id={item.id} text={item.text} key={item.id} />
+          <TodoItem
+            id={item.id}
+            text={item.text}
+            key={item.id}
+            done={item.done}
+          />
         ) : (
           <></>
         ),

@@ -6,3 +6,15 @@ export const deleteTask = async (id: string) => {
         console.error(error)
     })
 }
+
+export const completeTask = async (id: string) => {
+  await planner.put(`/${id}`, { done: true }).then(() => toast.success("Tarefa completa!")).catch((error) => {
+    console.error(error)
+  })
+}
+
+export const editTask = async (id: string, newText: string) => {
+  await planner.put(`/${id}`, { text: newText }).then(() => toast.success("Tarefa editada!")).catch((error) => {
+    console.error(error)
+  })
+}

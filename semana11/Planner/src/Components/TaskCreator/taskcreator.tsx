@@ -6,7 +6,11 @@ import { Container } from './taskcreator_styles';
 import { smartReloadContext } from '../../Context/smartReload/smartReload';
 
 const TaskCreator = () => {
-  const [task, setTask] = useState<Task>({ ...({} as Task), text: '' });
+  const [task, setTask] = useState<Task>({
+    ...({} as Task),
+    text: '',
+    done: false,
+  });
   const { Load } = useContext(smartReloadContext);
   const handleInput = (
     e:

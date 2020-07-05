@@ -15,6 +15,10 @@ export const TaskBox = styled.li`
   input::placeholder {
     text-align: center;
   }
+
+  form > button {
+    width: 100%;
+  }
 `;
 
 export const TaskText = styled.p<TodoItemTextProps>`
@@ -23,4 +27,9 @@ export const TaskText = styled.p<TodoItemTextProps>`
   padding: 10px 5px;
 
   text-decoration-color: black;
+`;
+
+export const CompleteButton = styled.button<TodoItemTextProps>`
+  background-color: ${(props) => (props.completion ? '#d05a76' : 'white')};
+  color: ${(props) => (props.completion ? 'white' : 'black')};
 `;
