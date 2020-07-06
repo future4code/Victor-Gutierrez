@@ -11,6 +11,7 @@ const TaskCreator = () => {
     text: '',
     done: false,
   });
+
   const { Load } = useContext(smartReloadContext);
   const handleInput = (
     e:

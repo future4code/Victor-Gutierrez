@@ -4,7 +4,6 @@ import { useState, useContext } from 'react';
 import { deleteTask, completeTask, editTask } from './todoitem_services';
 import { TodoItemProps } from '../../Types';
 import { smartReloadContext } from '../../Context/smartReload/smartReload';
-import { toast } from 'react-toastify';
 
 const TodoItem = ({ text, id, done }: TodoItemProps) => {
   const [editMode, setEditMode] = useState<boolean>(false);
@@ -37,14 +36,10 @@ const TodoItem = ({ text, id, done }: TodoItemProps) => {
 
   const sendEdit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (editContent !== '') {
-      await editTask(id, editContent).then(() => {
-        Load();
-        setEditContent('');
-      });
-    } else {
-      toast.error('Insira um conteúddo novo para sua tarefa');
-    }
+    await editTask(id, editContent).then(() => {
+      Load();
+      setEditContent('');
+    });
   };
 
   return (
@@ -55,6 +50,8 @@ const TodoItem = ({ text, id, done }: TodoItemProps) => {
         <>
           <form onSubmit={sendEdit}>
             <input
+              required
+              minLength={3}
               onChange={handleEdit}
               placeholder="Insira o novo conteúdo"
               type="text"
