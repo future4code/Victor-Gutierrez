@@ -1,6 +1,6 @@
-import { obterEstatisticasOutput } from './ex2.types';
+import { ObterEstatisticasOutput } from './ex2.types';
 
-function obterEstatisticas(numeros: number[]): obterEstatisticasOutput {
+function obterEstatisticas(numeros: number[]): ObterEstatisticasOutput {
   const numerosOrdenados = numeros.sort((a: number, b: number) => a - b);
 
   let soma = 0;
@@ -10,7 +10,7 @@ function obterEstatisticas(numeros: number[]): obterEstatisticasOutput {
     soma += num;
   }
 
-  const estatisticas: obterEstatisticasOutput = {
+  const estatisticas: ObterEstatisticasOutput = {
     maior: numerosOrdenados[numeros.length - 1],
     menor: numerosOrdenados[0],
     media: soma / numeros.length,

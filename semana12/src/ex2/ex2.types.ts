@@ -1,5 +1,5 @@
-export interface obterEstatisticasOutput {
-    maior: number;
-    menor: number;
-    media: number;
-  }
+export interface ObterEstatisticasOutput {
+  maior: number;
+  menor: number;
+  media: number;
+}
