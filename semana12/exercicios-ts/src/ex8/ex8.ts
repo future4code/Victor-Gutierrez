@@ -1,8 +1,8 @@
 import { RestaurantManagerInterface, Product, SoldProduct } from './ex8.types';
 
 class RestaurantManager implements RestaurantManagerInterface {
-  public products: Product[];
-  public sold: SoldProduct[];
+  private readonly products: Product[];
+  private readonly sold: SoldProduct[]; //Acessíveis apenas pelos metodos get e set e não-reassignáveis
 
   constructor(initialArrayOfProducts: Product[]) {
     this.products = initialArrayOfProducts;
