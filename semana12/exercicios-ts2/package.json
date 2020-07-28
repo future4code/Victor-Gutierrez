@@ -6,7 +6,10 @@
   "scripts": {
     "test": "jest",
     "test:staged": "jest",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "tell-my-age": "ts-node src/ex1/ex1.ts",
+    "operate": "ts-node src/ex2/ex2.ts",
+    "new-task": "ts-node src/ex3/ex3.ts"
   },
   "keywords": [],
   "author": "",
