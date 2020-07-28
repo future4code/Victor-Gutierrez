@@ -1,1 +1,1 @@
-export type GetFatorialType = (num: number) => number;
+export type GetFatorialType = (num: number) => number | string;

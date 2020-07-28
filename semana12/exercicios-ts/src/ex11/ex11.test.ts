@@ -13,4 +13,9 @@ describe('Exercicio 11', () => {
 
     expect(exec).toStrictEqual(1);
   });
+  test('should not return fatorial of negative number', () => {
+    const exec = getFatorial(-20);
+
+    expect(exec).toStrictEqual('Este número não possui fatorial válido');
+  });
 });
