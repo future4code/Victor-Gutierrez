@@ -50,7 +50,7 @@ describe('Exercicio 8', () => {
     ]);
   });
   test('should be able to add products', () => {
-    const exec = restaurant.addNewProduct({
+    restaurant.addNewProduct({
       name: 'Pizza Parmegiana',
       cost: 10,
       sellPrice: 35,
@@ -93,17 +93,11 @@ describe('Exercicio 8', () => {
   test('should be able see sold products', () => {
     const exec = restaurant.seeAllSoldProducts;
 
+    expect(exec).toHaveLength(0);
+
     restaurant.sellProducts('Lasanha');
 
-    expect(exec).toStrictEqual([
-      {
-        name: 'Lasanha',
-        cost: 10,
-        sellPrice: 55,
-        ingredients: ['Salsa, Cebolinha, Pimentão'],
-        sellTime: Date.now(),
-      },
-    ]);
+    expect(exec).toHaveLength(1);
   });
 
   test('should be able see profit amount', () => {
