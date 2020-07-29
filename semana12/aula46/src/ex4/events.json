@@ -1,0 +1,16 @@
+[{
+    "name": "Reunião",
+    "description": "Reunião muito importante",
+    "startDate": "2020-06-25T19:00:00.000Z",
+    "endDate": "2020-06-25T20:00:00.000Z"
+}, {
+    "name": "Reuniãozinha",
+    "description": "Reunião não muito importante",
+    "startDate": "2020-06-26T21:00:00.000Z",
+    "endDate": "2020-06-26T22:00:00.000Z"
+}, {
+    "name": "Reuniãozinha",
+    "description": "Reunião não muito importante",
+    "startDate": "2020-12-26T21:00:00.000Z",
+    "endDate": "2020-12-26T22:00:00.000Z"
+}]
