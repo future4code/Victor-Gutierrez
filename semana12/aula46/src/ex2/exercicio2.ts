@@ -16,7 +16,7 @@ export const seeSchedule = (
       console.log(
         `\nNome: ${
           appointment.name
-        } \n\n Acontecerá em ${daysUntilEvent} dias \n Duração: ${duration} \n Horário de ínicio: ${appointment.startDate.format(
+        } \n\n Acontecerá em ${daysUntilEvent} dias \n Duração: ${duration} minutos\n Horário de ínicio: ${appointment.startDate.format(
           'dddd [de] MMMM [de] YYYY[,] [às] HH:mm'
         )} \n Horário de fim: ${appointment.endDate.format(
           'DD/MM/YYYY [às] HH:mm'
