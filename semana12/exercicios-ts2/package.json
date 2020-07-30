@@ -1,0 +1,36 @@
+{
+  "name": "backnd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:staged": "jest",
+    "dev": "nodemon src/server.js",
+    "tell-my-age": "ts-node src/ex1/ex1.ts",
+    "operate": "ts-node src/ex2/ex2.ts",
+    "new-task": "ts-node src/ex3/ex3.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "jest": "^26.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "eslint": "^7.4.0",
+    "eslint-config-standard-with-typescript": "^18.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "ts-jest": "^26.1.1"
+  },
+  "dependencies": {
+    "typescript": "^3.9.6"
+  }
+}
