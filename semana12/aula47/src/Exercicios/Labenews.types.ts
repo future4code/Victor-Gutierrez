@@ -12,6 +12,8 @@ interface News {
 
 interface ILabenewsController {
   getSubscribers(): Promise<User[]>;
+  getNews(): Promise<News[]>;
+  notifyUser(id: string, message: string): Promise<void>;
   createNews(content: Omit<News, 'date'>): Promise<void>;
   createNewsAndNotifyUsers(
     content: Omit<News, 'date'>,
