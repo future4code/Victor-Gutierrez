@@ -103,7 +103,7 @@ class LabenewsController implements ILabenewsController {
 
       const response = await Promise.all(promiseArray);
 
-      console.log("200: Notifications parsed" )
+      console.log('200: Notifications parsed');
 
       return response.map((notification) => {
         return notification.data;

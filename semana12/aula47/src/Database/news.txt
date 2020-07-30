@@ -690,6 +690,12 @@
     "date": "26/05/2020"
   },
   {
+    "id": "dazF6ar5rEJhhGtKdoI0",
+    "title": "NOVA NOTICIA",
+    "content": "criando nova noticia para teste",
+    "date": "30/07/2020"
+  },
+  {
     "id": "diyuQyPCLsQs7uvIe8j7",
     "title": "O rato está foragido.",
     "content": "O rato roeu a roupa do rei de Roma.",

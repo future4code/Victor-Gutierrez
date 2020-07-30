@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:staged": "jest",
-    "dev": "nodemon src/server.js"
+    "start": "ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
