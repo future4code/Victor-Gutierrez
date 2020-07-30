@@ -1,0 +1,1 @@
+export type ReversorType = (text: string) => string;
