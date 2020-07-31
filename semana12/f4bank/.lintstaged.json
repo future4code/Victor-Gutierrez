@@ -1,0 +1,8 @@
+{
+    "*.ts": [
+        "eslint 'src/**' --fix",
+        "yarn test --watchAll"
+        
+        
+    ]
+}
