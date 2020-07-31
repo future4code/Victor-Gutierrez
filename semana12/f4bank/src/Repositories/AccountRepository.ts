@@ -116,16 +116,8 @@ class AccountRepositories {
                                 id: v4(),
                                 amount: value,
                                 date: moment(date, "DD/MM/YYYY").isValid()
-                                    ? String(
-                                          moment(date).format(
-                                              "DD/MM/YYYY [às] HH:mm:ss"
-                                          )
-                                      )
-                                    : String(
-                                          moment(new Date()).format(
-                                              "DD/MM/YYYY [às] HH:mm:ss"
-                                          )
-                                      ),
+                                    ? String(moment(date).unix())
+                                    : String(moment().unix()),
                                 description: description,
                             },
                         ],
@@ -145,16 +137,8 @@ class AccountRepositories {
                                     id: v4(),
                                     amount: value,
                                     date: moment(date, "DD/MM/YYYY").isValid()
-                                        ? String(
-                                              moment(date).format(
-                                                  "DD/MM/YYYY [às] HH:mm:ss"
-                                              )
-                                          )
-                                        : String(
-                                              moment(new Date()).format(
-                                                  "DD/MM/YYYY [às] HH:mm:ss"
-                                              )
-                                          ),
+                                        ? String(moment(date).unix())
+                                        : String(moment().unix()),
                                     description: description,
                                 },
                             ],
@@ -171,16 +155,8 @@ class AccountRepositories {
                                     id: v4(),
                                     amount: value,
                                     date: moment(date, "DD/MM/YYYY").isValid()
-                                        ? String(
-                                              moment(date).format(
-                                                  "DD/MM/YYYY [às] HH:mm:ss"
-                                              )
-                                          )
-                                        : String(
-                                              moment(new Date()).format(
-                                                  "DD/MM/YYYY [às] HH:mm:ss"
-                                              )
-                                          ),
+                                        ? String(moment(date).unix())
+                                        : String(moment().unix()),
                                     description: `Transferência recebida de ${dbQuery[accountIndex].name}`,
                                 },
                             ],
