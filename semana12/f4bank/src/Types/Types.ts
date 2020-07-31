@@ -1,7 +1,8 @@
 interface IUserTransaction {
     id: string;
     amount: number;
-    dscription: string;
+    description: string;
+    date: string;
 }
 
 interface IUserAccount {
