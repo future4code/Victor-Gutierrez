@@ -5,3 +5,5 @@ const validateCPF = (cpf: string) => {
         throw new Error(`Invalid CPF: ${cpf}`);
     }
 };
+
+export { validateCPF };
