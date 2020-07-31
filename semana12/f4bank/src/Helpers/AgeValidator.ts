@@ -1,6 +1,6 @@
 import moment from "moment";
 
-const validateAge = (birthdate: string) => {
+const validateAge = async (birthdate: string) => {
     const delta = moment(moment(birthdate, "DD/MM/YYYY")).diff(
         moment.now(),
         "years"
