@@ -1,15 +1,10 @@
-import { IUserAccount } from "../../Types/Types";
 import { validateCPF } from "../../Helpers/CPFValidator";
 import { validateAge } from "../../Helpers/AgeValidator";
 import { UserAccount } from "../../Models/UserAccount";
 import AccountRepository from "../../Repositories/AccountRepository";
 
 class AccountService {
-    async createAccount({
-        name,
-        CPF,
-        birthdate,
-    }: Omit<IUserAccount, "balance" | "history">): Promise<void> {
+    async createAccount(name: string, CPF: string, birthdate: string) {
         try {
             await validateCPF(CPF);
             await validateAge(birthdate);
@@ -24,10 +19,61 @@ class AccountService {
         }
     }
 
-    async checkBalance({ CPF }: Pick<IUserAccount, "CPF">) {
+    async checkBalance(CPF: string) {
         try {
             await validateCPF(CPF);
-            await AccountRepository.queryDatabaseForUser({ CPF: CPF });
+            await AccountRepository.queryDatabaseForUserBalance(CPF);
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    async deposit(CPF: string, amount: number) {
+        try {
+            await validateCPF(CPF);
+            await AccountRepository.queryDatabaseForDeposit(CPF, amount);
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    async payBill(
+        CPF: string,
+        value: number,
+        description: string,
+        date?: string
+    ) {
+        try {
+            await validateCPF(CPF);
+            await AccountRepository.queryDatabaseAndMakeTransaction(
+                CPF,
+                value,
+                description,
+                date,
+                "payment"
+            );
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    async transferMoney(
+        CPF: string,
+        value: number,
+        description: string,
+        date?: string,
+        destinationCPF?: string
+    ) {
+        try {
+            await validateCPF(CPF);
+            await AccountRepository.queryDatabaseAndMakeTransaction(
+                CPF,
+                value,
+                description,
+                date,
+                "transference",
+                destinationCPF
+            );
         } catch (error) {
             throw new Error(error);
         }
@@ -35,7 +81,3 @@ class AccountService {
 }
 
 export default new AccountService();
-
-const aaa = new AccountService();
-
-aaa.checkBalance({ CPF: "111.111.111-88" });
