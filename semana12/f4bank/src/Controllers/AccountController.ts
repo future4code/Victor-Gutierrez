@@ -1,7 +1,7 @@
-import { validateCPF } from "../../Helpers/CPFValidator";
-import { validateAge } from "../../Helpers/AgeValidator";
-import { UserAccount } from "../../Models/UserAccount";
-import AccountRepository from "../../Repositories/AccountRepository";
+import { validateCPF } from "../Helpers/CPFValidator";
+import { validateAge } from "../Helpers/AgeValidator";
+import { UserAccount } from "../Models/UserAccount";
+import AccountRepository from "../Repositories/AccountRepository";
 
 class AccountController {
     async createAccount(name: string, CPF: string, birthdate: string) {
@@ -81,12 +81,3 @@ class AccountController {
 }
 
 export default new AccountController();
-const aaa = new AccountController();
-
-//aaa.createAccount("Gustavo Lima", "170.112.333-71", "14/11/1997")
-
-//aaa.createAccount("Roberto Jordan", "111.111.111-88", "15/11/1997");
-
-//aaa.deposit("170.112.333-71", 1000);
-
-aaa.payBill("170.112.333-71", 10, "Bolo de cajú", "aaaaaa");
