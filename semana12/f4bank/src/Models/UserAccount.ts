@@ -1,5 +1,6 @@
 import { IUserAccount, IUserTransaction } from "../Types/Types";
 import fs from "fs";
+import { queryDataBaseForUserAccount } from "../Repositories/UserAccountRepository";
 
 class UserAccount implements IUserAccount {
     name: string;
@@ -9,15 +10,21 @@ class UserAccount implements IUserAccount {
     history: IUserTransaction[];
 
     constructor(accountData: Omit<IUserAccount, "balance" | "history">) {
-        Object.assign(this, accountData);
+        this.name = accountData.name;
+        this.CPF = accountData.CPF;
+        this.birthdate = accountData.birthdate;
+        this.balance = 0;
+        this.history = [];
 
-        fs.appendFile(
-            __dirname + "/Database/users.json",
-            JSON.stringify(UserAccount, null, 2),
-            () => {
-                console.log("New user Created in Database");
-            }
-        );
+        const schema = {
+            name: this.name,
+            CPF: this.CPF,
+            birthdate: this.birthdate,
+            balance: this.balance,
+            history: this.history,
+        };
+
+        queryDataBaseForUserAccount(schema);
     }
 }
 
