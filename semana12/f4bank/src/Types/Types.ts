@@ -7,8 +7,7 @@ interface IUserTransaction {
 interface IUserAccount {
     name: string;
     CPF: string;
-    age: number;
-    birthdate: Date;
+    birthdate: string;
 
     balance: number;
 
