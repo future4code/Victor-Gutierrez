@@ -57,7 +57,7 @@ class AccountRepositories {
         }
     }
 
-    async queryDatabaseForDeposit(CPF: string, amount: number) {
+    async queryDatabaseForDeposit(CPF: string, value: number) {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             CPF
@@ -66,7 +66,16 @@ class AccountRepositories {
         if (accountIndex !== -1) {
             dbQuery[accountIndex] = {
                 ...dbQuery[accountIndex],
-                balance: dbQuery[accountIndex].balance + amount,
+                balance: dbQuery[accountIndex].balance + value,
+                history: [
+                    ...dbQuery[accountIndex].history,
+                    {
+                        id: v4(),
+                        amount: value,
+                        date: String(Date.now()),
+                        description: `Depósito de R$ ${value}`,
+                    },
+                ],
             };
 
             await this.insertInDatabase(dbQuery);
@@ -95,13 +104,7 @@ class AccountRepositories {
             CPF2
         );
 
-        if (
-            accountIndex !== -1 &&
-            dbQuery[accountIndex].balance >= value &&
-            accountIndex_destination !== -1 &&
-            (moment(date, "DD/MM/YYYY").isBefore(moment()) ||
-                moment(date, "DD/MM/YYYY").isSame(moment()))
-        ) {
+        if (accountIndex !== -1 && dbQuery[accountIndex].balance > value) {
             switch (type) {
                 case "payment":
                     dbQuery[accountIndex] = {
@@ -112,7 +115,17 @@ class AccountRepositories {
                             {
                                 id: v4(),
                                 amount: value,
-                                date: date ? date : String(Date.now()),
+                                date: moment(date, "DD/MM/YYYY").isValid()
+                                    ? String(
+                                          moment(date).format(
+                                              "DD/MM/YYYY [às] HH:mm:ss"
+                                          )
+                                      )
+                                    : String(
+                                          moment(new Date()).format(
+                                              "DD/MM/YYYY [às] HH:mm:ss"
+                                          )
+                                      ),
                                 description: description,
                             },
                         ],
@@ -122,50 +135,73 @@ class AccountRepositories {
                     this.insertInDatabase(dbQuery);
                     break;
                 case "transference":
-                    dbQuery[accountIndex] = {
-                        ...dbQuery[accountIndex],
-                        balance: dbQuery[accountIndex].balance - value,
-                        history: [
-                            ...dbQuery[accountIndex].history,
-                            {
-                                id: v4(),
-                                amount: value,
-                                date: date ? date : String(Date.now()),
-                                description: description,
-                            },
-                        ],
-                    };
+                    if (accountIndex_destination !== -1) {
+                        dbQuery[accountIndex] = {
+                            ...dbQuery[accountIndex],
+                            balance: dbQuery[accountIndex].balance - value,
+                            history: [
+                                ...dbQuery[accountIndex].history,
+                                {
+                                    id: v4(),
+                                    amount: value,
+                                    date: moment(date, "DD/MM/YYYY").isValid()
+                                        ? String(
+                                              moment(date).format(
+                                                  "DD/MM/YYYY [às] HH:mm:ss"
+                                              )
+                                          )
+                                        : String(
+                                              moment(new Date()).format(
+                                                  "DD/MM/YYYY [às] HH:mm:ss"
+                                              )
+                                          ),
+                                    description: description,
+                                },
+                            ],
+                        };
 
-                    dbQuery[accountIndex_destination] = {
-                        ...dbQuery[accountIndex_destination],
-                        balance:
-                            dbQuery[accountIndex_destination].balance - value,
-                        history: [
-                            ...dbQuery[accountIndex_destination].history,
-                            {
-                                id: v4(),
-                                amount: value,
-                                date: date ? date : String(Date.now()),
-                                description: `Transferência recebida de ${dbQuery[accountIndex].name}`,
-                            },
-                        ],
-                    };
-                    console.log(
-                        `Transferência para ${dbQuery[accountIndex_destination].name} concluída com sucesso`
-                    );
-                    this.insertInDatabase(dbQuery);
+                        dbQuery[accountIndex_destination] = {
+                            ...dbQuery[accountIndex_destination],
+                            balance:
+                                dbQuery[accountIndex_destination].balance +
+                                value,
+                            history: [
+                                ...dbQuery[accountIndex_destination].history,
+                                {
+                                    id: v4(),
+                                    amount: value,
+                                    date: moment(date, "DD/MM/YYYY").isValid()
+                                        ? String(
+                                              moment(date).format(
+                                                  "DD/MM/YYYY [às] HH:mm:ss"
+                                              )
+                                          )
+                                        : String(
+                                              moment(new Date()).format(
+                                                  "DD/MM/YYYY [às] HH:mm:ss"
+                                              )
+                                          ),
+                                    description: `Transferência recebida de ${dbQuery[accountIndex].name}`,
+                                },
+                            ],
+                        };
+                        console.log(
+                            `Transferência para ${dbQuery[accountIndex_destination].name} concluída com sucesso`
+                        );
+                        this.insertInDatabase(dbQuery);
+                    } else {
+                        throw new Error("O CPF destinatário não existe");
+                    }
                     break;
                 default:
                     throw new Error("Transação não suportada");
             }
         } else {
             throw new Error(
-                "CPF não encontrado ou saldo insuficiente; certifique-se também se a data é a atual ou anterior ao dia de hoje"
+                "CPF não encontrado ou saldo insuficiente; certifique-se também se a data é válida"
             );
         }
     }
 }
 
 export default new AccountRepositories();
-
-console.log();

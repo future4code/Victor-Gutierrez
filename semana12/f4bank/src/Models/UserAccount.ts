@@ -1,5 +1,4 @@
 import { IUserAccount, IUserTransaction } from "../Types/Types";
-import fs from "fs";
 import AccountRepository from "../Repositories/AccountRepository";
 
 class UserAccount implements IUserAccount {
