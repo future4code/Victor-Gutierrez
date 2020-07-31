@@ -1,6 +1,6 @@
 import { IUserAccount, IUserTransaction } from "../Types/Types";
 import fs from "fs";
-import { queryDataBaseForUserAccount } from "../Repositories/UserAccountRepository";
+import AccountRepository from "../Repositories/AccountRepository";
 
 class UserAccount implements IUserAccount {
     name: string;
@@ -24,7 +24,7 @@ class UserAccount implements IUserAccount {
             history: this.history,
         };
 
-        queryDataBaseForUserAccount(schema);
+        AccountRepository.queryDataBaseAndCreateAccount(schema);
     }
 }
 
