@@ -1,7 +1,10 @@
 import moment from "moment";
 
 const validateAge = (birthdate: string) => {
-    const delta = moment(new Date(birthdate)).diff(moment(), "years");
+    const delta = moment(moment(birthdate, "DD/MM/YYYY")).diff(
+        moment.now(),
+        "years"
+    );
 
     if (delta * -1 > 17) {
         return true;
@@ -11,5 +14,3 @@ const validateAge = (birthdate: string) => {
 };
 
 export { validateAge };
-
-console.log(validateAge("11/21/2027"));
