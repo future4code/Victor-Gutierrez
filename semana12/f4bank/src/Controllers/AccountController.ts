@@ -84,5 +84,3 @@ class AccountController {
 }
 
 export default new AccountController();
-
-const aaa = new AccountController();

@@ -9,9 +9,7 @@ class UserAccount implements IUserAccount {
     history: IUserTransaction[];
 
     constructor(accountData: Omit<IUserAccount, "balance" | "history">) {
-        this.name = accountData.name;
-        this.CPF = accountData.CPF;
-        this.birthdate = accountData.birthdate;
+        Object.assign(this, accountData);
         this.balance = 0;
         this.history = [];
 
