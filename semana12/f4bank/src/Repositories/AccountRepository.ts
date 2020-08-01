@@ -73,7 +73,7 @@ class AccountRepositories {
             CPF
         );
 
-        if (accountIndex !== -1) {
+        if (accountIndex !== -1 && value > 0) {
             dbQuery[accountIndex] = {
                 ...dbQuery[accountIndex],
                 balance: dbQuery[accountIndex].balance + value,
@@ -94,7 +94,9 @@ class AccountRepositories {
                 `Olá, ${dbQuery[accountIndex].name} seu novo saldo é R$ ${dbQuery[accountIndex].balance}`
             );
         } else {
-            throw new Error("CPF não encontrado na base de dados");
+            throw new Error(
+                "CPF não encontrado na base de dados ou valor digitado é inválido"
+            );
         }
     }
 
@@ -122,7 +124,11 @@ class AccountRepositories {
             CPF2
         );
 
-        if (accountIndex !== -1 && dbQuery[accountIndex].balance > value) {
+        if (
+            accountIndex !== -1 &&
+            dbQuery[accountIndex].balance > value &&
+            value > 0
+        ) {
             switch (type) {
                 case "payment":
                     dbQuery[accountIndex] = {
@@ -194,7 +200,7 @@ class AccountRepositories {
             }
         } else {
             throw new Error(
-                "CPF não encontrado ou saldo insuficiente; certifique-se também se a data é válida"
+                "CPF não encontrado ou saldo insuficiente; certifique-se também se a data é válida e que o valor digitado é positivo"
             );
         }
     }
