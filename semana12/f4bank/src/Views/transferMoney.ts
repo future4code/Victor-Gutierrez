@@ -1,5 +1,5 @@
 import AccountController from "../Controllers/AccountController";
-import { processData } from "./index";
+import { processData } from "../index";
 
 AccountController.transferMoney(
     processData.slot1,

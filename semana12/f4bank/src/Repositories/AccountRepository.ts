@@ -127,7 +127,8 @@ class AccountRepositories {
         if (
             accountIndex !== -1 &&
             dbQuery[accountIndex].balance > value &&
-            value > 0
+            value > 0 &&
+            description
         ) {
             switch (type) {
                 case "payment":
@@ -140,8 +141,16 @@ class AccountRepositories {
                                 id: v4(),
                                 amount: value,
                                 date: moment(date, "DD/MM/YYYY").isValid()
-                                    ? String(moment(date).unix())
-                                    : String(moment().unix()),
+                                    ? String(
+                                          moment(Number(date)).format(
+                                              "DD/MM/YYYY [às] HH:mm"
+                                          )
+                                      )
+                                    : String(
+                                          moment().format(
+                                              "DD/MM/YYYY [às] HH:mm"
+                                          )
+                                      ),
                                 description: description,
                             },
                         ],
@@ -162,8 +171,16 @@ class AccountRepositories {
                                     id: v4(),
                                     amount: value,
                                     date: moment(date, "DD/MM/YYYY").isValid()
-                                        ? String(moment(date).unix())
-                                        : String(moment().unix()),
+                                        ? String(
+                                              moment(Number(date)).format(
+                                                  "DD/MM/YYYY [às] HH:mm"
+                                              )
+                                          )
+                                        : String(
+                                              moment().format(
+                                                  "DD/MM/YYYY [às] HH:mm"
+                                              )
+                                          ),
                                     description: description,
                                 },
                             ],
@@ -180,8 +197,16 @@ class AccountRepositories {
                                     id: v4(),
                                     amount: value,
                                     date: moment(date, "DD/MM/YYYY").isValid()
-                                        ? String(moment(date).unix())
-                                        : String(moment().unix()),
+                                        ? String(
+                                              moment(Number(date)).format(
+                                                  "DD/MM/YYYY [às] HH:mm"
+                                              )
+                                          )
+                                        : String(
+                                              moment().format(
+                                                  "DD/MM/YYYY [às] HH:mm"
+                                              )
+                                          ),
                                     description: `Transferência recebida de ${dbQuery[accountIndex].name}`,
                                 },
                             ],
@@ -200,7 +225,30 @@ class AccountRepositories {
             }
         } else {
             throw new Error(
-                "CPF não encontrado ou saldo insuficiente; certifique-se também se a data é válida e que o valor digitado é positivo"
+                "CPF não encontrado ou saldo insuficiente; certifique-se também se a data é válida e que o valor digitado é positivo\n Possivelmente algum parametro está ausente"
+            );
+        }
+    }
+
+    public async queryDatabaseForTransactions(CPF: string) {
+        const dbQuery = await this.queryDatabase();
+        const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
+            CPF
+        );
+
+        if (accountIndex !== -1) {
+            console.log(
+                "\n\n" +
+                    dbQuery[accountIndex].name +
+                    ", eis a lista das suas transações:\n"
+            );
+            console.log(
+                dbQuery[accountIndex].history.map((transaction) => {
+                    return {
+                        ...transaction,
+                        amount: `R$ ${transaction.amount}`,
+                    };
+                })
             );
         }
     }

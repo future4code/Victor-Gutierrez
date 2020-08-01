@@ -81,6 +81,15 @@ class AccountController {
             throw new Error(error);
         }
     }
+
+    async seeTransactions(CPF: string) {
+        try {
+            await validateCPF(CPF);
+            await AccountRepository.queryDatabaseForTransactions(CPF);
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 }
 
 export default new AccountController();

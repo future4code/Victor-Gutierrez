@@ -10,7 +10,8 @@
         "check-balance": "ts-node ./src/Views/checkBalance.ts",
         "deposit": "ts-node ./src/Views/deposit.ts",
         "pay-bill": "ts-node ./src/Views/payBill.ts",
-        "transfer": "ts-node ./src/Views/transferMoney.ts"
+        "transfer": "ts-node ./src/Views/transferMoney.ts",
+        "see-transactions": "ts-node ./src/Views/seeTransactions.ts"
     },
     "author": "",
     "license": "ISC",
