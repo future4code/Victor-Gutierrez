@@ -255,6 +255,8 @@ class AccountRepositories {
                     };
                 })
             );
+        } else {
+            throw new Error("CPF inexistente na base de dados");
         }
     }
 }

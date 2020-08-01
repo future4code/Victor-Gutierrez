@@ -18,3 +18,8 @@ console.log(
     "\x1b[33m%s\x1b[0m:",
     "\n Insira uma string vazia caso não deseje informar um parâmetro opcional\n Você deve ser maior de idade para criar uma conta no F4 BANK"
 );
+
+console.log(
+    "\x1b[33m%s\x1b[0m:",
+    "----------------------------------------------------------------------------------------- "
+);
