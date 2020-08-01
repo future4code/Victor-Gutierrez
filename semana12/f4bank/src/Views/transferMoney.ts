@@ -1,8 +1,10 @@
 import AccountController from "../Controllers/AccountController";
 import { processData } from "./index";
 
-AccountController.createAccount(
+AccountController.transferMoney(
     processData.slot1,
-    processData.slot2,
-    processData.slot3
+    Number(processData.slot2),
+    processData.slot3,
+    processData.slot4,
+    processData.slot5
 );

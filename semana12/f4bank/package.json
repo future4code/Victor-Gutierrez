@@ -7,7 +7,10 @@
         "start": "ts-node ./src/index.ts",
         "build": "tsc && node ./build/index.js",
         "create-account": "ts-node ./src/Views/createAccount.ts",
-        "check-balance": "ts-node ./src/Views/checkBalance.ts"
+        "check-balance": "ts-node ./src/Views/checkBalance.ts",
+        "deposit": "ts-node ./src/Views/deposit.ts",
+        "pay-bill": "ts-node ./src/Views/payBill.ts",
+        "transfer": "ts-node ./src/Views/transferMoney.ts"
     },
     "author": "",
     "license": "ISC",

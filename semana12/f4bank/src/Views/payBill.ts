@@ -1,4 +1,8 @@
 import AccountController from "../Controllers/AccountController";
 import { processData } from "./index";
 
-AccountController.checkBalance(processData.slot1);
+AccountController.payBill(
+    processData.slot1,
+    Number(processData.slot2),
+    processData.slot3
+);
