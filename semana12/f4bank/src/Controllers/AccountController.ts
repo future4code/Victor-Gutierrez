@@ -31,7 +31,10 @@ class AccountController {
     async deposit(CPF: string, amount: number) {
         try {
             await validateCPF(CPF);
-            await AccountRepository.queryDatabaseForDeposit(CPF, amount);
+            await AccountRepository.queryDatabaseForDeposit({
+                CPF,
+                value: amount,
+            });
         } catch (error) {
             throw new Error(error);
         }
@@ -45,13 +48,13 @@ class AccountController {
     ) {
         try {
             await validateCPF(CPF);
-            await AccountRepository.queryDatabaseAndMakeTransaction(
+            await AccountRepository.queryDatabaseAndMakeTransaction({
                 CPF,
                 value,
                 description,
                 date,
-                "payment"
-            );
+                type: "payment",
+            });
         } catch (error) {
             throw new Error(error);
         }
@@ -66,14 +69,14 @@ class AccountController {
     ) {
         try {
             await validateCPF(CPF);
-            await AccountRepository.queryDatabaseAndMakeTransaction(
+            await AccountRepository.queryDatabaseAndMakeTransaction({
                 CPF,
                 value,
                 description,
                 date,
-                "transference",
-                destinationCPF
-            );
+                type: "transference",
+                CPF2: destinationCPF,
+            });
         } catch (error) {
             throw new Error(error);
         }
@@ -81,3 +84,5 @@ class AccountController {
 }
 
 export default new AccountController();
+
+const aaa = new AccountController();

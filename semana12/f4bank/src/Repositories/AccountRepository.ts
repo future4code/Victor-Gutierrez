@@ -4,6 +4,8 @@ import moment from "moment";
 import fs from "fs";
 
 class AccountRepositories {
+    /////////////////////////////// Métodos privados de consulta e inserção no BD
+
     private async queryDatabase(): Promise<IUserAccount[]> {
         return JSON.parse(
             fs.readFileSync(__dirname + "/../Database/database.json").toString()
@@ -26,7 +28,9 @@ class AccountRepositories {
         return accountIndex;
     }
 
-    async queryDataBaseAndCreateAccount(schema: IUserAccount) {
+    ///////////////////////////////////////////////////////////////////////
+
+    public async queryDataBaseAndCreateAccount(schema: IUserAccount) {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             schema.CPF
@@ -42,7 +46,7 @@ class AccountRepositories {
         }
     }
 
-    async queryDatabaseForUserBalance(CPF: string) {
+    public async queryDatabaseForUserBalance(CPF: string) {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             CPF
@@ -57,7 +61,13 @@ class AccountRepositories {
         }
     }
 
-    async queryDatabaseForDeposit(CPF: string, value: number) {
+    public async queryDatabaseForDeposit({
+        CPF,
+        value,
+    }: {
+        CPF: string;
+        value: number;
+    }) {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             CPF
@@ -88,14 +98,22 @@ class AccountRepositories {
         }
     }
 
-    async queryDatabaseAndMakeTransaction(
-        CPF: string,
-        value: number,
-        description: string,
-        date: string | undefined,
-        type: "payment" | "transference",
-        CPF2 = "Destination_CPF"
-    ) {
+    //High Cognitive Complexity
+    public async queryDatabaseAndMakeTransaction({
+        CPF,
+        value,
+        description,
+        date,
+        type,
+        CPF2 = "Destination_CPF",
+    }: {
+        CPF: string;
+        value: number;
+        description: string;
+        date: string | undefined;
+        type: "payment" | "transference";
+        CPF2?: string;
+    }) {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             CPF
@@ -127,6 +145,7 @@ class AccountRepositories {
                     this.insertInDatabase(dbQuery);
                     break;
                 case "transference":
+                    // Operação em ambas as contas da transação
                     if (accountIndex_destination !== -1) {
                         dbQuery[accountIndex] = {
                             ...dbQuery[accountIndex],
@@ -161,6 +180,7 @@ class AccountRepositories {
                                 },
                             ],
                         };
+
                         console.log(
                             `Transferência para ${dbQuery[accountIndex_destination].name} concluída com sucesso`
                         );
