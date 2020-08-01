@@ -40,7 +40,7 @@ class AccountRepositories {
             dbQuery.push(schema);
 
             await this.insertInDatabase(dbQuery);
-            console.log("Conta criada com sucesso");
+            console.log("\x1b[4m", "\x1b[36m", "Conta criada com sucesso");
         } else {
             throw new Error("O CPF já está cadastrado na base de dados");
         }
@@ -82,7 +82,7 @@ class AccountRepositories {
                     {
                         id: v4(),
                         amount: value,
-                        date: String(Date.now()),
+                        date: String(moment().format("DD/MM/YYYY [às] HH:mm")),
                         description: `Depósito de R$ ${value}`,
                     },
                 ],
@@ -91,6 +91,8 @@ class AccountRepositories {
             await this.insertInDatabase(dbQuery);
 
             console.log(
+                "\x1b[4m",
+                "\x1b[36m",
                 `Olá, ${dbQuery[accountIndex].name} seu novo saldo é R$ ${dbQuery[accountIndex].balance}`
             );
         } else {
@@ -213,6 +215,8 @@ class AccountRepositories {
                         };
 
                         console.log(
+                            "\x1b[4m",
+                            "\x1b[36m",
                             `Transferência para ${dbQuery[accountIndex_destination].name} concluída com sucesso`
                         );
                         this.insertInDatabase(dbQuery);
@@ -238,6 +242,7 @@ class AccountRepositories {
 
         if (accountIndex !== -1) {
             console.log(
+                "\x1b[36m",
                 "\n\n" +
                     dbQuery[accountIndex].name +
                     ", eis a lista das suas transações:\n"
