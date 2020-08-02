@@ -12,7 +12,7 @@ console.log(
 );
 console.log(
     "\x1b[33m%s\x1b[0m:",
-    "Eis os comandos disponíveis nessa interface: \n\ncreate-account 'Seu nome 'Seu CPF' 'Sua Data de Nascimento'\ncheck-balance 'Seu CPF' \ndeposit  'Seu CPF' 'Quantidade' \npay-bill 'Seu CPF' 'Valor' 'Descrição' 'Data(opcional)'\ntransfer 'Seu CPF' 'Valor' 'Descrição' 'Data(opcional)' 'CPF de destino'\nsee-transactions 'Seu CPF'"
+    "Eis os comandos disponíveis nessa interface: \n\ncreate-account 'Seu nome 'Seu CPF' 'Sua Data de Nascimento'\ncheck-balance 'Seu CPF' \ndeposit  'Seu CPF' 'Quantidade' \npay-bill 'Seu CPF' 'Valor' 'Descrição' \ntransfer 'Seu CPF' 'Valor' 'Descrição' 'CPF de destino'\nsee-transactions 'Seu CPF'"
 );
 console.log(
     "\x1b[33m%s\x1b[0m:",

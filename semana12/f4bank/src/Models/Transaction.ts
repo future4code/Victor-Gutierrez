@@ -8,12 +8,12 @@ class Transaction implements IUserTransaction {
     description: string;
     id: string;
 
-    constructor(amount: number, description: string) {
+    constructor(
+        transactionData: Pick<IUserTransaction, "amount" | "description">
+    ) {
+        Object.assign(this, transactionData);
         this.id = v4();
         this.date = String(moment().format("DD/MM/YYYY [às] HH:mm"));
-        this.description = description;
-        this.amount = amount;
-
         return this;
     }
 }

@@ -1,6 +1,6 @@
 import { validateCPF } from "../Helpers/CPFValidator";
 import { validateAge } from "../Helpers/AgeValidator";
-import { UserAccount } from "../Models/UserAccount";
+import { UserAccount } from "../Models/Account";
 import AccountRepository from "../Repositories/AccountRepository";
 
 class AccountController {
@@ -40,19 +40,14 @@ class AccountController {
         }
     }
 
-    async payBill(
-        CPF: string,
-        value: number,
-        description: string,
-        date?: string
-    ) {
+    async payBill(CPF: string, value: number, description: string) {
         try {
             await validateCPF(CPF);
             await AccountRepository.queryDatabaseAndMakeTransaction({
                 CPF,
                 value,
                 description,
-                date,
+
                 type: "payment",
             });
         } catch (error) {
@@ -64,7 +59,6 @@ class AccountController {
         CPF: string,
         value: number,
         description: string,
-        date?: string,
         destinationCPF?: string
     ) {
         try {
@@ -73,7 +67,6 @@ class AccountController {
                 CPF,
                 value,
                 description,
-                date,
                 type: "transference",
                 CPF2: destinationCPF,
             });
