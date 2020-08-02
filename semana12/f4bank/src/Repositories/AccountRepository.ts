@@ -6,9 +6,24 @@ class AccountRepositories {
     /////////////////////////////// Métodos privados de consulta e inserção no BD
 
     private async queryDatabase(): Promise<IUserAccount[]> {
-        return JSON.parse(
-            fs.readFileSync(__dirname + "/../Database/database.json").toString()
-        );
+        try {
+            return JSON.parse(
+                fs
+                    .readFileSync(__dirname + "/../Database/database.json")
+                    .toString()
+            );
+        } catch (error) {
+            fs.writeFileSync(
+                __dirname + "/../Database/database.json",
+                JSON.stringify([])
+            );
+
+            return JSON.parse(
+                fs
+                    .readFileSync(__dirname + "/../Database/database.json")
+                    .toString()
+            );
+        }
     }
 
     private async insertInDatabase(data: IUserAccount[]) {
