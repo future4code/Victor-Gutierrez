@@ -1,6 +1,6 @@
 import { validateCPF } from "../Helpers/CPFValidator";
 import { validateAge } from "../Helpers/AgeValidator";
-import { UserAccount } from "../Models/Account";
+import { UserAccount } from "../Models/AccountModel";
 import AccountRepository from "../Repositories/AccountRepository";
 
 class AccountController {

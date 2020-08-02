@@ -11,8 +11,8 @@ class Transaction implements IUserTransaction {
     constructor(
         transactionData: Pick<IUserTransaction, "amount" | "description">
     ) {
-        Object.assign(this, transactionData);
         this.id = v4();
+        Object.assign(this, transactionData);
         this.date = String(moment().format("DD/MM/YYYY [às] HH:mm"));
         return this;
     }

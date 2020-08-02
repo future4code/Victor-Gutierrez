@@ -1,7 +1,6 @@
 import { IUserAccount } from "../Types/Types";
-import { v4 } from "uuid";
-import moment from "moment";
 import fs from "fs";
+import { Transaction } from "../Models/TransactionModel";
 
 class AccountRepositories {
     /////////////////////////////// Métodos privados de consulta e inserção no BD
@@ -79,12 +78,10 @@ class AccountRepositories {
                 balance: dbQuery[accountIndex].balance + value,
                 history: [
                     ...dbQuery[accountIndex].history,
-                    {
-                        id: v4(),
+                    new Transaction({
                         amount: value,
-                        date: String(moment().format("DD/MM/YYYY [às] HH:mm")),
-                        description: `Depósito de R$ ${value}`,
-                    },
+                        description: `Depósito de R$${value}`,
+                    }),
                 ],
             };
 
@@ -102,19 +99,16 @@ class AccountRepositories {
         }
     }
 
-    //High Cognitive Complexity
     public async queryDatabaseAndMakeTransaction({
         CPF,
         value,
         description,
-        date,
         type,
         CPF2 = "Destination_CPF",
     }: {
         CPF: string;
         value: number;
         description: string;
-        date: string | undefined;
         type: "payment" | "transference";
         CPF2?: string;
     }) {
@@ -139,22 +133,10 @@ class AccountRepositories {
                         balance: dbQuery[accountIndex].balance - value,
                         history: [
                             ...dbQuery[accountIndex].history,
-                            {
-                                id: v4(),
+                            new Transaction({
                                 amount: value,
-                                date: moment(date, "DD/MM/YYYY").isValid()
-                                    ? String(
-                                          moment(Number(date)).format(
-                                              "DD/MM/YYYY [às] HH:mm"
-                                          )
-                                      )
-                                    : String(
-                                          moment().format(
-                                              "DD/MM/YYYY [às] HH:mm"
-                                          )
-                                      ),
                                 description: description,
-                            },
+                            }),
                         ],
                     };
 
@@ -169,22 +151,12 @@ class AccountRepositories {
                             balance: dbQuery[accountIndex].balance - value,
                             history: [
                                 ...dbQuery[accountIndex].history,
-                                {
-                                    id: v4(),
+                                new Transaction({
                                     amount: value,
-                                    date: moment(date, "DD/MM/YYYY").isValid()
-                                        ? String(
-                                              moment(Number(date)).format(
-                                                  "DD/MM/YYYY [às] HH:mm"
-                                              )
-                                          )
-                                        : String(
-                                              moment().format(
-                                                  "DD/MM/YYYY [às] HH:mm"
-                                              )
-                                          ),
-                                    description: description,
-                                },
+                                    description:
+                                        description +
+                                        ` (enviado para ${dbQuery[accountIndex_destination].name})`,
+                                }),
                             ],
                         };
 
@@ -195,22 +167,10 @@ class AccountRepositories {
                                 value,
                             history: [
                                 ...dbQuery[accountIndex_destination].history,
-                                {
-                                    id: v4(),
+                                new Transaction({
                                     amount: value,
-                                    date: moment(date, "DD/MM/YYYY").isValid()
-                                        ? String(
-                                              moment(Number(date)).format(
-                                                  "DD/MM/YYYY [às] HH:mm"
-                                              )
-                                          )
-                                        : String(
-                                              moment().format(
-                                                  "DD/MM/YYYY [às] HH:mm"
-                                              )
-                                          ),
                                     description: `Transferência recebida de ${dbQuery[accountIndex].name}`,
-                                },
+                                }),
                             ],
                         };
 

@@ -5,6 +5,5 @@ AccountController.transferMoney(
     processData.slot1,
     Number(processData.slot2),
     processData.slot3,
-    processData.slot4,
-    processData.slot5
+    processData.slot4
 );
