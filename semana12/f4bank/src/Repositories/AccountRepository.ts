@@ -56,7 +56,7 @@ class AccountRepositories {
             await this.insertInDatabase(dbQuery);
             console.log("\x1b[4m", "\x1b[36m", "Conta criada com sucesso");
         } else {
-            throw new Error("O CPF já está cadastrado na base de dados");
+            throw new Error("O CPF já possui conta atrelada");
         }
     }
 
@@ -71,7 +71,7 @@ class AccountRepositories {
                 `Olá, ${dbQuery[accountIndex].name} seu saldo é ${dbQuery[accountIndex].balance}`
             );
         } else {
-            throw new Error("CPF não encontrado na base de dados");
+            throw new Error("CPF não possui conta atrelada");
         }
     }
 
@@ -109,7 +109,7 @@ class AccountRepositories {
             );
         } else {
             throw new Error(
-                "CPF não encontrado na base de dados ou valor digitado é inválido"
+                "CPF não possui conta atrelada ou valor digitado é inválido"
             );
         }
     }
@@ -141,7 +141,9 @@ class AccountRepositories {
             value > 0 &&
             description
         ) {
-            switch (type) {
+            switch (
+                type //reduce architecture
+            ) {
                 case "payment":
                     dbQuery[accountIndex] = {
                         ...dbQuery[accountIndex],
@@ -204,7 +206,7 @@ class AccountRepositories {
             }
         } else {
             throw new Error(
-                "CPF não encontrado ou saldo insuficiente; certifique-se também se a data é válida e que o valor digitado é positivo\n Possivelmente algum parametro está ausente"
+                "CPF não possui conta atrelada ou a conta não possui saldo suficiente; certifique-se também se a data é válida e que o valor digitado é positivo\n Possivelmente algum parametro está ausente"
             );
         }
     }
