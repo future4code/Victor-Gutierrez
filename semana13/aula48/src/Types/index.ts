@@ -1,10 +1,10 @@
-interface ITransaction {
+export interface ITransaction {
     date: string;
     value: number;
     description: string;
 }
 
-interface IAccount {
+export interface IAccount {
     name: string;
     age: number;
     balance: number;
