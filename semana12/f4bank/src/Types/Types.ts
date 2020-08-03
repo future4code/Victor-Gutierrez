@@ -6,9 +6,9 @@ interface IUserTransaction {
 }
 
 interface IUserAccount {
-    readonly name: string;
-    readonly CPF: string;
-    readonly birthdate: string;
+    name: string;
+    CPF: string;
+    birthdate: string;
 
     balance: number;
 
