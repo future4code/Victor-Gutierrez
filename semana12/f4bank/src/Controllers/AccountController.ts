@@ -1,15 +1,19 @@
 import { validateCPF } from "../Helpers/CPFValidator";
 import { validateAge } from "../Helpers/AgeValidator";
-import { UserAccount } from "../Models/AccountModel";
+
 import AccountRepository from "../Repositories/AccountRepository";
 
 class AccountController {
-    async createAccount(name: string, CPF: string, birthdate: string) {
+    async createAccount(
+        name: string,
+        CPF: string,
+        birthdate: string
+    ): Promise<void> {
         try {
             await validateCPF(CPF);
             await validateAge(birthdate);
 
-            new UserAccount({
+            await AccountRepository.queryDataBaseAndCreateAccount({
                 name: name,
                 CPF: CPF,
                 birthdate: birthdate,
@@ -19,7 +23,7 @@ class AccountController {
         }
     }
 
-    async checkBalance(CPF: string) {
+    async checkBalance(CPF: string): Promise<void> {
         try {
             await validateCPF(CPF);
             await AccountRepository.queryDatabaseForUserBalance(CPF);
@@ -28,7 +32,7 @@ class AccountController {
         }
     }
 
-    async deposit(CPF: string, amount: number) {
+    async deposit(CPF: string, amount: number): Promise<void> {
         try {
             await validateCPF(CPF);
             await AccountRepository.queryDatabaseForDeposit({
@@ -40,7 +44,11 @@ class AccountController {
         }
     }
 
-    async payBill(CPF: string, value: number, description: string) {
+    async payBill(
+        CPF: string,
+        value: number,
+        description: string
+    ): Promise<void> {
         try {
             await validateCPF(CPF);
             await AccountRepository.queryDatabaseAndMakeTransaction({
@@ -60,7 +68,7 @@ class AccountController {
         value: number,
         description: string,
         destinationCPF?: string
-    ) {
+    ): Promise<void> {
         try {
             await validateCPF(CPF);
             await AccountRepository.queryDatabaseAndMakeTransaction({
@@ -75,7 +83,7 @@ class AccountController {
         }
     }
 
-    async seeTransactions(CPF: string) {
+    async seeTransactions(CPF: string): Promise<void> {
         try {
             await validateCPF(CPF);
             await AccountRepository.queryDatabaseForTransactions(CPF);

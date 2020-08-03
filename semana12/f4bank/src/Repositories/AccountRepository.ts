@@ -1,6 +1,7 @@
 import { IUserAccount } from "../Types/Types";
 import fs from "fs";
 import { Transaction } from "../Models/TransactionModel";
+import { UserAccount } from "../Models/AccountModel";
 
 class AccountRepositories {
     /////////////////////////////// Métodos privados de consulta e inserção no BD
@@ -26,7 +27,7 @@ class AccountRepositories {
         }
     }
 
-    private async insertInDatabase(data: IUserAccount[]) {
+    private async insertInDatabase(data: IUserAccount[]): Promise<void> {
         fs.writeFileSync(
             __dirname + "/../Database/database.json",
             JSON.stringify(data, null, 2)
@@ -44,14 +45,18 @@ class AccountRepositories {
 
     ///////////////////////////////////////////////////////////////////////
 
-    public async queryDataBaseAndCreateAccount(schema: IUserAccount) {
+    public async queryDataBaseAndCreateAccount({
+        name,
+        CPF,
+        birthdate,
+    }: Omit<IUserAccount, "balance" | "history">): Promise<void> {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
-            schema.CPF
+            CPF
         );
 
         if (accountIndex === -1) {
-            dbQuery.push(schema);
+            dbQuery.push(new UserAccount({ name, CPF, birthdate }));
 
             await this.insertInDatabase(dbQuery);
             console.log("\x1b[4m", "\x1b[36m", "Conta criada com sucesso");
@@ -60,7 +65,7 @@ class AccountRepositories {
         }
     }
 
-    public async queryDatabaseForUserBalance(CPF: string) {
+    public async queryDatabaseForUserBalance(CPF: string): Promise<void> {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             CPF
@@ -126,7 +131,7 @@ class AccountRepositories {
         description: string;
         type: "payment" | "transference";
         CPF2?: string;
-    }) {
+    }): Promise<void> {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             CPF
@@ -211,7 +216,7 @@ class AccountRepositories {
         }
     }
 
-    public async queryDatabaseForTransactions(CPF: string) {
+    public async queryDatabaseForTransactions(CPF: string): Promise<void> {
         const dbQuery = await this.queryDatabase();
         const accountIndex = await this.queryDataBaseAndcheckAccountExistence(
             CPF

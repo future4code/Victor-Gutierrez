@@ -1,4 +1,4 @@
-const validateCPF = async (cpf: string) => {
+const validateCPF = async (cpf: string): Promise<boolean> => {
     if (cpf.match(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)) {
         return true;
     } else {
