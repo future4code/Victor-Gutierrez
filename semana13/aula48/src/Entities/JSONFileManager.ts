@@ -1,24 +1,34 @@
 import fs from "fs";
 
 class JSONFileManager {
-    private fileName: string;
-
-    constructor(fileName: string) {
-        this.fileName = fileName;
-    }
-
     public getObjectFromFile(): any {
-        return JSON.parse(
-            fs.readFileSync(__dirname + "/../Database/database.json").toString()
-        );
+        try {
+            return JSON.parse(
+                fs
+                    .readFileSync(__dirname + "/../Database/database.json")
+                    .toString()
+            );
+        } catch {
+            fs.writeFileSync(
+                __dirname + "/../Database/database.json",
+                JSON.stringify([], null, 2)
+            );
+        }
     }
 
     public writeObjectToFile(objectToSave: any): void {
-        fs.writeFileSync(
-            __dirname + "/../Database/database.json",
-            JSON.stringify(objectToSave)
-        );
+        try {
+            fs.writeFileSync(
+                __dirname + "/../Database/database.json",
+                JSON.stringify([...this.getObjectFromFile(), objectToSave])
+            );
+        } catch (error) {
+            fs.writeFileSync(
+                __dirname + "/../Database/database.json",
+                JSON.stringify(objectToSave, null, 2)
+            );
+        }
     }
 }
 
-export { JSONFileManager };
+export default new JSONFileManager();
