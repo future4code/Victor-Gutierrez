@@ -1,8 +1,8 @@
 class User {
-    private id: string;
-    private email: string;
-    private name: string;
-    private password: string;
+    private readonly id: string;
+    private readonly email: string;
+    private readonly name: string;
+    private readonly password: string;
 
     constructor(id: string, email: string, name: string, password: string) {
         console.log("Chamando o construtor da classe User");
