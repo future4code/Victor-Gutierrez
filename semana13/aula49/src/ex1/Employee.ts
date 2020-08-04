@@ -1,8 +1,9 @@
 import User from "./User";
 
 class Employee extends User {
-    protected admissionDate: string;
+    protected readonly admissionDate: string;
     protected baseSalary: number;
+    static BENEFITS_VALUE = 400;
 
     constructor(
         id: string,
@@ -12,11 +13,12 @@ class Employee extends User {
         admissionDate: string,
         baseSalary: number
     ) {
-        super(id, name, email, password);
+        super(id, email, name, password);
+        Object.assign(this, { admissionDate, baseSalary });
     }
 
     public calculateTotalSalary(): number {
-        return this.baseSalary + 400;
+        return this.baseSalary + Employee.BENEFITS_VALUE;
     }
 }
 
@@ -28,3 +30,5 @@ const employee = new Employee(
     "12/12/2012",
     400
 );
+
+export default Employee;

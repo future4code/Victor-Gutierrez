@@ -2,7 +2,7 @@ import User from "./User";
 
 class Customer extends User {
     public readonly purchaseTotal: number;
-    private creditCard: string;
+    private readonly creditCard: string;
 
     constructor(
         id: string,
@@ -25,10 +25,11 @@ class Customer extends User {
 const costumer = new Customer(
     "?",
     "aaa@mail.com",
-    "asdasd",
+    "Diogo Defante",
     "123123123123",
     "213231231231231223"
 );
 
-//ex2 a) 1 b) 2 por que Costumer é descendente de User
+console.log(costumer.introduceYourself());
 
+//ex2 a) 1 b) 2 por que Costumer é descendente de User
