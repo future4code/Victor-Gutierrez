@@ -23,6 +23,10 @@ class User {
     public getName(): string {
         return this.name;
     }
+
+    public introduceYourself(): string {
+        return `Olá, sou ${this.name}. Bom dia ! `;
+    }
 }
 
 const user = new User("?", "agg@mail.com", "user", "12345551123");
