@@ -13,7 +13,7 @@ export class ResidentialClient extends Residence implements IClient {
         super(residentsQuantity, cep);
     }
 
-    public get cadastroPessoaFisica(): string {
+    public get cadastroPessoa(): string {
         return this.cpf;
     }
 

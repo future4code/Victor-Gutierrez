@@ -18,7 +18,7 @@ export class CommercialClient extends Commerce implements IClient {
         return this.consumedEnergy * defaultTax;
     }
 
-    public get cadastroPessoaJuridica(): string {
+    public get cadastroPessoa(): string {
         return this.cnpj;
     }
 }
