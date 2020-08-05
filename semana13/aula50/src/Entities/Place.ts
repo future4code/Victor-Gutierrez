@@ -1,7 +1,7 @@
 export abstract class Place {
     constructor(protected cep: string) {}
 
-    public getCep(): string {
+    public get postalCode(): string {
         return this.cep;
     }
 }
