@@ -1,7 +1,7 @@
 import { Commerce } from "./Commerce";
 import { IClient } from "../Types";
 
-class CommercialClient extends Commerce implements IClient {
+export class CommercialClient extends Commerce implements IClient {
     constructor(
         public name: string,
         public registrationNumber: number,

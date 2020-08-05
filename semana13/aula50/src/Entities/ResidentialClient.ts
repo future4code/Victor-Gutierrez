@@ -1,6 +1,5 @@
 import { Residence } from "./Residence";
 import { IClient } from "../Types/index";
-import { Place } from "./Place";
 
 export class ResidentialClient extends Residence implements IClient {
     constructor(
