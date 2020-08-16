@@ -1,11 +1,8 @@
-// Update with your config settings.
-
-import knex from 'knex';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const db = knex({
+module.exports = {
       client: 'mysql',
       connection: {
             host: process.env.DB_HOST,
@@ -17,4 +14,4 @@ export const db = knex({
       migrations: {
             tableName: 'knex_migrations',
       },
-});
+};
