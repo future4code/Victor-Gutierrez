@@ -1,15 +1,13 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
+const env = require('../.env');
 
 module.exports = {
       client: 'mysql',
       connection: {
-            host: process.env.DB_HOST,
-            port: Number(process.env.DB_PORT || '3306'),
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_NAME,
+            host: env.DB_HOST,
+            port: Number(env.DB_PORT || '3306'),
+            user: env.DB_USER,
+            password: env.DB_PASSWORD,
+            database: env.DB_NAME,
       },
       migrations: {
             tableName: 'knex_migrations',
