@@ -1,3 +1,4 @@
+import path from 'path';
 const env = require('../.env');
 
 module.exports = {
@@ -10,6 +11,7 @@ module.exports = {
             database: env.DB_NAME,
       },
       migrations: {
+            directory: path.resolve(__dirname + '/Infra/migrations'),
             tableName: 'knex_migrations',
       },
 };
