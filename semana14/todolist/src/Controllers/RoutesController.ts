@@ -1,7 +1,7 @@
-import express, { Response, Request } from 'express';
+import { Response, Request } from 'express';
 
 class RoutesController {
-      async createaccount(req: Request, res: Response) {
+      async createUser(req: Request, res: Response) {
             const { name, nickname, email } = req.body;
 
             try {
@@ -30,13 +30,42 @@ class RoutesController {
             } catch (error) {}
       }
       async createTask(req: Request, res: Response) {
-            const { title, description, deadline_date, creator } = req.params;
+            const { title, description, deadline_date, creator } = req.body;
 
             try {
                   //new task
                   /* - O seu código deve validar se todos os campos não estão vazios,
 - O seu código deve gerar o id da tarefa,
 - A data deve se recebida no formato mostrado acima: `DD/MM/YYYY` e o seu código deve fazer a conversão necessária para salvar no banco */
+            } catch (error) {}
+      }
+      async getTaskById(req: Request, res: Response) {
+            const { id } = req.params;
+
+            try {
+                  //new task
+                  /* -- O seu código deve validar se o id da task foi enviado
+- O endpoint deve retornar um erro se não encontrar a task
+- Perceba que o endpoint retorna informações tanto da tarefa como do usuário criador
+- O seu código deve converter a data recebida do banco para o formato mostrado acima (`DD/MM/YYYY`) */
+            } catch (error) {}
+      }
+
+      async deleteTask(req: Request, res: Response) {
+            const { id } = req.params;
+            try {
+            } catch (error) {}
+      }
+
+      async searchTask(req: Request, res: Response) {
+            const { query } = req.query;
+
+            try {
+                  //new task
+                  /* -- O seu código deve validar se o id da task foi enviado
+- O endpoint deve retornar um erro se não encontrar a task
+- Perceba que o endpoint retorna informações tanto da tarefa como do usuário criador
+- O seu código deve converter a data recebida do banco para o formato mostrado acima (`DD/MM/YYYY`) */
             } catch (error) {}
       }
 }
