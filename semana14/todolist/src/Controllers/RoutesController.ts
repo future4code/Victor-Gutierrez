@@ -1,14 +1,20 @@
 import { Response, Request } from 'express';
+import DBController from './DBController';
+import checkForMissingParams from '../Helpers/missingParamValidator';
+import User from '../Models/User';
 
 class RoutesController {
+      db = DBController;
+
       async createUser(req: Request, res: Response) {
             const { name, nickname, email } = req.body;
 
             try {
-                  //new user to db
-                  /* - O seu código deve validar se os três campos estão completos (ou seja se não foram enviados ou se não estão vazios) e retornar um erro caso não estejam válidos
-                  - O seu código deve gerar o id do usuário */
-            } catch (error) {}
+                  checkForMissingParams(name, nickname, email);
+                  DBController.createUserInDB(new User(name, nickname, email));
+            } catch (error) {
+                  res.status(400).send(error);
+            }
       }
       async getUser(req: Request, res: Response) {
             const { id } = req.params;
