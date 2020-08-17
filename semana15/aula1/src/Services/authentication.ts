@@ -1,5 +1,7 @@
 import * as jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
+dotenv.config();
 export class Authenticator {
       private static EXPIRES_IN = '10min';
 
@@ -14,5 +16,15 @@ export class Authenticator {
                   }
             );
             return token;
+      }
+
+      public getData(token: string): string {
+            const payload = jwt.verify(
+                  token,
+                  process.env.JWT_KEY as string
+            ) as any;
+            const result = payload.id;
+
+            return result;
       }
 }
