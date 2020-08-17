@@ -1,5 +1,7 @@
 import User from '../Models/User';
 import knex from 'knex';
+import Task from '../Models/Task';
+import dateSQLParser from '../Helpers/dateSQLParser';
 const env = require('../../.env');
 
 class DBController {
@@ -16,16 +18,12 @@ class DBController {
 
       async createUserInDB(user: User) {
             try {
-                  await this.db
-                        .insert({
-                              id: user.id,
-                              name: user.name,
-                              nickname: user.nickname,
-                              email: user.email,
-                        })
-                        .into('users');
-
-                  this.db.destroy();
+                  await this.db('users').insert({
+                        id: user.id,
+                        name: user.name,
+                        nickname: user.nickname,
+                        email: user.email,
+                  });
             } catch (error) {
                   this.db.destroy();
                   throw 'Nickname ou email já existente';
@@ -34,9 +32,8 @@ class DBController {
 
       async getUserInDB(id: string) {
             try {
-                  const request = await this.db
+                  const request = await this.db('users')
                         .select('name', 'email', 'nickname')
-                        .from('users')
                         .where({ id: id });
 
                   return {
@@ -58,6 +55,21 @@ class DBController {
             } catch (error) {
                   this.db.destroy();
                   throw 'Usuário inexistente ou id inválido';
+            }
+      }
+
+      async createTask(task: Task) {
+            try {
+                  await this.db('todolist').insert({
+                        id: task.id,
+                        title: task.title,
+                        description: task.description,
+                        creator: task.creator,
+                        deadline_date: dateSQLParser(task.deadline_date),
+                  });
+            } catch (error) {
+                  this.db.destroy();
+                  throw error;
             }
       }
 }

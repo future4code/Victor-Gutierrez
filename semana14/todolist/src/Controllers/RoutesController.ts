@@ -3,6 +3,7 @@ import DBController from './DBController';
 import checkForMissingParams from '../Helpers/missingParamValidator';
 import User from '../Models/User';
 import errorHandler from '../Helpers/errorHandler';
+import Task from '../Models/Task';
 
 class RoutesController {
       db = DBController;
@@ -53,10 +54,19 @@ class RoutesController {
             const { title, description, deadline_date, creator } = req.body;
 
             try {
-                  //new task
-                  /* - O seu código deve validar se todos os campos não estão vazios,
-- O seu código deve gerar o id da tarefa,
-- A data deve se recebida no formato mostrado acima: `DD/MM/YYYY` e o seu código deve fazer a conversão necessária para salvar no banco */
+                  checkForMissingParams(
+                        title,
+                        description,
+                        deadline_date,
+                        creator
+                  );
+                  await DBController.createTask(
+                        new Task(title, description, deadline_date, creator)
+                  );
+
+                  res.status(200).json({
+                        message: 'Tarefa criada com sucesso',
+                  });
             } catch (error) {
                   errorHandler(error, res);
             }
