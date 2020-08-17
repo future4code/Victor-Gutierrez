@@ -1,4 +1,4 @@
-import { Response, Request, response } from 'express';
+import { Response, Request } from 'express';
 import DBController from './DBController';
 import checkForMissingParams from '../Helpers/missingParamValidator';
 import User from '../Models/User';
@@ -125,6 +125,38 @@ class RoutesController {
                   );
 
                   return res.status(200).json({ tasks: search });
+            } catch (error) {
+                  errorHandler(error, res);
+            }
+      }
+
+      async searchUser(req: Request, res: Response) {
+            const { query } = req.query;
+
+            try {
+                  const search = await DBController.getUserInDB(String(query));
+
+                  return res.status(200).json({ users: search });
+            } catch (error) {
+                  errorHandler(error, res);
+            }
+      }
+
+      async getAllTasks(req: Request, res: Response) {
+            try {
+                  const tasks = await DBController.getAllTasks();
+
+                  return res.status(200).json({ tasks: tasks });
+            } catch (error) {
+                  errorHandler(error, res);
+            }
+      }
+
+      async getAllUsers(req: Request, res: Response) {
+            try {
+                  const users = await DBController.getAllUsers();
+
+                  return res.status(200).json({ users: users });
             } catch (error) {
                   errorHandler(error, res);
             }

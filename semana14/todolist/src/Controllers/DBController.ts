@@ -81,6 +81,7 @@ class DBController {
                         title: request[0].title,
                         description: request[0].description,
                         deadline_date: request[0].deadline_date,
+                        status: request[0].status,
                         creator: request[0].creator,
                   };
             } catch (error) {
@@ -95,12 +96,37 @@ class DBController {
                         .where('title', 'like', `%${query}%`);
 
                   return request.map((item) => {
-                        return new Task(
-                              item.title,
-                              item.description,
-                              item.deadline_date,
-                              item.creator
-                        );
+                        const task = {
+                              task: {
+                                    title: item.title,
+                                    description: item.description,
+                                    deadline_date: item.deadline_date,
+                                    creator: item.creator,
+                                    status: item.status,
+                              },
+                        };
+                        return task;
+                  });
+            } catch (error) {
+                  throw 'Houve um erro na busca';
+            }
+      }
+
+      async getUserInDBByQuery(query: string) {
+            try {
+                  const request = await this.db('users')
+                        .select('*')
+                        .where('nickname', 'like', `%${query}%`);
+
+                  return request.map((item) => {
+                        const user = {
+                              user: {
+                                    name: item.name,
+                                    nickname: item.nickname,
+                                    email: item.email,
+                              },
+                        };
+                        return user;
                   });
             } catch (error) {
                   throw 'Houve um erro na busca';
@@ -122,6 +148,70 @@ class DBController {
                   await this.db('users').delete().where({ id: id });
             } catch (error) {
                   throw 'Usuário inexistente ou id inválido';
+            }
+      }
+
+      async getAllTasks() {
+            try {
+                  const request = await this.db('todolist').select('*');
+
+                  return request.map((item) => {
+                        const task = {
+                              task: {
+                                    title: item.title,
+                                    description: item.description,
+                                    deadline_date: item.deadline_date,
+                                    creator: item.creator,
+                                    status: item.status,
+                              },
+                        };
+                        return task;
+                  });
+            } catch (error) {
+                  throw 'Houve um erro na busca';
+            }
+      }
+
+      async getAllTasksFromUser(id: string) {
+            try {
+                  const request = await this.db('todolist')
+                        .select('*')
+                        .where({ creator: id });
+
+                  return request.map((item) => {
+                        const task = {
+                              task: {
+                                    title: item.title,
+                                    description: item.description,
+                                    deadline_date: item.deadline_date,
+                                    creator: item.creator,
+                                    status: item.status,
+                              },
+                        };
+                        return task;
+                  });
+            } catch (error) {
+                  throw 'Houve um erro na busca';
+            }
+      }
+
+      async getAllUsers() {
+            try {
+                  const request = await this.db('users').select('*');
+
+                  return request.map((item) => {
+                        const user = {
+                              user: {
+                                    id: item.id,
+                                    name: item.name,
+                                    nickname: item.nickname,
+                                    email: item.email,
+                              },
+                        };
+                        return user;
+                  });
+            } catch (error) {
+                  throw 'Houve um erro na busca';
             }
       }
 }

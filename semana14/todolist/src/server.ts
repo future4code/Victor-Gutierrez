@@ -21,11 +21,19 @@ class Server {
                   .route('/api/create/task')
                   .post(RoutesController.createTask);
 
+            this.app.route('/api/users').get(RoutesController.getAllUsers);
+            this.app.route('/api/tasks').get(RoutesController.getAllTasks);
+
+            this.app
+                  .route('/api/tasks/search')
+                  .get(RoutesController.searchTask);
+            this.app
+                  .route('/api/users/search')
+                  .get(RoutesController.searchUser);
+
             this.app.route('/api/user/:id').get(RoutesController.getUser);
             this.app.route('/api/user/:id').patch(RoutesController.editUser);
             this.app.route('/api/user/:id').delete(RoutesController.deleteUser);
-
-            this.app.route('/api/task/search').get(RoutesController.searchTask);
 
             this.app.route('/api/task/:id').get(RoutesController.getTaskById);
             this.app.route('/api/task/:id').delete(RoutesController.deleteTask);
