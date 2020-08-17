@@ -60,6 +60,7 @@ class DBController {
 
       async createTask(task: Task) {
             try {
+                  await this.getUserInDB(task.creator);
                   await this.db('todolist').insert({
                         id: task.id,
                         title: task.title,
@@ -70,6 +71,26 @@ class DBController {
             } catch (error) {
                   this.db.destroy();
                   throw error;
+            }
+      }
+
+      async getTaskInDB(id: string) {
+            try {
+                  const request = await this.db('todolist')
+                        .select('*')
+                        .where({ id: id });
+
+                  const user = await this.getUserInDB(request[0].creator);
+
+                  return {
+                        title: request[0].title,
+                        description: request[0].description,
+                        deadline_date: request[0].deadline_date,
+                        creator: user.name,
+                  };
+            } catch (error) {
+                  this.db.destroy();
+                  throw 'Tarefa inexistente ou id inválido';
             }
       }
 }

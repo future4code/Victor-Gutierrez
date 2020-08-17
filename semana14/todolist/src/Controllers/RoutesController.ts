@@ -1,4 +1,4 @@
-import { Response, Request } from 'express';
+import { Response, Request, response } from 'express';
 import DBController from './DBController';
 import checkForMissingParams from '../Helpers/missingParamValidator';
 import User from '../Models/User';
@@ -43,6 +43,7 @@ class RoutesController {
             try {
                   checkForMissingParams(id, name, nickname);
                   DBController.editUser(id, name, nickname);
+
                   res.status(200).json({
                         user: await DBController.getUserInDB(id),
                   });
@@ -75,11 +76,11 @@ class RoutesController {
             const { id } = req.params;
 
             try {
-                  //new task
-                  /* -- O seu código deve validar se o id da task foi enviado
-- O endpoint deve retornar um erro se não encontrar a task
-- Perceba que o endpoint retorna informações tanto da tarefa como do usuário criador
-- O seu código deve converter a data recebida do banco para o formato mostrado acima (`DD/MM/YYYY`) */
+                  checkForMissingParams(id);
+
+                  const task = await DBController.getTaskInDB(id);
+
+                  return res.status(200).json({ task: task });
             } catch (error) {
                   errorHandler(error, res);
             }
