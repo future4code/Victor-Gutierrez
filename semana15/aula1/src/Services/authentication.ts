@@ -2,6 +2,7 @@ import * as jwt from 'jsonwebtoken';
 
 export class Authenticator {
       private static EXPIRES_IN = '1min';
+
       public generateToken(input: string): string {
             const token = jwt.sign(
                   {

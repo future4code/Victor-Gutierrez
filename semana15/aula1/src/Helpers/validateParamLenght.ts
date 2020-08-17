@@ -6,3 +6,5 @@ const validadeParamLenght = (
       if (!(param.length >= targetLenght))
             throw `Parâmetro ${paramName} deve ter mais de ${targetLenght} caracteres`;
 };
+
+export default validadeParamLenght;
