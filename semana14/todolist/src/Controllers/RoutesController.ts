@@ -11,17 +11,22 @@ class RoutesController {
 
             try {
                   checkForMissingParams(name, nickname, email);
-                  DBController.createUserInDB(new User(name, nickname, email));
+                  await DBController.createUserInDB(
+                        new User(name, nickname, email)
+                  );
+
+                  res.status(200).json({
+                        message: 'Usuário criado com sucesso',
+                  });
             } catch (error) {
-                  res.status(400).send(error);
+                  res.status(400).json({ message: error });
             }
       }
       async getUser(req: Request, res: Response) {
             const { id } = req.params;
 
             try {
-                  /* - O seu código deve validar se o id do usuário foi enviado
-                  - O endpoint deve retornar um erro se não encontrar o usuário */
+                  checkForMissingParams(id);
             } catch (error) {}
       }
       async editUser(req: Request, res: Response) {

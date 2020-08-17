@@ -7,14 +7,13 @@ class Server {
       constructor() {
             this.app = express();
             this.routes();
-            this.middleware();
-      }
-
-      middleware() {
-            this.app.use(express.json());
       }
 
       routes() {
+            this.app.use(express.json());
+            this.app.route('/').get((_, res) => {
+                  res.json({ API: 'Created by Victor Gutierrez' });
+            });
             this.app
                   .route('/api/create/user')
                   .post(RoutesController.createUser);
