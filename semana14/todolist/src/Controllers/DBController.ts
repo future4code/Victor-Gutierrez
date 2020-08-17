@@ -2,6 +2,8 @@ import User from '../Models/User';
 import knex from 'knex';
 import Task from '../Models/Task';
 import dateSQLParser from '../Helpers/dateSQLParser';
+import { title } from 'process';
+
 const env = require('../../.env');
 
 class DBController {
@@ -80,17 +82,35 @@ class DBController {
                         .select('*')
                         .where({ id: id });
 
-                  const user = await this.getUserInDB(request[0].creator);
-
                   return {
                         title: request[0].title,
                         description: request[0].description,
                         deadline_date: request[0].deadline_date,
-                        creator: user.name,
+                        creator: request[0].creator,
                   };
             } catch (error) {
                   this.db.destroy();
                   throw 'Tarefa inexistente ou id inválido';
+            }
+      }
+
+      async getTaskInDBByQuery(query: string) {
+            try {
+                  const request = await this.db('todolist')
+                        .select('*')
+                        .where('title', 'like', `%${query}%`);
+
+                  return request.map((item) => {
+                        return new Task(
+                              item.title,
+                              item.description,
+                              item.deadline_date,
+                              item.creator
+                        );
+                  });
+            } catch (error) {
+                  this.db.destroy();
+                  throw 'Houve um erro na busca';
             }
       }
 }
