@@ -14,23 +14,39 @@ class DBController {
             },
       });
 
-      createUserInDB(user: User) {
-            this.db
-                  .insert({
-                        id: user.id,
-                        name: user.name,
-                        nickname: user.nickname,
-                        email: user.email,
-                  })
-                  .into('users')
-                  .then((res) => {
-                        this.db.destroy();
-                        return 'Usuário criado com sucesso';
-                  })
-                  .catch((err) => {
-                        this.db.destroy();
-                        throw 'Nickname ou email já existe';
-                  });
+      async createUserInDB(user: User) {
+            try {
+                  await this.db
+                        .insert({
+                              id: user.id,
+                              name: user.name,
+                              nickname: user.nickname,
+                              email: user.email,
+                        })
+                        .into('users');
+
+                  this.db.destroy();
+            } catch (error) {
+                  this.db.destroy();
+                  throw 'Nickname ou email já existente';
+            }
+      }
+
+      async getUserInDB(id: string) {
+            try {
+                  const request = await this.db
+                        .select('name', 'email')
+                        .from('users')
+                        .where({ id: id });
+                  this.db.destroy();
+                  return {
+                        name: request[0].name,
+                        email: request[0].email,
+                  };
+            } catch (error) {
+                  this.db.destroy();
+                  throw 'Usuário inexistente ou id inválido';
+            }
       }
 }
 
