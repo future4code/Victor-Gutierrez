@@ -35,14 +35,26 @@ class DBController {
       async getUserInDB(id: string) {
             try {
                   const request = await this.db
-                        .select('name', 'email')
+                        .select('name', 'email', 'nickname')
                         .from('users')
                         .where({ id: id });
-                  
+
                   return {
                         name: request[0].name,
                         email: request[0].email,
+                        nickname: request[0].nickname,
                   };
+            } catch (error) {
+                  this.db.destroy();
+                  throw 'Usuário inexistente ou id inválido';
+            }
+      }
+
+      async editUser(id: string, name: string, nickname: string) {
+            try {
+                  await this.db('users')
+                        .update({ name: name, nickname: nickname })
+                        .where({ id: id });
             } catch (error) {
                   this.db.destroy();
                   throw 'Usuário inexistente ou id inválido';

@@ -2,6 +2,7 @@ import { Response, Request } from 'express';
 import DBController from './DBController';
 import checkForMissingParams from '../Helpers/missingParamValidator';
 import User from '../Models/User';
+import errorHandler from '../Helpers/errorHandler';
 
 class RoutesController {
       db = DBController;
@@ -19,7 +20,7 @@ class RoutesController {
                         message: 'Usuário criado com sucesso',
                   });
             } catch (error) {
-                  res.status(400).json({ message: error });
+                  errorHandler(error, res);
             }
       }
       async getUser(req: Request, res: Response) {
@@ -31,19 +32,22 @@ class RoutesController {
 
                   res.status(200).json({ user: request });
             } catch (error) {
-                  res.status(400).json({ message: error });
+                  errorHandler(error, res);
             }
       }
       async editUser(req: Request, res: Response) {
             const { id } = req.params;
-            const { name, nickname, email } = req.body;
+            const { name, nickname } = req.body;
 
             try {
-                  checkForMissingParams(id);
-                  /* - O seu código deve validar se o id do usuário foi enviado
-                        - O seu código só deve alterar o que for enviado
-                  - Se algum valor enviado for vazio, deve retornar um erro */
-            } catch (error) {}
+                  checkForMissingParams(id, name, nickname);
+                  DBController.editUser(id, name, nickname);
+                  res.status(200).json({
+                        user: await DBController.getUserInDB(id),
+                  });
+            } catch (error) {
+                  errorHandler(error, res);
+            }
       }
       async createTask(req: Request, res: Response) {
             const { title, description, deadline_date, creator } = req.body;
@@ -53,7 +57,9 @@ class RoutesController {
                   /* - O seu código deve validar se todos os campos não estão vazios,
 - O seu código deve gerar o id da tarefa,
 - A data deve se recebida no formato mostrado acima: `DD/MM/YYYY` e o seu código deve fazer a conversão necessária para salvar no banco */
-            } catch (error) {}
+            } catch (error) {
+                  errorHandler(error, res);
+            }
       }
       async getTaskById(req: Request, res: Response) {
             const { id } = req.params;
@@ -64,13 +70,17 @@ class RoutesController {
 - O endpoint deve retornar um erro se não encontrar a task
 - Perceba que o endpoint retorna informações tanto da tarefa como do usuário criador
 - O seu código deve converter a data recebida do banco para o formato mostrado acima (`DD/MM/YYYY`) */
-            } catch (error) {}
+            } catch (error) {
+                  errorHandler(error, res);
+            }
       }
 
       async deleteTask(req: Request, res: Response) {
             const { id } = req.params;
             try {
-            } catch (error) {}
+            } catch (error) {
+                  errorHandler(error, res);
+            }
       }
 
       async searchTask(req: Request, res: Response) {
@@ -82,7 +92,9 @@ class RoutesController {
 - O endpoint deve retornar um erro se não encontrar a task
 - Perceba que o endpoint retorna informações tanto da tarefa como do usuário criador
 - O seu código deve converter a data recebida do banco para o formato mostrado acima (`DD/MM/YYYY`) */
-            } catch (error) {}
+            } catch (error) {
+                  errorHandler(error, res);
+            }
       }
 }
 
