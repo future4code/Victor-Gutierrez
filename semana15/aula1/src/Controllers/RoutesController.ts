@@ -19,7 +19,11 @@ class RoutesController {
                         message: 'Usuário criado com sucesso',
                   });
             } catch (error) {
-                  errorHandler(error, res);
+                  if (error === 'O usuário já existe') {
+                        errorHandler(error, res, 403);
+                  } else {
+                        errorHandler(error, res);
+                  }
             }
       }
 }

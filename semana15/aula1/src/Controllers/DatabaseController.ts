@@ -20,17 +20,18 @@ class DatabaseController {
 
       async createUser(user: IUser): Promise<void> {
             try {
-                  await this.database
-                        .insert({
-                              id: v4(),
-                              name: user.name,
-                              email: user.email,
-                              password: user.password, // =( Add bycrpt please
-                        })
-                        .into('users');
+                  await this.database('users').insert({
+                        id: v4(),
+                        name: user.name,
+                        email: user.email,
+                        password: user.password, // =( Add bycrpt please
+                  });
             } catch (error) {
-                  console.log(error);
-                  throw 'Não foi possível criar o usuário';
+                  if (error.code === 'ER_DUP_ENTRY') {
+                        throw 'O usuário já existe';
+                  } else {
+                        throw 'Houve um erro ao criar o novo usuário';
+                  }
             }
       }
 }
