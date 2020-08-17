@@ -89,6 +89,13 @@ class RoutesController {
       async deleteTask(req: Request, res: Response) {
             const { id } = req.params;
             try {
+                  checkForMissingParams(id);
+
+                  await DBController.deleteTaskinDB(id);
+
+                  return res
+                        .status(200)
+                        .json({ message: 'Tarefa deletada com sucesso' });
             } catch (error) {
                   errorHandler(error, res);
             }

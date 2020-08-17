@@ -2,7 +2,6 @@ import User from '../Models/User';
 import knex from 'knex';
 import Task from '../Models/Task';
 import dateSQLParser from '../Helpers/dateSQLParser';
-import { title } from 'process';
 
 const env = require('../../.env');
 
@@ -111,6 +110,15 @@ class DBController {
             } catch (error) {
                   this.db.destroy();
                   throw 'Houve um erro na busca';
+            }
+      }
+
+      async deleteTaskinDB(id: string) {
+            try {
+                  await this.db('todolist').delete().where({ id: id });
+            } catch (error) {
+                  this.db.destroy();
+                  throw 'Tarefa inexistente ou id inválido';
             }
       }
 }
