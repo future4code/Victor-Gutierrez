@@ -38,7 +38,7 @@ class DBController {
                         .select('name', 'email')
                         .from('users')
                         .where({ id: id });
-                  this.db.destroy();
+                  
                   return {
                         name: request[0].name,
                         email: request[0].email,

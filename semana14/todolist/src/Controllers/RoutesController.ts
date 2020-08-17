@@ -27,14 +27,19 @@ class RoutesController {
 
             try {
                   checkForMissingParams(id);
-            } catch (error) {}
+                  const request = await DBController.getUserInDB(id);
+
+                  res.status(200).json({ user: request });
+            } catch (error) {
+                  res.status(400).json({ message: error });
+            }
       }
       async editUser(req: Request, res: Response) {
             const { id } = req.params;
             const { name, nickname, email } = req.body;
 
-            //form destructuring
             try {
+                  checkForMissingParams(id);
                   /* - O seu código deve validar se o id do usuário foi enviado
                         - O seu código só deve alterar o que for enviado
                   - Se algum valor enviado for vazio, deve retornar um erro */
