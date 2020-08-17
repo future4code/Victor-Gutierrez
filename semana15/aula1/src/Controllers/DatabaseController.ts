@@ -34,6 +34,21 @@ class DatabaseController {
                   }
             }
       }
+      async getUserByEmail(email: string): Promise<any> {
+            try {
+                  const query = await this.database('users')
+                        .select('name', 'email', 'id')
+                        .where({ email });
+
+                  return query[0];
+            } catch (error) {
+                  if (error.code === 'ER_DUP_ENTRY') {
+                        throw 'O usuário já existe';
+                  } else {
+                        throw 'Houve um erro ao criar o novo usuário';
+                  }
+            }
+      }
 }
 
 export default new DatabaseController();
