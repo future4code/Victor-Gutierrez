@@ -7,6 +7,7 @@ import User from '../Models/User';
 import validateEmail from '../Helpers/validateEmail';
 import validadeParamLenght from '../Helpers/validateParamLenght';
 import { Authenticator } from '../Services/authentication';
+import checkDataAutenticity from '../Services/checkDataAutenticity';
 
 class RoutesController {
       async signUp(req: Request, res: Response) {
@@ -47,20 +48,15 @@ class RoutesController {
                         email
                   );
 
-                  res.status(201).json({
+                  checkDataAutenticity(request.email, email, 'Email');
+                  checkDataAutenticity(request.password, password, 'Senha');
+
+                  res.status(200).json({
                         message: `Usuário ${request.email} logado com sucesso`,
                         token: new Authenticator().generateToken(request.id),
                   });
             } catch (error) {
-                  if (error === 'O usuário já existe') {
-                        errorHandler(error, res, 403);
-                  } else if (
-                        error === 'Houve um erro ao criar o novo usuário'
-                  ) {
-                        errorHandler(error, res, 500);
-                  } else {
-                        errorHandler(error, res);
-                  }
+                  errorHandler(error, res, 404);
             }
       }
 }
