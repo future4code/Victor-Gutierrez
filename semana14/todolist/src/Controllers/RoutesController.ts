@@ -17,7 +17,7 @@ class RoutesController {
                         new User(name, nickname, email)
                   );
 
-                  res.status(200).json({
+                  res.status(201).json({
                         message: 'Usuário criado com sucesso',
                   });
             } catch (error) {
@@ -65,7 +65,7 @@ class RoutesController {
                         new Task(title, description, deadline_date, creator)
                   );
 
-                  res.status(200).json({
+                  res.status(201).json({
                         message: 'Tarefa criada com sucesso',
                   });
             } catch (error) {
@@ -96,6 +96,21 @@ class RoutesController {
                   return res
                         .status(200)
                         .json({ message: 'Tarefa deletada com sucesso' });
+            } catch (error) {
+                  errorHandler(error, res);
+            }
+      }
+
+      async deleteUser(req: Request, res: Response) {
+            const { id } = req.params;
+            try {
+                  checkForMissingParams(id);
+
+                  await DBController.deleteUserInDB(id);
+
+                  return res
+                        .status(200)
+                        .json({ message: 'Usuário deletado com sucesso' });
             } catch (error) {
                   errorHandler(error, res);
             }

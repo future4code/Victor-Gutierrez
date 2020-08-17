@@ -26,7 +26,6 @@ class DBController {
                         email: user.email,
                   });
             } catch (error) {
-                  this.db.destroy();
                   throw 'Nickname ou email já existente';
             }
       }
@@ -43,7 +42,6 @@ class DBController {
                         nickname: request[0].nickname,
                   };
             } catch (error) {
-                  this.db.destroy();
                   throw 'Usuário inexistente ou id inválido';
             }
       }
@@ -54,7 +52,6 @@ class DBController {
                         .update({ name: name, nickname: nickname })
                         .where({ id: id });
             } catch (error) {
-                  this.db.destroy();
                   throw 'Usuário inexistente ou id inválido';
             }
       }
@@ -70,7 +67,6 @@ class DBController {
                         deadline_date: dateSQLParser(task.deadline_date),
                   });
             } catch (error) {
-                  this.db.destroy();
                   throw error;
             }
       }
@@ -88,7 +84,6 @@ class DBController {
                         creator: request[0].creator,
                   };
             } catch (error) {
-                  this.db.destroy();
                   throw 'Tarefa inexistente ou id inválido';
             }
       }
@@ -108,17 +103,25 @@ class DBController {
                         );
                   });
             } catch (error) {
-                  this.db.destroy();
                   throw 'Houve um erro na busca';
             }
       }
 
       async deleteTaskinDB(id: string) {
             try {
+                  await this.getTaskInDB(id);
                   await this.db('todolist').delete().where({ id: id });
             } catch (error) {
-                  this.db.destroy();
                   throw 'Tarefa inexistente ou id inválido';
+            }
+      }
+
+      async deleteUserInDB(id: string) {
+            try {
+                  await this.getUserInDB(id);
+                  await this.db('users').delete().where({ id: id });
+            } catch (error) {
+                  throw 'Usuário inexistente ou id inválido';
             }
       }
 }

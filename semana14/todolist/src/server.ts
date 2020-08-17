@@ -23,9 +23,10 @@ class Server {
 
             this.app.route('/api/user/:id').get(RoutesController.getUser);
             this.app.route('/api/user/:id').patch(RoutesController.editUser);
+            this.app.route('/api/user/:id').delete(RoutesController.deleteUser);
 
             this.app.route('/api/task/search').get(RoutesController.searchTask);
-            
+
             this.app.route('/api/task/:id').get(RoutesController.getTaskById);
             this.app.route('/api/task/:id').delete(RoutesController.deleteTask);
       }
