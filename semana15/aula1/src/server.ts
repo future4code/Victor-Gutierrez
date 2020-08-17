@@ -1,4 +1,5 @@
 import express from 'express';
+import RoutesController from './Controllers/RoutesController';
 
 class Server {
       public app: express.Application;
@@ -10,7 +11,7 @@ class Server {
 
       routes() {
             this.app.use(express.json());
-            this.app.route('/signup').post()
+            this.app.route('/api/signup').post(RoutesController.signUp);
       }
 }
 
