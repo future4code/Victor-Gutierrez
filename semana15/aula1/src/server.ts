@@ -10,6 +10,7 @@ class Server {
 
       routes() {
             this.app.use(express.json());
+            this.app.route('/signup').post()
       }
 }
 
