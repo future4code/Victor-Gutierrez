@@ -6,7 +6,7 @@ import User from '../Models/User';
 
 import validateEmail from '../Helpers/validateEmail';
 import validadeParamLenght from '../Helpers/validateParamLenght';
-import { Authenticator } from '../Services/authentication';
+import Authenticator from '../Services/authentication';
 import checkDataAutenticity from '../Services/checkDataAutenticity';
 
 class RoutesController {
@@ -53,10 +53,31 @@ class RoutesController {
 
                   res.status(200).json({
                         message: `Usuário ${request.email} logado com sucesso`,
-                        token: new Authenticator().generateToken(request.id),
+                        token: Authenticator.generateToken(request.id),
                   });
             } catch (error) {
                   errorHandler(error, res, 404);
+            }
+      }
+      async getUser(req: Request, res: Response) {
+            const auth = req.header('Authorization');
+
+            try {
+                  checkForMissingParams(auth);
+
+                  const request = await DatabaseController.getUserById(
+                        Authenticator.getData(auth)
+                  );
+
+                  res.status(200).json({
+                        data: request,
+                  });
+            } catch (error) {
+                  if (error === 'Autenticação inválida') {
+                        errorHandler(error, res, 401);
+                  } else {
+                        errorHandler(error, res, 400);
+                  }
             }
       }
 }

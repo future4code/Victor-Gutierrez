@@ -45,6 +45,17 @@ class DatabaseController {
                   throw 'Usuário inexistente';
             }
       }
+      async getUserById(id: string): Promise<any> {
+            try {
+                  const query = await this.database('users')
+                        .select('id', 'name', 'email')
+                        .where({ id });
+
+                  return query[0];
+            } catch (error) {
+                  throw 'Usuário inexistente';
+            }
+      }
 }
 
 export default new DatabaseController();
